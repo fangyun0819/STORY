@@ -1,0 +1,66 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import { Button } from '../../node_modules/@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import ImagePicker from 'react-image-picker'
+import 'react-image-picker/dist/index.css'
+
+const styles = theme => ({
+  margin: {
+    margin: theme.spacing.unit,
+  },
+  container: {
+    marginTop: 200,
+    //backgroundColor: '#00B1E1'
+  },
+});
+
+class OrganizePhoto extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      images: [["https://cdn.minephoto.tw/image/photo/70add93be6e841ea9943391cfb2ba503T5m3w1R3.jpg", "https://cdn.minephoto.tw/image/photo/0f9bf6ae5f5245b4a3beafd8d439c9d02E6zJA88.jpg", "https://cdn.minephoto.tw/image/photo/1d3440c2e1cf4871ab991a7d274d90f73c35Wa23.jpg", "https://cdn.minephoto.tw/image/photo/cd63bb0fab52468c9d0618f3bfbc79a3f92P70P2.jpg"],
+      ["https://cdn.minephoto.tw/image/photo/70add93be6e841ea9943391cfb2ba503T5m3w1R3.jpg", "https://cdn.minephoto.tw/image/photo/0f9bf6ae5f5245b4a3beafd8d439c9d02E6zJA88.jpg", "https://cdn.minephoto.tw/image/photo/1d3440c2e1cf4871ab991a7d274d90f73c35Wa23.jpg", "https://cdn.minephoto.tw/image/photo/cd63bb0fab52468c9d0618f3bfbc79a3f92P70P2.jpg"]],
+      members: ['https://cdn.minephoto.tw/image/photo/70add93be6e841ea9943391cfb2ba503T5m3w1R3.jpg', "https://cdn.minephoto.tw/image/photo/0f9bf6ae5f5245b4a3beafd8d439c9d02E6zJA88.jpg", "https://cdn.minephoto.tw/image/photo/1d3440c2e1cf4871ab991a7d274d90f73c35Wa23.jpg", "https://cdn.minephoto.tw/image/photo/cd63bb0fab52468c9d0618f3bfbc79a3f92P70P2.jpg"]
+    }
+  }
+
+  _renderImagePicker(){
+    return this.state.images.map(( imagesOfSomeone, i) => {
+      return (
+        <div styles = {{
+          whiteSpace: 'nowrap'
+        }}>
+          <Avatar alt="members" src={this.state.members[i]}/>
+          <ImagePicker 
+            multiple
+            images={imagesOfSomeone.map((image, i) => ({src: image, value: i}))}
+          />
+          <Divider/>
+        </div>
+      )
+    })
+  }
+  render(){
+    
+    return  (
+    <React.Fragment>
+      <Grid
+        container
+        direction="row"
+        justify="space-evenly"    
+      >
+        {this._renderImagePicker()}
+      </Grid>
+
+  </React.Fragment>)
+  }
+}
+
+export default withStyles(styles)(OrganizePhoto);
