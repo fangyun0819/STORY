@@ -1,8 +1,6 @@
 // in src/App.js
 import React, {Component} from 'react';
-import { fetchUtils,Admin, Resource } from 'react-admin/lib';
-import jsonServerProvider from 'ra-data-json-server';
-import { UserList } from './users';
+import { Admin, Resource } from 'react-admin/lib';
 import AlbumList from './AlbumList';
 import AddAlbumList from './AddAlbumList';
 import AAAAIcon from '@material-ui/icons/Cake';
@@ -19,6 +17,7 @@ class App extends Component {
     if(this.isTwoSideBar){
       return (
         [<Resource name="allAlbums" options={{ label: '寫真書作品集' }} list={AlbumList} icon={AAAAIcon}/>]
+       
       )
     }else{
       return(

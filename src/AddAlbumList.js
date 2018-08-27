@@ -14,6 +14,10 @@ import Info from './components/Info';
 import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
+import Theme from './components/Theme';
+import EditList from './components/EditList';
+
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -68,9 +72,9 @@ function getStepContent(step) {
     case 3:
       return <OrganizePhoto />;
     case 4:
-      return ;
+      return <Theme/>;
     case 5:
-      return ;
+      return <EditList/>;
     default:
       throw new Error('Unknown step');
   }
@@ -81,7 +85,21 @@ function getStepContent(step) {
 class AddAlbumList extends React.Component {
   state = {
     activeStep: 0,
+    redirect: false
   };
+  
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/allAlbums' />
+    }
+  }
+  
 
   handleNext = () => {
     const { activeStep } = this.state;
@@ -130,12 +148,16 @@ class AddAlbumList extends React.Component {
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="headline" gutterBottom>
-                    Thank you for your order.
+                
+                {this.renderRedirect()}
+                <Button 
+                 className={classes.button} 
+                 onClick={this.setRedirect}
+                 variant="outlined" 
+                 color="primary">
+                 回到首頁</Button>
                   </Typography>
-                  <Typography variant="subheading">
-                    Your order number is #2001539. We have emailed your oder confirmation, and will
-                    send you an update when your order has shipped.
-                  </Typography>
+                  
                 </React.Fragment>
               ) : (
                 <React.Fragment>
@@ -143,7 +165,7 @@ class AddAlbumList extends React.Component {
                   <div className={classes.buttons}>
                     {activeStep !== 0 && (
                       <Button onClick={this.handleBack} className={classes.button}>
-                        Back
+                        上一步
                       </Button>
                     )}
                     <Button
@@ -152,7 +174,7 @@ class AddAlbumList extends React.Component {
                       onClick={this.handleNext}
                       className={classes.button}
                     >
-                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                      {activeStep === steps.length - 1 ? '完成' : '下一步'}
                     </Button>
                   </div>
                 </React.Fragment>
