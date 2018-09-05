@@ -1,0 +1,49 @@
+#next
+	{
+		display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #f3cc2f;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #3f0900;
+  }
+  #back
+  {
+    display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #ffffff;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #3f0900;
+	}
+	#flex-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1em;
+	}
+	
+	#flex-container .progress {
+		position: absolute;
+		top: 2em;
+		height: 5px;
+		margin: 0;
+		box-shadow: none;
+		background-color: #cdcdcd;
+	}
+	#flex-container .progress .progress-bar {
+		background-color: #46c0bd;
+	}
+
+  
+	

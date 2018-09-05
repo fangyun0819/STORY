@@ -1,0 +1,48 @@
+/* vue-stepper styling */
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+}
+#flex-container.progress {
+  position: absolute;
+  top: 2em;
+  height: 5px;
+  margin: 0;
+  box-shadow: none;
+  background-color: #cdcdcd;
+}
+#flex-container .progress .progress-bar {
+  background-color: #46c0bd;
+}
+#flex-container .step {
+  text-align: center;
+  z-index: 2;
+}
+#label {
+  background-color: #cdcdcd;
+  padding: 0.5em;
+  color: white;
+  border-radius: 2em;
+  background-size: 0% 0%;
+  background-position: center;
+  background-image: radial-gradient(circle at center, #b384c7 50%, transparent 50%);
+  background-repeat: no-repeat;
+}
+#step-number {
+  display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #ffffff;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #3f0900;
+}
+.flex-container .step .step-label {
+  padding-top: 5px;
+}

@@ -76,7 +76,7 @@ class EditList extends React.Component {
           <DialogActions>
             
             <Button onClick={this.handleClose} color="primary" autoFocus>
-              關閉
+             CLOSE
             </Button>
           </DialogActions>
           </Dialog>

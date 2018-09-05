@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
+import StepButton from '@material-ui/core/StepButton';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -18,7 +19,22 @@ import Theme from './components/Theme';
 import EditList from './components/EditList';
 
 import { Redirect } from 'react-router-dom';
+import Divider from '@material-ui/core/Divider';
 
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+
+import LinearProgress from '@material-ui/core/LinearProgress';
+import MobileStepper from '@material-ui/core/MobileStepper';
+
+
+require('./css/info.css');
+require('./css/style.css');
 
 
 //樣式設定
@@ -32,7 +48,24 @@ const styles = theme => ({
     marginRight: 'auto',
     
   },
+
+  root:{
+    backgroundColor:'#FFAB40',
+    color: theme.palette.common.white,
+    marginTop: theme.spacing.unit * 6,
+    marginBottom: theme.spacing.unit * 6,
+    padding: theme.spacing.unit * 6,
+    [theme.breakpoints.up(600 + theme.spacing.unit * 6 * 6)]: {
+      marginTop: theme.spacing.unit * 6,
+      marginBottom: theme.spacing.unit * 6,
+      padding: theme.spacing.unit * 3,
+    },
+
+  },
+ 
   paper: {
+    backgroundColor:'#FFCC80',
+    color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 6,
@@ -43,12 +76,13 @@ const styles = theme => ({
     },
   },
   stepper: {
+    backgroundColor:'#FFAB40',
     padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
   },
   buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
-  },
+  },//按鈕位直
   button: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit,
@@ -56,9 +90,9 @@ const styles = theme => ({
 });
 
 
-
-const steps = ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇','編輯頁面'];
-
+function getSteps(){
+  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇','編輯頁面'];
+}
 
 //步驟設定
 function getStepContent(step) {
@@ -85,6 +119,8 @@ function getStepContent(step) {
 class AddAlbumList extends React.Component {
   state = {
     activeStep: 0,
+    completed: new Set(),
+    skipped: new Set(),
     redirect: false
   };
   
@@ -100,7 +136,6 @@ class AddAlbumList extends React.Component {
     }
   }
   
-
   handleNext = () => {
     const { activeStep } = this.state;
     this.setState({
@@ -114,37 +149,53 @@ class AddAlbumList extends React.Component {
       activeStep: activeStep - 1,
     });
   };
-
-  handleReset = () => {
+  handleStep = step => () => {
     this.setState({
-      activeStep: 0,
+      activeStep: step,
     });
   };
 
+  
   render() {
     const { classes } = this.props;
     const { activeStep } = this.state;
+    const steps = getSteps();
 
     return (
+     
       <React.Fragment>
         <CssBaseline />
-        
-        <main className={classes.layout}>
-          <Paper className={classes.paper}>
+        <main  className={classes.layout}>
+          <Paper  className={classes.root}>
+            <Stepper 
+            activeStep={activeStep}  
+            className={classes.stepper} 
+            id="flex-container">
             
-            <Typography variant="display1" align="center">
-              STORY BOOK
-            </Typography>
+            {steps.map((label, index) => {
+            const props = {};
+            const buttonProps = {};
+            return (
+              <Step key={label} {...props} >
+              
+                <StepButton
+                  id="step-number"
+                  onClick={this.handleStep(index)}
+                  {...buttonProps}
+                >
+                  {label}
+                </StepButton>
+              </Step>
+            );
+          })}
 
-            <Stepper activeStep={activeStep} className={classes.stepper}>
-              {steps.map(label => (
-                <Step key={label}>
-                  <StepLabel>{label}</StepLabel>
-                </Step>
-              ))}
             </Stepper>
 
+            <Divider />
+
+            <Paper className={classes.paper} color="primary">
             <React.Fragment>
+            
               {activeStep === steps.length ? (
                 <React.Fragment>
                   <Typography variant="headline" gutterBottom>
@@ -155,34 +206,43 @@ class AddAlbumList extends React.Component {
                  onClick={this.setRedirect}
                  variant="outlined" 
                  color="primary">
-                 回到首頁</Button>
+                HOMEPAGE</Button>
+                  
                   </Typography>
                   
                 </React.Fragment>
               ) : (
                 <React.Fragment>
                   {getStepContent(activeStep)}
+                  
                   <div className={classes.buttons}>
+                    
                     {activeStep !== 0 && (
-                      <Button onClick={this.handleBack} className={classes.button}>
-                        上一步
+                      <Button 
+                      required
+                      id="back"
+                      onClick={this.handleBack} 
+                      className={classes.button}>
+                      BACK
                       </Button>
                     )}
-                    <Button
-                      variant="contained"
-                      color="primary"
+                      <Button
+                      required
+                      id="next"
                       onClick={this.handleNext}
                       className={classes.button}
                     >
-                      {activeStep === steps.length - 1 ? '完成' : '下一步'}
+                      {activeStep === steps.length - 1 ? 'FINISH' : 'NEXT'}
                     </Button>
                   </div>
                 </React.Fragment>
               )}
             </React.Fragment>
+            </Paper>
           </Paper>
         </main>
       </React.Fragment>
+     
     );
   }
 }

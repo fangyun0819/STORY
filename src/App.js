@@ -10,6 +10,9 @@ import LoginPage from './LoginPage';
 import { Route } from 'react-router-dom';
 
 
+
+
+
 class App extends Component {
   isTwoSideBar = true;
   _renderResources(){
@@ -32,7 +35,8 @@ class App extends Component {
 
   render() {
     return(
-      <Admin authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
+      <Admin  authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
+      title="StoryMaker"
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />]}>
           {this._renderResources()}
       </Admin>

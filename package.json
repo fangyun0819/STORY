@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.42",
+    "@material-ui/core": "^3.0.1",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.2.0",
     "react": "^16.4.2",
