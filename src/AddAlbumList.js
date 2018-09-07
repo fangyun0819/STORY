@@ -31,9 +31,11 @@ import purple from '@material-ui/core/colors/purple';
 
 import LinearProgress from '@material-ui/core/LinearProgress';
 import MobileStepper from '@material-ui/core/MobileStepper';
+import Avatar from '@material-ui/core/Avatar';
+
+import logo from './images/name.jpg';
 
 
-require('./css/info.css');
 require('./css/style.css');
 
 
@@ -50,7 +52,7 @@ const styles = theme => ({
   },
 
   root:{
-    backgroundColor:'#FFAB40',
+    backgroundColor:'#BDBDBD',
     color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
@@ -64,7 +66,7 @@ const styles = theme => ({
   },
  
   paper: {
-    backgroundColor:'#FFCC80',
+    backgroundColor:'#FAFAFA',
     color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
@@ -76,7 +78,7 @@ const styles = theme => ({
     },
   },
   stepper: {
-    backgroundColor:'#FFAB40',
+    backgroundColor:'#BDBDBD',
     padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
   },
   buttons: {
@@ -165,8 +167,11 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <main  className={classes.layout}>
-          <Paper  className={classes.root}>
+        <main  className={classes.layout} >
+          <Paper  className={classes.root} >
+          <Typography id="font" variant="display1" align="center">
+            CREATE YOUR STORY
+          </Typography>
             <Stepper 
             activeStep={activeStep}  
             className={classes.stepper} 
@@ -179,9 +184,8 @@ class AddAlbumList extends React.Component {
               <Step key={label} {...props} >
               
                 <StepButton
-                  id="step-number"
-                  onClick={this.handleStep(index)}
-                  {...buttonProps}
+                 onClick={this.handleStep(index)}
+                {...buttonProps}
                 >
                   {label}
                 </StepButton>
@@ -193,7 +197,7 @@ class AddAlbumList extends React.Component {
 
             <Divider />
 
-            <Paper className={classes.paper} color="primary">
+            <Paper className={classes.paper} id="stepper" >
             <React.Fragment>
             
               {activeStep === steps.length ? (
@@ -239,6 +243,7 @@ class AddAlbumList extends React.Component {
               )}
             </React.Fragment>
             </Paper>
+            
           </Paper>
         </main>
       </React.Fragment>

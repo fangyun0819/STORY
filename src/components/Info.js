@@ -7,6 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 
+require('./info.css');
 
 const styles = theme => ({
   paper: {
@@ -67,15 +68,16 @@ class Info extends React.Component {
     return (
   
     <React.Fragment>
-      <Typography id="text" variant="title" gutterBottom>
-        寫真書基本資訊
+      <Typography id="text" >
+        請填寫畢業紀念冊基本資訊
       </Typography>
+      
       <Grid container spacing={24}>
         <Grid item xs={12} sm={6}>
 
         <TextField
         fullWidth
-        label="寫真書名稱"
+        label="畢業念冊名稱"
         id="name"
         helperText="必填"
         InputProps={{

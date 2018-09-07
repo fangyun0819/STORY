@@ -9,10 +9,6 @@ import dataProvider from './dataProvider';
 import LoginPage from './LoginPage';
 import { Route } from 'react-router-dom';
 
-
-
-
-
 class App extends Component {
   isTwoSideBar = true;
   _renderResources(){

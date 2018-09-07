@@ -1,37 +1,28 @@
-/* vue-stepper styling */
-#flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 1em;
+#font{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  color: #070707;
 }
-#flex-container.progress {
-  position: absolute;
-  top: 2em;
-  height: 5px;
-  margin: 0;
-  box-shadow: none;
-  background-color: #cdcdcd;
+#stepper{
+  background-color: rgba(102, 133, 165, 0.6);;
 }
-#flex-container .progress .progress-bar {
-  background-color: #46c0bd;
-}
-#flex-container .step {
-  text-align: center;
-  z-index: 2;
-}
-#label {
-  background-color: #cdcdcd;
-  padding: 0.5em;
-  color: white;
-  border-radius: 2em;
-  background-size: 0% 0%;
-  background-position: center;
-  background-image: radial-gradient(circle at center, #b384c7 50%, transparent 50%);
-  background-repeat: no-repeat;
-}
-#step-number {
-  display: inline-block;
+#next
+	{
+		display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #f3cc2f;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #3f0900;
+  }
+  #back
+  {
+    display: inline-block;
 		padding: 1em 2em 1em 2em;
 		letter-spacing: 0.10em;
 		margin-top: 2em;
@@ -42,7 +33,4 @@
 		font-weight: 700;
 		font-size: 1em;
 		color: #3f0900;
-}
-.flex-container .step .step-label {
-  padding-top: 5px;
-}
+	}
