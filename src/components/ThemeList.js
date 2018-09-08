@@ -40,25 +40,6 @@ class ThemeList extends React.Component {
          </CardContent>
         </Card>
         </Grid>
-
-       <Grid item xs={6} sm={3}>
-        <Card className={classes.card}>
-         <CardContent>
-          <Button variant="outlined" color="primary" className={classes.button}>
-          畢業風2
-          </Button>
-         </CardContent>
-        </Card>
-        </Grid>
-         <Grid item xs={6} sm={3}>
-        <Card className={classes.card}>
-         <CardContent>
-          <Button variant="outlined" color="primary" className={classes.button}>
-          畢業風3
-          </Button>
-         </CardContent>
-        </Card>
-        </Grid>
        </Grid>
      );
    }
