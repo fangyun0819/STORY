@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.42",
+    "@babel/runtime": "7.0.0-beta.55",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.2.0",
     "react": "^16.4.2",
