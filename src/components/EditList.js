@@ -12,6 +12,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Theme1 from './Theme1';
 
 
 
@@ -64,13 +65,13 @@ class EditList extends React.Component {
           畢業紀念冊1
           </Button>
           <Dialog
-           fullWidth
+          fullScreen
            open={this.state.open}
            onClose={this.handleClose}
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
-          
+          <Theme1/>
 
           </DialogContent>
           <DialogActions>
