@@ -72,16 +72,17 @@ class EditList extends React.Component {
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
           <Theme1/>
-
           </DialogContent>
           <DialogActions>
-            
             <Button onClick={this.handleClose} color="primary" autoFocus>
              CLOSE
             </Button>
           </DialogActions>
           </Dialog>
            
+          <Button  variant="outlined" color="primary" className={classes.button}>
+          更改設定
+          </Button>
          </CardContent>
         </Card>
         </Grid>
