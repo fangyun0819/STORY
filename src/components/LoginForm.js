@@ -18,9 +18,14 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   container: {
-    marginTop: 200,
-    //backgroundColor: '#00B1E1'
+    marginTop: 380,
+    marginLeft: 725,
+    //backgroundColor: '#6b6f70'
   },
+  button: {
+    color: '#ffffff',
+    'border-color': '#ffffff',
+  }
 });
 
 class LoginForm extends React.Component {
@@ -37,17 +42,17 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    const { classes, _handerRegister, onSubmit } = this.props;
+    const { classes, _handerRegister, _handerForgetpassword, onSubmit } = this.props;
 
     return (
-    <div style={styles.container}>
-      <Grid container spacing={24}>
-        <Grid className={classes.container} container justify = "center" alignItems="center"   direction="column">
-          <Button variant="outlined" size="large" color="primary" className={classes.button} onClick={ () => _handerRegister()}>
+      <div style={styles.container}>
+        <Grid container spacing={24}>
+          <Grid className={classes.container} container justify="center" alignItems="center" direction="column">
+            <Button variant="outlined" size="large" color="primary" className={classes.button} onClick={() => _handerRegister()}>
               Register
           </Button>
-          <FormControl className={classes.margin}>
-            <InputLabel htmlFor="adornment-login">Email</InputLabel>
+            <FormControl className={classes.margin}>
+              <InputLabel htmlFor="adornment-login">Email</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
@@ -59,11 +64,12 @@ class LoginForm extends React.Component {
                   </InputAdornment>
                 }
               />
-          </FormControl>
-          <FormControl className={classes.margin}>
-              <InputLabel htmlFor="adornment-password">Password</InputLabel>
+            </FormControl>
+            <FormControl className={classes.margin}>
+              <InputLabel class="loginLabel" htmlFor="adornment-password">Password</InputLabel>
               <Input
                 id="adornment-password"
+                class="loginInput"
                 type={'password'}
                 value={this.state.password}
                 onChange={this.handleChange('password')}
@@ -73,13 +79,16 @@ class LoginForm extends React.Component {
                   </InputAdornment>
                 }
               />
-          </FormControl>
-          <Button variant="outlined" size="large" color="primary" className={classes.button} onClick= { ()=> onSubmit(this.state.username, this.state.password)}>
-              Login
+            </FormControl>
+              <Button variant="outlined" size="large" className={classes.button} onClick={() => onSubmit(this.state.username, this.state.password)}>
+                Login
+          </Button>
+              <Button variant="outlined" size="large" className={classes.button}>
+                忘記密碼
           </Button>
           </Grid>
-      </Grid>
-    </div>
+        </Grid>
+      </div>
     )
   }
 }

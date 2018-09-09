@@ -9,8 +9,6 @@ import AddIcon from '@material-ui/icons/Add';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
 
-
-
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
