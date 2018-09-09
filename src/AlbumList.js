@@ -10,6 +10,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { withStyles } from '@material-ui/core/styles';
 import { Edit, SimpleForm, SaveButton, Toolbar } from 'react-admin';
 import { Redirect } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
 
 const styles = theme => ({
   button: {
@@ -32,10 +33,15 @@ class AlbumList extends Component {
     const { classes } = this.props;
     return (
       <div>
-        <Button mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: true})}>
-          <AddIcon />
-          <a>新增寫真書</a>
-        </Button>
+        <AppBar position="static" color="default">
+          <Toolbar>
+            <Button mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: true})}>
+              <AddIcon />
+              <a>新增畢業紀念冊</a>
+            </Button>
+          </Toolbar>
+        </AppBar>
+
         {
           this._renderRedirect()
         }

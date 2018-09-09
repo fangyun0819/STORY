@@ -3,19 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
-    "@babel/runtime": "7.0.0-beta.55",
-    "muicss": "^0.9.41",
-
+    "@babel/runtime": "^7.0.0-beta.42",
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.2.0",
     "react": "^16.4.2",
-    "react-admin": "^2.2.2",
+    "react-admin": "^2.2.0",
     "react-dom": "^16.4.2",
     "react-image-picker": "^1.1.1",
-    "react-localization": "^1.0.10",
-    "react-scripts": "1.1.4",
-    "react-tabs": "^2.2.2"
+    "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
