@@ -12,7 +12,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-
+//點註冊進去
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
@@ -21,6 +21,15 @@ const styles = theme => ({
     marginTop: 200,
     //backgroundColor: '#00B1E1'
   },
+  container: {
+    marginTop: 380,
+    marginLeft: 725,
+    //backgroundColor: '#6b6f70'
+  },
+  button: {
+    color: '#ffffff',
+    'border-color':'#ffffff',
+  }
 });
 
 class RegisterForm extends React.Component {
@@ -89,7 +98,7 @@ class RegisterForm extends React.Component {
                 }
               />
           </FormControl>
-          <Button variant="outlined" size="large" color="primary" className={classes.button}>
+          <Button variant="outlined" size="large" className={classes.button} >
               Register
           </Button>
           </Grid>
