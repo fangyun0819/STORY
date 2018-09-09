@@ -7,7 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
 
-require('./info.css');
+require('./components.css');
 
 const styles = theme => ({
   paper: {
