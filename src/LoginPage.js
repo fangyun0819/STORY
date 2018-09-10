@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { userLogin } from 'react-admin';
 import LoginForm from './components/LoginForm.js'
 import RegisterForm from './components/RegisterForm.js'
+import ForgetForm from './components/ForgetForm.js'
+
 //import Background from './40409997_346579822551613_6666760567425859584_n.png';
 
 const styles = theme => ({
@@ -18,7 +20,7 @@ class LoginPage extends Component {
   constructor() {
     super();
     this.state = {
-      isLogin: true,
+      isLogin: 1,
       username: 'username',
       password: 'password'
     }
@@ -33,11 +35,15 @@ class LoginPage extends Component {
   }
 
   _handerRegister() {
-    this.setState({ isLogin: false })
+    this.setState({ isLogin: 2 })
   }
 
   _handleLogin() {
-    this.setState({ isLogin: true })
+    this.setState({ isLogin: 1 })
+  }
+
+  _handleForget() {
+    this.setState({ isLogin: 3 })
   }
 
   _handerUsernameChange(username) {
@@ -49,12 +55,16 @@ class LoginPage extends Component {
   }
 
   _renderForm() {
-    if (this.state.isLogin)
+    if (this.state.isLogin === 1)
       return (<LoginForm
         _handerRegister={() => this._handerRegister()}
+        _handleForget={() => this._handleForget()}
         onSubmit={(username, password) => this.props.userLogin({ username, password })} />)
-    else
+    else if (this.state.isLogin === 2)
       return (<RegisterForm _handleLogin={() => this._handleLogin()} />)
+    else if (this.state.isLogin === 3)
+      return (<ForgetForm  _handleLogin={() => this._handleLogin()}/>)
+
   }
   render() {
     return (

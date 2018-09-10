@@ -29,7 +29,15 @@ const styles = theme => ({
   button: {
     color: '#ffffff',
     'border-color':'#ffffff',
-  }
+  },
+  label: {
+    fontSize: '10px',
+    color: '#c1c1c2',
+    '&:focus':{
+      fontSize: '10px',
+      color: '#c1c1c2',
+    }
+  },
 });
 
 class RegisterForm extends React.Component {
@@ -57,7 +65,7 @@ class RegisterForm extends React.Component {
               Login
           </Button>
           <FormControl className={classes.margin}>
-            <InputLabel htmlFor="adornment-name">Name</InputLabel>
+            <InputLabel classes={{root:classes.label }} htmlFor="adornment-name">Name</InputLabel>
               <Input
                 id="adornment-name"
                 type={'text'}
@@ -71,7 +79,7 @@ class RegisterForm extends React.Component {
               />
           </FormControl>
           <FormControl className={classes.margin}>
-            <InputLabel htmlFor="adornment-login">Email</InputLabel>
+            <InputLabel classes={{root:classes.label }} htmlFor="adornment-login">Email</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
@@ -85,7 +93,7 @@ class RegisterForm extends React.Component {
               />
           </FormControl>
           <FormControl className={classes.margin}>
-              <InputLabel htmlFor="adornment-password">Password</InputLabel>
+              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
               <Input
                 id="adornment-password"
                 type={'password'}
@@ -98,7 +106,7 @@ class RegisterForm extends React.Component {
                 }
               />
           </FormControl>
-          <Button variant="outlined" size="large" className={classes.button} >
+          <Button variant="outlined" size="large" className={classes.button} onClick= { () => alert("驗證信已寄出")}>
               Register
           </Button>
           </Grid>

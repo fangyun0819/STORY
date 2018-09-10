@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    const { classes, _handerRegister, _handerForgetpassword, onSubmit } = this.props;
+    const { classes, _handerRegister, _handleForget, password, onSubmit } = this.props;
 
     return (
       <div style={styles.container}>
@@ -92,7 +92,7 @@ class LoginForm extends React.Component {
                 Login
           </Button>
           <br/>
-              <Button variant="outlined" size="large" className={classes.button}>
+              <Button variant="outlined" size="large" className={classes.button} onClick={() => _handleForget()}>
                 忘記密碼
           </Button>
           </Grid>
