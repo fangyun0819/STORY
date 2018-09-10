@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import { List, Datagrid, EmailField, TextField } from 'react-admin/lib';
-import { Button } from '../node_modules/@material-ui/core';
+import { Button } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
