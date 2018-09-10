@@ -25,7 +25,15 @@ const styles = theme => ({
   button: {
     color: '#ffffff',
     'border-color': '#ffffff',
-  }
+  },
+  label: {
+    fontSize: '10px',
+    color: '#c1c1c2',
+    '&:focus':{
+      fontSize: '10px',
+      color: '#c1c1c2',
+    }
+  },
 });
 
 class LoginForm extends React.Component {
@@ -52,7 +60,7 @@ class LoginForm extends React.Component {
               Register
           </Button>
             <FormControl className={classes.margin}>
-              <InputLabel htmlFor="adornment-login">Email</InputLabel>
+              <InputLabel htmlFor="adornment-login" classes={{root:classes.label }}>Email</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
@@ -66,7 +74,7 @@ class LoginForm extends React.Component {
               />
             </FormControl>
             <FormControl className={classes.margin}>
-              <InputLabel class="loginLabel" htmlFor="adornment-password">Password</InputLabel>
+              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
               <Input
                 id="adornment-password"
                 class="loginInput"
@@ -83,6 +91,7 @@ class LoginForm extends React.Component {
               <Button variant="outlined" size="large" className={classes.button} onClick={() => onSubmit(this.state.username, this.state.password)}>
                 Login
           </Button>
+          <br/>
               <Button variant="outlined" size="large" className={classes.button}>
                 忘記密碼
           </Button>
