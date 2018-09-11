@@ -31,7 +31,7 @@ class AlbumList extends Component {
   render(){
     const { classes } = this.props;
     return (
-      <div>
+      <div style={ { backgroundImage: `url(require("images/background.jpg"))` } }>
         <AppBar position="static" color="default">
           <Toolbar>
             <Button mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: true})}>

@@ -19,7 +19,8 @@
 	font-size: 1em;
 	color: #3f0900;
 }  
-btn:focus{
-	background: red;
+
+#paper
+{
+	background:rgba(0,0,0,0.6)
 }
-	
