@@ -169,12 +169,11 @@ class AddAlbumList extends React.Component {
         <div className={classes.layout} id="layout" >
        
       
-          <Paper  className={classes.root} id="root" >
+          <Paper  className={classes.root}  >
           <Typography id="font"  align="center" >
             CREATE YOUR STORY
           </Typography>
-            <Stepper 
-            
+            <Stepper  
            activeStep={activeStep}  
            className={classes.stepper}>
             

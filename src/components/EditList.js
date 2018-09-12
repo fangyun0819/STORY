@@ -60,9 +60,11 @@ class EditList extends React.Component {
         <Grid item xs={6} sm={3}>
         <Card className={classes.card}>
          <CardContent>
-           
-          <Button onClick={this.handleClickOpen} variant="outlined" color="primary" className={classes.button}>
+         <Typography align="center" >
           畢業紀念冊1
+          </Typography>
+          <Button onClick={this.handleClickOpen} variant="outlined" color="primary" className={classes.button}>
+          預覽畢業紀念冊
           </Button>
           <Dialog
           fullScreen
