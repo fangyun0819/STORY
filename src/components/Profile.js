@@ -1,38 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 6,
-    marginRight: theme.spacing.unit * 6,
-    width: 1000,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  row: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  avatar: {
-    margin: 50,
-  },
-  bigAvatar: {
-    width: 60,
-    height: 60,
-  },
+
 
 });
 
 
 //個人帳戶
 
-function Profile() {
+class Profile extends Component {
   
   //  const { Profile } = props;
    /* return (
@@ -42,7 +25,21 @@ function Profile() {
     );
   */
  // }
- 
+ constructor(){
+   super();
+   this.state= {
+     username: 'vivi',
+     email: 'vivi@gmail.com'
+   }
+ }
+ handleChange = name => event => {
+  this.setState({
+    [name]: event.target.value,
+  });
+};
+
+
+ render(){
   return (
     <div>
       <Paper>
@@ -50,58 +47,65 @@ function Profile() {
         個人帳戶設定
       </Typography>
       <Grid container spacing={24}>
-      <Grid item xs={12} sm={6}>
-          </Grid>
-      <Avatar alt="members" src="https://i.imgur.com/pckzHQt.jpg" />
-        <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={12}>
+        <Avatar alt="members" src="https://i.imgur.com/pckzHQt.jpg" />
+      </Grid>
+        <Grid item xs={12} sm={12}>
           <TextField
             required
             id="firstName"
             name="firstName"
             label="名稱"
+            value={this.state.username}
+            onChange={this.handleChange('username')}
             fullWidth
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          </Grid>
-       
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12}>
           <TextField
             required
             id="description"
             name="description"
             label="email"
+            value={this.state.email}
+            onChange={this.handleChange('email')}
+
             fullWidth
           />
           </Grid>
-          <Grid item xs={12} sm={6}>
-          </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} sm={12}>
           <TextField
             required
             id="description"
             name="description"
-            label="帳號"
+            label="原密碼"
             fullWidth
           />
           </Grid>
-          <Grid item xs={12} sm={6}>
-          </Grid>
-          <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={12}>
           <TextField
             required
             id="description"
             name="description"
-            label="密碼"
+            label="新密碼"
             fullWidth
           />
           </Grid>
       </Grid>
+      <br/>
+      <Grid item xs={6} sm={6}>
+      <br/>
+      </Grid>
+      <Grid item xs={6} sm={6}>
+        <Button variant="outlined" size="large">
+          確定
+        </Button>
+      </Grid>
       </Paper>
       </div>
-    
-    
   );
+
+ }
 }
 
 export default Profile;

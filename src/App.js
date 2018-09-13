@@ -14,6 +14,9 @@ import Profile from './components/Profile';
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
+
+import ShowAlbumList from './ShowAlbumList';
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -56,7 +59,7 @@ class App extends Component {
     return(
       <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
       title="StoryMaker"
-      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />]}>
+      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, <Route exact path="/showalbumlist" component={ShowAlbumList} />]}>
           {this._renderResources()}
       </Admin>
     )

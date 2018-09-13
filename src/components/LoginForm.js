@@ -41,12 +41,11 @@ class LoginForm extends React.Component {
     username: '',
     password: ''
   };
-
+//把全部值改掉
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
-    //alert(event.target.value)
   };
 
   render() {
@@ -66,38 +65,40 @@ class LoginForm extends React.Component {
                 type={'text'}
                 value={this.state.username}
                 onChange={this.handleChange('username')}
-                endAdornment={
-                  <InputAdornment position="end">
 
-                  </InputAdornment>
-                }
               />
             </FormControl>
             <FormControl className={classes.margin}>
               <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
               <Input
                 id="adornment-password"
-                class="loginInput"
                 type={'password'}
                 value={this.state.password}
                 onChange={this.handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-
-                  </InputAdornment>
-                }
+                
               />
             </FormControl>
               <Button variant="outlined" size="large" className={classes.button} onClick={() => onSubmit(this.state.username, this.state.password)}>
                 Login
           </Button>
           <br/>
-              <Button variant="outlined" size="large" className={classes.button} onClick={() => _handleForget()}>
-                忘記密碼
+          <Button variant="outlined" size="large" className={classes.button} onClick={() => _handleForget()}>
+                忘記密碼     
+          </Button>
+          <br/>  
+          
+          <Button variant="contained" color="secondary" size="large"  >
+            Google
+          </Button>
+          <br/> 
+          <Button variant="contained" color="primary" size="large"  >
+            Facebook
           </Button>
           </Grid>
-        </Grid>
+          </Grid>
+        
       </div>
+      
     )
   }
 }
