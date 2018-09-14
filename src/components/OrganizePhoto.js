@@ -22,6 +22,10 @@ const styles = theme => ({
     marginTop: 200,
     //backgroundColor: '#00B1E1'
   },
+  button:{
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
 });
 
 function shuffle(array) {
@@ -75,7 +79,7 @@ class OrganizePhoto extends React.Component {
   };
 
   render(){
-    
+    const { classes } = this.props;
     return  (
     <React.Fragment>
       <Grid
@@ -90,8 +94,12 @@ class OrganizePhoto extends React.Component {
             <Tab label="成員"></Tab>
           </Tabs>
           {this._renderImagePicker()}
+          
       </Grid>
-
+      <div className={classes.button}>
+       <Button variant="outlined" color="primary" >
+        目前已使用0張照片</Button>
+        </div>
   </React.Fragment>)
   }
 }

@@ -8,13 +8,17 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 import story from './images/b1.jpg';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = theme => ({
 
   card: {
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
     display: 'auto',
-    height: 200,
-    width: 200,
+    height: 250,
+    width: 250,
   },
   button: {
     marginTop: theme.spacing.unit,
@@ -23,8 +27,14 @@ const styles = theme => ({
 
   },
  img:{
+  marginLeft: theme.spacing.unit * 3,
+  marginRight: theme.spacing.unit * 3,
   height: 100,
   width: 120,
+ },
+ form:{
+  marginLeft: theme.spacing.unit * 3,
+  marginRight: theme.spacing.unit * 3,
  },
 });
 
@@ -35,21 +45,22 @@ class ThemeList extends React.Component {
 
 
   return (
-      <Grid item container xs={24}>
-        <Grid item xs={6} sm={3}>
+     
         <Card className={classes.card}>
          <CardContent>
-         <Typography align="center" >
-          畢業風1
-          </Typography>
+          <FormControlLabel
+          className={classes.form}
+            align="center"
+            control={<Checkbox color="secondary"  value="yes" />}
+            label="畢業風1"
+          />
           <img className={classes.img} src={story} />
           <Button variant="outlined" color="primary" align="center" className={classes.button}>
           預覽
           </Button>
          </CardContent>
         </Card>
-        </Grid>
-       </Grid>
+        
      );
    }
 }

@@ -90,7 +90,9 @@ class EditList extends React.Component {
          <Typography align="center" >
           畢業紀念冊1
           </Typography>
-          <Button onClick={this.handleClickOpen} variant="outlined" color="primary" className={classes.button}>
+          <Button onClick={this.handleClickOpen} 
+          variant="outlined" color="primary" 
+          className={classes.button}>
           預覽畢業紀念冊
           </Button>
           <Dialog
