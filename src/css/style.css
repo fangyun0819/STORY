@@ -1,11 +1,10 @@
 #font{
   font-family: "Times New Roman", Times, serif;
-  font-style: oblique;
-  color: #070707;
+	font-style: oblique;
+	font-size: 40px;
+	color: #050505;
 }
-#stepper{
-  background-color: rgba(102, 133, 165, 0.6);;
-}
+
 #next
 	{
 		display: inline-block;
@@ -34,3 +33,14 @@
 		font-size: 1em;
 		color: #3f0900;
 	}
+	#paper{
+		background: rgba(0, 200, 100, 0.604);
+	}
+	#root
+	{
+		background: rgba(0, 0, 0, 0.7);
+	}
+#img
+{
+	background: rgba(0, 0, 0, 0.3);
+}

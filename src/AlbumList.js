@@ -38,6 +38,9 @@ class AlbumList extends Component {
     const { classes } = this.props;
 
     return (
+
+     
+
       <div style={{
         //top: '0', bottom: '0', left: '0', right: '0', position: 'absolute',
         backgroundImage: `url('https://i.imgur.com/kea3uBg.jpg')`,
@@ -46,6 +49,7 @@ class AlbumList extends Component {
         backgroundColor: '#ffffff'
       }}>
             <Button mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: 1})}>
+
               <AddIcon />
               <a>新增畢業紀念冊</a>
             </Button>

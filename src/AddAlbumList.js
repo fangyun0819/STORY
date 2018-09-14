@@ -32,8 +32,12 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Avatar from '@material-ui/core/Avatar';
 
-import logo from './images/name.jpg';
+import BackgroundImage from 'react-background-image-loader';
 
+import background from './images/b2.jpg';
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Edit from './components/Edit';
 
 require('./css/style.css');
 
@@ -47,12 +51,9 @@ const styles = theme => ({
     width: 1000,
     marginLeft: 'auto',
     marginRight: 'auto',
-    
   },
 
   root:{
-    backgroundColor:'#BDBDBD',
-    color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 6,
@@ -61,12 +62,9 @@ const styles = theme => ({
       marginBottom: theme.spacing.unit * 6,
       padding: theme.spacing.unit * 3,
     },
-
   },
  
   paper: {
-    backgroundColor:'#FAFAFA',
-    color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 6,
@@ -77,7 +75,6 @@ const styles = theme => ({
     },
   },
   stepper: {
-    backgroundColor:'#BDBDBD',
     padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
   },
   buttons: {
@@ -90,7 +87,6 @@ const styles = theme => ({
   },
 });
 
-
 function getSteps(){
   return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇','編輯頁面'];
 }
@@ -99,7 +95,7 @@ function getSteps(){
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Info />;
+      return <Info/>;
     case 1:
       return <NewMember />;
     case 2:
@@ -109,7 +105,7 @@ function getStepContent(step) {
     case 4:
       return <Theme/>;
     case 5:
-      return <EditList/>;
+      return <Edit/>;
     default:
       throw new Error('Unknown step');
   }
@@ -133,7 +129,7 @@ class AddAlbumList extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/allAlbums' />
+      return <Redirect to='/Edit' />
     }
   }
   
@@ -155,10 +151,15 @@ class AddAlbumList extends React.Component {
       activeStep: step,
     });
   };
-
+  
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
   
   render() {
-    const { classes } = this.props;
+    const { classes ,source} = this.props;
     const { activeStep } = this.state;
     const steps = getSteps();
 
@@ -166,37 +167,29 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <main  className={classes.layout} >
-          <Paper  className={classes.root} >
-          <Typography id="font" variant="display1" align="center">
+        <BackgroundImage src={source} placeholder={background} id="img">
+        <div className={classes.layout} id="layout" >
+       
+      
+          <Paper  className={classes.root}  >
+          <Typography id="font"  align="center" >
             CREATE YOUR STORY
           </Typography>
-            <Stepper 
-            activeStep={activeStep}  
-            className={classes.stepper} 
-            id="flex-container">
+            <Stepper  
+           activeStep={activeStep}  
+           className={classes.stepper}>
             
-            {steps.map((label, index) => {
-            const props = {};
-            const buttonProps = {};
-            return (
-              <Step key={label} {...props} >
-              
-                <StepButton
-                 onClick={this.handleStep(index)}
-                {...buttonProps}
-                >
-                  {label}
-                </StepButton>
-              </Step>
-            );
-          })}
+            {steps.map(label => (
+                <Step key={label} >
+                  <StepLabel >{label}</StepLabel>
+                </Step>
+              ))}
 
             </Stepper>
 
-            <Divider />
+            <Divider/>
 
-            <Paper className={classes.paper} id="stepper" >
+            <Paper className={classes.paper} id="paper" >
             <React.Fragment>
             
               {activeStep === steps.length ? (
@@ -244,9 +237,10 @@ class AddAlbumList extends React.Component {
             </Paper>
             
           </Paper>
-        </main>
+          
+        </div>
+        </BackgroundImage>
       </React.Fragment>
-     
     );
   }
 }

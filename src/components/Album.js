@@ -88,7 +88,7 @@ function Album(props) {
                   </CardContent>
                   <CardActions>
                     <Button size="small" color="primary">
-                      更改基本設定
+                    更改基本設定
                     </Button>
                     <Button size="small" color="primary">
                       檢視作品集
