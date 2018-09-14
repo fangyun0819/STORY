@@ -14,6 +14,7 @@ import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 
+import ShowAlbumList from './ShowAlbumList';
 import BackgroundImage from 'react-background-image-loader';
 import customRoutes from './customRoutes';
 import Setting from './Setting';
@@ -74,12 +75,11 @@ class App extends Component {
   
 
     return(
-     
+      <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
+      title="StoryMaker"
+      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, <Route exact path="/showalbumlist" component={ShowAlbumList} />]}>
+          {this._renderResources()}
 
-      <Admin  theme={theme} authProvider={authProvider} loginPage={LoginPage} 
-      title="StoryMaker" 
-      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />]}>
-      {this._renderResources()}
       </Admin>
     )
     }

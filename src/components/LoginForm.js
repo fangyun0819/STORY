@@ -25,7 +25,15 @@ const styles = theme => ({
   button: {
     color: '#ffffff',
     'border-color': '#ffffff',
-  }
+  },
+  label: {
+    fontSize: '10px',
+    color: '#c1c1c2',
+    '&:focus':{
+      fontSize: '10px',
+      color: '#c1c1c2',
+    }
+  },
 });
 
 class LoginForm extends React.Component {
@@ -33,16 +41,15 @@ class LoginForm extends React.Component {
     username: '',
     password: ''
   };
-
+//把全部值改掉
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
-    //alert(event.target.value)
   };
 
   render() {
-    const { classes, _handerRegister, _handerForgetpassword, onSubmit } = this.props;
+    const { classes, _handerRegister, _handleForget, password, onSubmit } = this.props;
 
     return (
       <div style={styles.container}>
@@ -52,43 +59,46 @@ class LoginForm extends React.Component {
               Register
           </Button>
             <FormControl className={classes.margin}>
-              <InputLabel htmlFor="adornment-login">Email</InputLabel>
+              <InputLabel htmlFor="adornment-login" classes={{root:classes.label }}>Email</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
                 value={this.state.username}
                 onChange={this.handleChange('username')}
-                endAdornment={
-                  <InputAdornment position="end">
 
-                  </InputAdornment>
-                }
               />
             </FormControl>
             <FormControl className={classes.margin}>
-              <InputLabel class="loginLabel" htmlFor="adornment-password">Password</InputLabel>
+              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
               <Input
                 id="adornment-password"
-                class="loginInput"
                 type={'password'}
                 value={this.state.password}
                 onChange={this.handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-
-                  </InputAdornment>
-                }
+                
               />
             </FormControl>
               <Button variant="outlined" size="large" className={classes.button} onClick={() => onSubmit(this.state.username, this.state.password)}>
                 Login
           </Button>
-              <Button variant="outlined" size="large" className={classes.button}>
-                忘記密碼
+          <br/>
+          <Button variant="outlined" size="large" className={classes.button} onClick={() => _handleForget()}>
+                忘記密碼     
+          </Button>
+          <br/>  
+          
+          <Button variant="contained" color="secondary" size="large"  >
+            Google
+          </Button>
+          <br/> 
+          <Button variant="contained" color="primary" size="large"  >
+            Facebook
           </Button>
           </Grid>
-        </Grid>
+          </Grid>
+        
       </div>
+      
     )
   }
 }
