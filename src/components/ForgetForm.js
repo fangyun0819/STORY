@@ -61,25 +61,8 @@ class RegisterForm extends React.Component {
     <div style={styles.container}>
       <Grid container spacing={24}>
         <Grid className={classes.container} container justify = "center" alignItems="center"   direction="column">
-          <Button variant="outlined" size="large" color="primary" className={classes.button} onClick= { () => _handleLogin()}>
-              Login
-          </Button>
           <FormControl className={classes.margin}>
-            <InputLabel classes={{root:classes.label }} htmlFor="adornment-name">Name</InputLabel>
-              <Input
-                id="adornment-name"
-                type={'text'}
-                value={this.state.name}
-                onChange={this.handleChange('name')}
-                endAdornment={
-                  <InputAdornment position="end">
-
-                  </InputAdornment>
-                }
-              />
-          </FormControl>
-          <FormControl className={classes.margin}>
-            <InputLabel classes={{root:classes.label }} htmlFor="adornment-login">Email</InputLabel>
+            <InputLabel classes={{root:classes.label }} htmlFor="adornment-login">請輸入你的Email</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
@@ -92,22 +75,13 @@ class RegisterForm extends React.Component {
                 }
               />
           </FormControl>
-          <FormControl className={classes.margin}>
-              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
-              <Input
-                id="adornment-password"
-                type={'password'}
-                value={this.state.password}
-                onChange={this.handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-
-                  </InputAdornment>
-                }
-              />
-          </FormControl>
-          <Button variant="outlined" size="large" className={classes.button} onClick= { () => alert("驗證信已寄出")}>
-              Register
+          <br/>
+          <Button variant="outlined" size="large" className={classes.button}  onClick= { () => alert("驗證信已寄出")}>
+              Confirm
+          </Button>
+          <br/>
+          <Button variant="outlined" size="large" className={classes.button} onClick= { () => _handleLogin()}>
+              Login
           </Button>
           </Grid>
       </Grid>

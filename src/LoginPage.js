@@ -29,6 +29,7 @@ class LoginPage extends Component {
     //e.preventDefault();
     // gather your data/credentials here
     const { username, password } = this.state;
+    //props父子 vs authprovider後端
     const credentials = { username: username, password: password };
     // Dispatch the userLogin action (injected by connect)
     this.props.userLogin(credentials);
@@ -45,7 +46,7 @@ class LoginPage extends Component {
   _handleForget() {
     this.setState({ isLogin: 3 })
   }
-
+//讓框框值變
   _handerUsernameChange(username) {
     this.setState(username);
   }
@@ -61,9 +62,11 @@ class LoginPage extends Component {
         _handleForget={() => this._handleForget()}
         onSubmit={(username, password) => this.props.userLogin({ username, password })} />)
     else if (this.state.isLogin === 2)
-      return (<RegisterForm _handleLogin={() => this._handleLogin()} />)
+      return (<RegisterForm 
+        _handleLogin={() => this._handleLogin()} />)
     else if (this.state.isLogin === 3)
-      return (<ForgetForm  _handleLogin={() => this._handleLogin()}/>)
+      return (<ForgetForm  
+        _handleLogin={() => this._handleLogin()}/>)
 
   }
   render() {
@@ -75,10 +78,10 @@ class LoginPage extends Component {
         backgroundRepeat: 'no-repeat',
         backgroundColor: '#ffffff'
       }}>
+      
         {this._renderForm()}
       </form>
-      //背景圖https://i.imgur.com/iSE5TDe.png     
-      //https://i.imgur.com/btdO8e7.png
+     
     );
   }
 };

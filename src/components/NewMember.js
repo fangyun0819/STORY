@@ -33,7 +33,7 @@ class NewMember extends React.Component {
     return this.state.members.map(function(item, i){
       return <Grid item xs={12} sm={12}>
       <TextField 
-      key={i}
+  
       label="輸入信箱"
       fullWidth>{item}</TextField>
       </Grid>
@@ -49,7 +49,7 @@ class NewMember extends React.Component {
         }}>
         <AddIcon />
       </Button>
-      <Button mini color="secondary" aria-label="Add">
+      <Button mini color="secondary" aria-label="Add" onClick={ () => alert('新增成功')}>
         <p>確定邀請</p>
       </Button>
     </Grid>
