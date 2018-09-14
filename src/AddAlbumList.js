@@ -36,6 +36,8 @@ import BackgroundImage from 'react-background-image-loader';
 
 import background from './images/b2.jpg';
 
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Edit from './components/Edit';
 
 require('./css/style.css');
 
@@ -93,7 +95,7 @@ function getSteps(){
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Info />;
+      return <Info/>;
     case 1:
       return <NewMember />;
     case 2:
@@ -103,7 +105,7 @@ function getStepContent(step) {
     case 4:
       return <Theme/>;
     case 5:
-      return <EditList/>;
+      return <Edit/>;
     default:
       throw new Error('Unknown step');
   }
@@ -127,7 +129,7 @@ class AddAlbumList extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      return <Redirect to='/allAlbums' />
+      return <Redirect to='/Edit' />
     }
   }
   
@@ -239,7 +241,6 @@ class AddAlbumList extends React.Component {
         </div>
         </BackgroundImage>
       </React.Fragment>
-     
     );
   }
 }

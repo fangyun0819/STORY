@@ -7,7 +7,7 @@ import AAAAIcon from '@material-ui/icons/Camera';
 import PersonIcon from '@material-ui/icons/Person';
 import authProvider from './authProvider';
 import LoginPage from './LoginPage';
-import { Route } from 'react-router-dom';
+import { Route,Router } from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
 import Profile from './components/Profile';
 import indigo from '@material-ui/core/colors/indigo';
@@ -15,7 +15,9 @@ import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
 
 import BackgroundImage from 'react-background-image-loader';
-
+import customRoutes from './customRoutes';
+import Setting from './Setting';
+import Edit from './components/Edit';
 
 const styles = theme => ({
   root:{
@@ -74,14 +76,14 @@ class App extends Component {
     return(
      
 
-      <Admin theme={theme} authProvider={authProvider} loginPage={LoginPage}
+      <Admin  theme={theme} authProvider={authProvider} loginPage={LoginPage} 
       title="StoryMaker" 
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />]}>
       {this._renderResources()}
       </Admin>
-      
     )
-  }
+    }
+ 
 }
 
 export default App;
