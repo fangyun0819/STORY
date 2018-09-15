@@ -11,6 +11,14 @@ import story from './images/b1.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Theme1 from './Theme1';
+import Theme2 from './Theme2';
+
+
 const styles = theme => ({
 
   card: {
@@ -39,7 +47,17 @@ const styles = theme => ({
 });
 
 class ThemeList extends React.Component {
- 
+  state = {
+    open: false,
+  };
+  handleClickOpen = () =>{
+    this.setState({ open: true });
+  };
+
+  handleClose = () =>{
+    this.setState({ open: false });
+  };
+
   render() {
   const { classes } = this.props;
 
@@ -55,9 +73,28 @@ class ThemeList extends React.Component {
             label="畢業風1"
           />
           <img className={classes.img} src={story} />
-          <Button variant="outlined" color="primary" align="center" className={classes.button}>
+          
+          <Button 
+          onClick={this.handleClickOpen}
+          variant="outlined" color="primary" align="center" 
+          className={classes.button}>
           預覽
           </Button>
+          <Dialog
+          fullScreen
+           open={this.state.open}
+           onClose={this.handleClose}
+          >
+          <DialogTitle>{"學校風主題"}</DialogTitle>
+           <Theme2/>
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+             CLOSE
+            </Button>
+          </DialogActions>
+          </Dialog>
+
+
          </CardContent>
         </Card>
         

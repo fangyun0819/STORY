@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component8_elImage_779429.jpg';
-import img_elImageCopy from './images/Component8_elImageCopy_560966.jpg';
+
 
 
 export default class Component8 extends Component {
@@ -29,14 +29,7 @@ export default class Component8 extends Component {
         backgroundSize: 'cover',
         pointerEvents: 'none',
      };
-    const style_imageCopy = {
-        backgroundImage: 'url('+img_elImageCopy+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        boxShadow: '0.0px 6.8px 48px rgba(0, 0, 0, 0.4500)',
-        pointerEvents: 'none',
-     };
+    
     const style_text = {
         color: 'rgba(7, 7, 7, 0.8500)',
         textAlign: 'left',
@@ -55,7 +48,6 @@ export default class Component8 extends Component {
           <div className='elImage' style={style_image} />
         </div>
         <div className="foreground">
-          <div className='elImageCopy' style={style_imageCopy} />
           <div className='baseFont elText' style={style_text}>
             <div>{this.props.locStrings.component8_text_193867}</div>
           </div>

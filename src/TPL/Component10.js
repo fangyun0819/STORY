@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component10_elImage_280347.jpg';
-import img_elImage2 from './images/Component10_elImage2_257160.jpg';
-import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
-import img_elImageCopy2 from './images/Component10_elImage2_257160.jpg';
 
 
-export default class Component10 extends Component {
+
+export default class Component7 extends Component {
 
   // This component doesn't use any properties
 
@@ -31,35 +29,16 @@ export default class Component10 extends Component {
         backgroundSize: 'cover',
         pointerEvents: 'none',
      };
-    const style_text = {
-        color: 'rgba(7, 7, 7, 0.8500)',
-        textAlign: 'left',
-        textShadow: 'rgba(255, 255, 255, 0.7500) 0.0px 2.3px 0.0px',
+    const style_card = {
+        width: '100%',
+        height: '100%',
      };
-    const style_text_outer = {
+    const style_card_outer = {
+        backgroundColor: 'white',
+        boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
      };
-    const style_image2 = {
-        backgroundImage: 'url('+img_elImage2+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        pointerEvents: 'none',
-     };
-    const style_imageCopy = {
-        backgroundImage: 'url('+img_elImageCopy+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        pointerEvents: 'none',
-     };
-    const style_imageCopy2 = {
-        backgroundImage: 'url('+img_elImageCopy2+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        pointerEvents: 'none',
-     };
+    
     
     return (
       <div className="Component10" style={baseStyle}>
@@ -71,19 +50,12 @@ export default class Component10 extends Component {
           
           <div className='elImage' style={style_image} />
         </div>
-        <div className="layoutFlow">
-          <div className='baseFont elText' style={style_text_outer}>
-            <div style={style_text}>
-              <div>{this.props.locStrings.component10_text_954756}</div>
-            </div>
+        <div className="foreground">
+          <div className='cardBg elCard' style={style_card_outer}>
+            <div style={style_card} />
           
           </div>
           
-        </div>
-        <div className="foreground">
-          <div className='elImage2' style={style_image2} />
-          <div className='elImageCopy' style={style_imageCopy} />
-          <div className='elImageCopy2' style={style_imageCopy2} />
         </div>
       </div>
     )

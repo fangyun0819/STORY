@@ -78,9 +78,9 @@ class App extends Component {
       <Admin theme={theme} authProvider={authProvider}  loginPage={LoginPage}
       title="StoryMaker"
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, 
-                    <Route exact path="/showalbumlist" component={ShowAlbumList} />,
-                    <Route exact path="/setting" component={Setting} />,
-                    <Route exact path="/editlist" component={EditList} />,
+                    <Route path="/showalbumlist" component={ShowAlbumList} />,
+                    <Route path="/setting" component={Setting} />,
+                    <Route path="/editlist" component={EditList} />,
       ]}>
           {this._renderResources()}
 

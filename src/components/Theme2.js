@@ -240,7 +240,7 @@ class EditList extends React.Component {
     }
 
     return (
-      <Grid item xs>
+      <Grid item xs={12}>
         {prevScreenEl}
         {screenEl}
         </Grid>

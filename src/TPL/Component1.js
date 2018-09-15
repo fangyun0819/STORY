@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component1_elImage_707219.jpg';
-import img_elImage2 from './images/Component10_elImage2_257160.jpg';
+
 
 
 export default class Component1 extends Component {
@@ -29,16 +29,8 @@ export default class Component1 extends Component {
         backgroundSize: 'cover',
         pointerEvents: 'none',
      };
-    const style_image2 = {
-        backgroundImage: 'url('+img_elImage2+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-     };
-    const style_image2_outer = {
-        pointerEvents: 'none',
-     };
-    
+   
+   
     return (
       <div className="Component1" style={baseStyle}>
         <div className="background">
@@ -50,10 +42,6 @@ export default class Component1 extends Component {
           <div className='elImage' style={style_image} />
         </div>
         <div className="layoutFlow">
-          <div className='elImage2' style={style_image2_outer}>
-            <div style={style_image2} />
-          
-          </div>
           
         </div>
       </div>
