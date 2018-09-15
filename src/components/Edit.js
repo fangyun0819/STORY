@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -21,7 +23,12 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Theme1 from './Theme1';
+import { Redirect } from 'react-router-dom';
 
+import BackgroundImage from 'react-background-image-loader';
+import background from './images/b2.jpg';
+import p1 from './images/p1.jpg';
+import p2 from './images/p2.jpg';
 require('./components.css');
 
 const styles = theme => ({
@@ -29,6 +36,16 @@ const styles = theme => ({
     flexGrow: 1,
    
   },
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 6,
+    marginRight: theme.spacing.unit * 6,
+    width: 800,
+    height:500,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+
   card: {
     display: 'auto',
     height: 200,
@@ -39,16 +56,31 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'left',
     color: theme.palette.text.secondary,
-    height: 400,
-   
+    height:250,
+    
   },
 
+  img:{
+    marginTop: theme.spacing.unit * 3,
+  },
 });
 
 class EditList extends React.Component {
   state = {
     open: false,
   };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/showalbumlist' />
+    }
+  }
 
   handleClickOpen = () =>{
     this.setState({ open: true });
@@ -59,7 +91,7 @@ class EditList extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes,source } = this.props;
     
 
   return (
@@ -68,7 +100,6 @@ class EditList extends React.Component {
         <Grid item xs={12}>
         
           <Button 
-          id="position" 
           onClick={this.handleClickOpen} 
           color="primary" 
           align= "center"
@@ -89,10 +120,15 @@ class EditList extends React.Component {
              CLOSE
             </Button>
           </DialogActions>
-          </Dialog>
-        
-
+          </Dialog> 
+          {this.renderRedirect()}
+          <Button 
+          onClick={this.setRedirect}
+          id="position" color="primary" >
+          完成
+          </Button>
         </Grid>
+
         <Grid item item xs={2}>
         <Paper  className={classes.papers}  >
         <Typography>
@@ -100,16 +136,28 @@ class EditList extends React.Component {
          </Typography> 
 
         </Paper>
-        </Grid>
-        <Grid item item xs >
         <Paper  className={classes.papers}  >
+        <Typography>
+          新增貼圖
+         </Typography> 
+
         </Paper>
         </Grid>
-        <Grid item item xs >
-        <Paper  className={classes.papers}  >
-        </Paper>
+        
+      
+        
+        <Grid item item xs={10}>
+        <BackgroundImage src={source} placeholder={background} id="img" > 
+        <div className={classes.layout} id="layout" >
+        
+        <img className={classes.img} src={p1} width="300" height="400"/>
+        <img className={classes.img} src={p2} height="300" width="500"/>
+        
+        </div>
+        </BackgroundImage>
         </Grid>
        </Grid>
+     
      );
    }
 }

@@ -16,9 +16,9 @@ import red from '@material-ui/core/colors/red';
 
 import ShowAlbumList from './ShowAlbumList';
 import BackgroundImage from 'react-background-image-loader';
-import customRoutes from './customRoutes';
-import Setting from './Setting';
 import Edit from './components/Edit';
+import Setting from './components/Setting';
+import EditList from './components/Edit';
 
 const styles = theme => ({
   root:{
@@ -75,9 +75,13 @@ class App extends Component {
   
 
     return(
-      <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
+      <Admin theme={theme} authProvider={authProvider}  loginPage={LoginPage}
       title="StoryMaker"
-      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, <Route exact path="/showalbumlist" component={ShowAlbumList} />]}>
+      customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, 
+                    <Route path="/showalbumlist" component={ShowAlbumList} />,
+                    <Route path="/setting" component={Setting} />,
+                    <Route path="/editlist" component={EditList} />,
+      ]}>
           {this._renderResources()}
 
       </Admin>

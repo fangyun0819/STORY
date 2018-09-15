@@ -1,7 +1,7 @@
 #font{
   font-family: "Times New Roman", Times, serif;
 	font-style: oblique;
-	font-size: 40px;
+	font-size: 30px;
 	color: #050505;
 }
 
@@ -34,7 +34,7 @@
 		color: #3f0900;
 	}
 	#paper{
-		background: rgba(0, 200, 100, 0.604);
+		background:rgba(0, 0, 0, 0.4);
 	}
 	#root
 	{

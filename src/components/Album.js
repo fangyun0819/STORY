@@ -15,6 +15,9 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import  SimpleModalWrapped from './SimpleModalWrapped';
 
+import { Redirect } from 'react-router-dom';
+
+
 const styles = theme => ({
   appBar: {
     position: 'relative',
@@ -58,9 +61,25 @@ const styles = theme => ({
 const cards = ['全部', '個人', '團體'];
 const images = ["https://images.pexels.com/photos/935789/pexels-photo-935789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/583399/pexels-photo-583399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/1330808/pexels-photo-1330808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
 
-function Album(props) {
-  const { classes } = props;
+class Album extends React.Component {
+  state = {
 
+    redirect: false
+  };
+  
+ setRedirect = () => {
+  this.setState({
+    redirect: true
+  })
+}
+
+renderRedirect = () => {
+  if (this.state.redirect) {
+    return <Redirect to='/setting' />
+  }
+}
+render(){
+  const { classes } = this.props;
   return (
     <React.Fragment>
       <main>
@@ -87,9 +106,13 @@ function Album(props) {
 
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                    更改基本設定
-                    </Button>
+                  {this.renderRedirect()}
+                <Button 
+                 onClick={this.setRedirect}
+                 size="small" color="primary">
+                更改基本設定</Button>
+
+            
                     <Button size="small" color="primary">
                       檢視作品集
                     </Button>
@@ -103,9 +126,9 @@ function Album(props) {
     </React.Fragment>
   );
 }
-
+}
 Album.propTypes = {
   classes: PropTypes.object.isRequired,
-};
+}
 
 export default withStyles(styles)(Album);
