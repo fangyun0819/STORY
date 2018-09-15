@@ -13,6 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Theme1 from './Theme1';
+import Theme2 from './Theme2';
 
 import { Redirect } from 'react-router-dom';
 import { Route,Router } from 'react-router-dom';
