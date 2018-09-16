@@ -44,7 +44,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Theme1 from './components/Theme1';
-
+import Sticker from './components/Sticker';
 
 
 require('./css/style.css');

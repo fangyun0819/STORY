@@ -12,6 +12,9 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import PersonIcon from '@material-ui/icons/Person';
@@ -48,12 +51,25 @@ const styles = theme => ({
       padding: theme.spacing.unit * 3,
     },
   },
+ 
 });
 
 class SimpleDialog extends React.Component {
+  state = {
+    open: false,
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+  handleClose = () => {
+    this.props.onClose(this.props.chooseMember);
+  };
+
   handleClose = () => {
     this.props.onClose(this.props.selectedValue);
   };
+ 
 
   handleListItemClick = value => {
     this.props.onClose(value);
@@ -63,12 +79,12 @@ class SimpleDialog extends React.Component {
     const { classes, onClose, selectedValue, ...other } = this.props;
 
     return (
-      <Dialog onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
+      <Dialog  onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
         <DialogTitle id="simple-dialog-title">好友名單</DialogTitle>
         <div>
           <List>
             {emails.map(email => (
-              <ListItem button onClick={() => this.handleListItemClick(email)} key={email}>
+              <ListItem onClick={() => this.handleListItemClick(email)} key={email}>
                 <ListItemAvatar>
                   <Avatar className={classes.avatar}>
                     <PersonIcon />
@@ -80,16 +96,42 @@ class SimpleDialog extends React.Component {
                   </Avatar>
               </ListItem>
             ))}
-            <ListItem button onClick={() => this.handleListItemClick('addAccount')}>
+            <ListItem button onClick={() => this.handleClickOpen('addAccount')}>
               <ListItemAvatar>
                 <Avatar>
                   <AddIcon />
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary="add account" />
+              <Dialog
               
+              open={this.state.open}
+              onClose={this.handleClose2}
+              aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle  style={{width: 500}} id="form-dialog-title">請輸入邀請信箱</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              label="Email Address"
+              type="email"
+              fullWidth
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick= { () => alert("邀請信已寄出")} color="primary">
+              邀請
+            </Button>
+            <Button onClick={this.handleClose} variant="outlined" >
+                關閉
+              </Button>
+          </DialogActions>
+        </Dialog>
+
             </ListItem>
-            <Button variant="outlined" >
+            <Button onClick={this.handleClose} variant="outlined" >
                 確定
               </Button>
           </List>

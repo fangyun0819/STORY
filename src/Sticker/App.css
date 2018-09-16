@@ -1,0 +1,787 @@
+.App { /* Base font style */
+  font-family: 'Luminari-Regular', sans-serif;
+  font-size: 43.0px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.8500);
+  background-color: #f6f6f6;
+}
+
+.App .baseFont * { /* Base font style override for UI framework components */
+  font-family: 'Luminari-Regular', sans-serif;
+  font-size: 43.0px;
+}
+
+.App .appBg {
+  background-color: #f6f6f6;
+}
+
+.App .cardBg {
+  background-color: white;
+}
+
+.App .baseTextBg { /* Base text color as background */
+  background-color: rgba(0, 0, 0, 0.8500);
+}
+
+.App .secondaryTextColor {
+  color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .secondaryTextBg {
+  background-color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .primaryTextColor {
+  color: #bee9ee;
+}
+
+.App .primaryBg {
+  background-color: #bee9ee;
+}
+
+.App .highlightTextColor {
+  color: #c0c0c0;
+}
+
+.App .highlightBg {
+  background-color: #c0c0c0;
+}
+
+/* Styles to customize the UI framework plugin (MUI, https://muicss.com) */
+.mui-btn {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn--primary {
+    background-color: #bee9ee;
+}
+.mui-btn--primary:active, .mui-btn--primary:focus, .mui-btn--primary:hover {
+    background-color: #c3ebf0;
+}
+.mui-btn--accent {
+    background-color: #c0c0c0;
+}
+.mui-btn--accent:active, .mui-btn--accent:focus, .mui-btn--accent:hover {
+    background-color: #c6c6c6;
+}
+.mui-textfield {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-checkbox, .mui-radio {  /* Reset UI framework styling that affects layout */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-select {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn+.mui-btn {  /* Reset UI framework styling that affects layout */
+    margin-left: 0;
+}
+.mui-btn--fab {  /* Reset UI framework styling that breaks compositing */
+    z-index: auto;
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+@keyframes slideIn_right {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes slideIn_bottom {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+/* App-wide text styles specified in React Studio */
+.App .actionFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 14.2px;
+  font-weight: 400;
+}
+.App .actionFont * {
+  font-size: 14.2px;
+}
+.App .headlineFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 19.4px;
+  font-weight: 400;
+}
+.App .headlineFont * {
+  font-size: 19.4px;
+}
+.App .navBar {
+  background-color: #bee9ee;
+  color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 18px;
+}
+
+.App .navBar a {
+  color: black;
+}
+
+.App .navBar .title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  margin-top: 14px;
+}
+
+.App .navBar .backBtn {
+  position: absolute;
+  padding: 4px;
+  margin-left: 14px;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) {
+  .mui-container {
+    max-width: 320px;
+  }
+}
+@media (min-width: 568px) {
+  .mui-container {
+    max-width: 568px;
+  }
+}
+@media (min-width: 768px) {
+  .mui-container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .mui-container {
+    max-width: 1024px;
+  }
+}
+
+.AppScreen {
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.App .background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.App .layoutFlow {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  float: left;
+}
+.App .layoutFlow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .layoutFlow .flowRow {
+  position: relative;
+  width: 100%;
+}
+
+.App .screenFgContainer {
+  /* Items in the foreground group within a screen are placed with fixed positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.App .foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.App .compContent {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.App ul {
+  margin: 0;
+  padding: 0;
+}
+.App li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+}
+.App .hasNestedComps {
+  position: relative;
+}
+.App .hasNestedComps:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .hasNestedComps .background {
+  position: absolute;
+}
+.App .hasNestedComps .layoutFlow {
+  position: relative;
+}
+.App .hasNestedComps .foreground {
+  position: absolute;
+}
+.App .bottomAlignedContent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* This component has a fixed-size layout */
+  .Component3 {
+    min-height: 473px;
+    width: 100%; /* This component was designed using a width of 669px */
+  }
+  .Component3 > .background > .containerMinHeight {
+    min-height: 473px;
+  }
+
+
+  .Component3 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .Component3 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 668px;
+    height: 473px;
+  }
+
+
+  .Component3 .elCard {
+    position: relative;
+    margin-top: 27px;
+    width: 276px;
+    margin-left: 34px;
+  }
+  .Component3 .elCard > * { 
+  width: 276px;
+  height: 427px;
+  }
+  
+
+
+  .Component3 .elCardCopy2 {
+    position: relative;
+    margin-top: -428px;
+    width: 100%;
+  }
+  .Component3 .elCardCopy2 > * { 
+  margin-left: auto;
+  width: 276px;
+  margin-right: 34px;
+  height: 427px;
+  }
+  
+
+
+  .Component3 .elImage2 {
+    position: absolute;
+    left: 45px;
+    top: 48px;
+    width: 252px;
+    height: 334px;
+  }
+
+
+  .Component3 .elImageCopy {
+    position: absolute;
+    right: 45px;
+    top: 48px;
+    width: 252px;
+    height: 334px;
+  }
+
+/* This component has a fixed-size layout */
+  .AddTextItem {
+    min-height: 113px;
+    width: 100%; /* This component was designed using a width of 113px */
+  }
+  .AddTextItem > .background > .containerMinHeight {
+    min-height: 113px;
+  }
+
+
+  .AddTextItem .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .AddTextItem .elImage {
+    position: relative;
+    margin-top: 5px;
+    width: 102px;
+    margin-left: 5px;
+  }
+  .AddTextItem .elImage > * { 
+  width: 102px;
+  height: 102px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .AddStickerItem {
+    min-height: 113px;
+    width: 100%; /* This component was designed using a width of 113px */
+  }
+  .AddStickerItem > .background > .containerMinHeight {
+    min-height: 113px;
+  }
+
+
+  .AddStickerItem .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .AddStickerItem .elImage {
+    position: relative;
+    margin-top: 5px;
+    width: 102px;
+    margin-left: 5px;
+  }
+  .AddStickerItem .elImage > * { 
+  width: 102px;
+  height: 102px;
+  }
+  
+
+.StartScreen {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .StartScreen > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  .StartScreen > .layoutFlow > .elCard {
+    position: relative;
+    margin-top: 63px;
+    width: 220px;
+    margin-left: 0px;
+  }
+  .StartScreen > .layoutFlow > .elCard > * { 
+  width: 220px;
+  height: 654px;
+  }
+  
+
+
+  .StartScreen > .layoutFlow > .elCard3 {
+    position: relative;
+    margin-top: -561px;
+    width: 935px;
+    margin-left: 281px;
+  }
+  .StartScreen > .layoutFlow > .elCard3 > * { 
+  width: 935px;
+  height: 463px;
+  }
+  
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elAddText {
+    overflow: hidden;
+    position: absolute;
+    left: 16px;
+    top: 77px;
+    width: 185px;
+    height: 40px;
+  }
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elComponent {
+    position: absolute;
+    left: 491px;
+    top: 215px;
+    width: 524px;
+    height: 371px;
+  }
+  .StartScreen > .screenFgContainer > .foreground > .elComponent > .background > .containerMinHeight {
+    min-height: 371px;
+  }
+
+
+.StartScreen .elButton {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elButton {
+    line-height: 35px;
+    position: absolute;
+    left: 1102px;
+    top: 89px;
+    width: 124px;
+    height: 35px;
+  }
+
+.StartScreen .elFab {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elFab {
+    line-height: 53px;
+    position: absolute;
+    left: 299px;
+    top: 550px;
+    width: 53px;
+    height: 53px;
+  }
+
+.StartScreen .elFabCopy {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elFabCopy {
+    line-height: 53px;
+    position: absolute;
+    left: 1149px;
+    top: 550px;
+    width: 53px;
+    height: 53px;
+  }
+
+.StartScreen .elButtonCopy {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elButtonCopy {
+    line-height: 35px;
+    position: absolute;
+    left: 923px;
+    top: 663px;
+    width: 124px;
+    height: 35px;
+  }
+
+.StartScreen .elButtonCopy2 {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elButtonCopy2 {
+    line-height: 35px;
+    position: absolute;
+    left: 1104px;
+    top: 663px;
+    width: 124px;
+    height: 35px;
+  }
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elAddTextCopy {
+    overflow: hidden;
+    position: absolute;
+    left: 19px;
+    top: 388px;
+    width: 185px;
+    height: 40px;
+  }
+
+  .StartScreen .elList:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .StartScreen .elList .gridItem {
+    float: left;
+    position: relative;
+  }
+
+@media (min-width: 1024px) {
+  .StartScreen .elList .gridItem {
+    width: calc(100% / 2 - 9.0px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList .cols2_0 {
+    margin-right: 9.0px;
+    margin-bottom: 9.0px;
+    clear: left;
+  }
+  .StartScreen .elList .cols2_1 {
+    margin-bottom: 9.0px;
+  }
+  .StartScreen .elList .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 1023px) {
+  .StartScreen .elList .gridItem {
+    width: calc(100% / 2 - 9.0px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList .cols2_0 {
+    margin-right: 9.0px;
+    margin-bottom: 9.0px;
+    clear: left;
+  }
+  .StartScreen .elList .cols2_1 {
+    margin-bottom: 9.0px;
+  }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .StartScreen .elList .gridItem {
+    width: calc(100% / 2 - 9.1px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_0 {
+    margin-right: 9.1px;
+    margin-bottom: 9.1px;
+    clear: left;
+  }
+  .StartScreen .elList .cols2_1 {
+    margin-bottom: 9.1px;
+  }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 567px) {
+  .StartScreen .elList .gridItem {
+    width: calc(100% / 2 - 9.1px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList .cols2_0 {
+    margin-right: 9.1px;
+    margin-bottom: 9.1px;
+    clear: left;
+  }
+  .StartScreen .elList .cols2_1 {
+    margin-bottom: 9.1px;
+  }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after { }
+  .StartScreen .elList .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elList {
+    position: absolute;
+    top: 116px;
+    width: 205px;
+    height: 272px;
+  }
+
+  .StartScreen .elList2:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .StartScreen .elList2 .gridItem {
+    float: left;
+    position: relative;
+  }
+
+@media (min-width: 1024px) {
+  .StartScreen .elList2 .gridItem {
+    width: calc(100% / 2 - 9.0px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList2 .cols2_0 {
+    margin-right: 9.0px;
+    margin-bottom: 9.0px;
+    clear: left;
+  }
+  .StartScreen .elList2 .cols2_1 {
+    margin-bottom: 9.0px;
+  }
+  .StartScreen .elList2 .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 1023px) {
+  .StartScreen .elList2 .gridItem {
+    width: calc(100% / 2 - 9.0px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList2 .cols2_0 {
+    margin-right: 9.0px;
+    margin-bottom: 9.0px;
+    clear: left;
+  }
+  .StartScreen .elList2 .cols2_1 {
+    margin-bottom: 9.0px;
+  }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .StartScreen .elList2 .gridItem {
+    width: calc(100% / 2 - 9.1px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList2 .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_0 {
+    margin-right: 9.1px;
+    margin-bottom: 9.1px;
+    clear: left;
+  }
+  .StartScreen .elList2 .cols2_1 {
+    margin-bottom: 9.1px;
+  }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+@media (max-width: 567px) {
+  .StartScreen .elList2 .gridItem {
+    width: calc(100% / 2 - 9.1px*(1/2));
+    overflow: hidden;
+  }
+
+  .StartScreen .elList2 .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_0 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_1 { margin-right: 0; margin-bottom: 0; }
+  .StartScreen .elList2 .cols2_0 {
+    margin-right: 9.1px;
+    margin-bottom: 9.1px;
+    clear: left;
+  }
+  .StartScreen .elList2 .cols2_1 {
+    margin-bottom: 9.1px;
+  }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after { }
+  .StartScreen .elList2 .cols2_1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+}
+
+
+
+  .StartScreen > .screenFgContainer > .foreground > .elList2 {
+    position: absolute;
+    left: 0px;
+    top: 432px;
+    width: 221px;
+    height: 258px;
+  }
+
