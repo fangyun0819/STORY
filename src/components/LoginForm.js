@@ -26,6 +26,9 @@ const styles = theme => ({
     color: '#ffffff',
     'border-color': '#ffffff',
   },
+  third: {
+    marginLeft: 720,
+  },
   label: {
     fontSize: '10px',
     color: '#c1c1c2',
@@ -86,14 +89,17 @@ class LoginForm extends React.Component {
                 忘記密碼     
           </Button>
           <br/>  
+          </Grid>
           
+          <Grid className={classes.third} container justify="center" alignItems="center" direction="row">
           <Button variant="contained" color="secondary" size="large"  >
             Google
           </Button>
-          <br/> 
+          <span></span>
           <Button variant="contained" color="primary" size="large"  >
             Facebook
           </Button>
+          
           </Grid>
           </Grid>
         

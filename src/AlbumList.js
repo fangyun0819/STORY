@@ -16,6 +16,11 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit,
   },
+  container: {
+    marginTop: 380,
+    marginLeft: 725,
+    //backgroundColor: '#6b6f70'
+  },
 });
 
 class AlbumList extends Component {
@@ -57,8 +62,8 @@ class AlbumList extends Component {
           this._renderRedirect()
         }
         <br/>
-        <br/><br/><br/><br/><br/><br/><br/>    <br/><br/><br/><br/><br/><br/><br/>    <br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/>    <br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </div>
     )
   }
