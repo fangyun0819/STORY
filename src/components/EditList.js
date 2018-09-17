@@ -12,8 +12,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Theme1 from './Theme1';
-import Theme2 from './Theme2';
+import ThemePC from '../reactStudio/ThemePC';
+
 
 import { Redirect } from 'react-router-dom';
 import { Route,Router } from 'react-router-dom';
@@ -103,7 +103,7 @@ class EditList extends React.Component {
            onClose={this.handleClose}
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-           <Theme1/>
+           <ThemePC/>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
              CLOSE

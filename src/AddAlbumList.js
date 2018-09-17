@@ -43,8 +43,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Theme1 from './components/Theme1';
-import Sticker from './components/Sticker';
+import ThemePC from './reactStudio/ThemePC';
 
 
 require('./css/style.css');
@@ -238,7 +237,7 @@ class AddAlbumList extends React.Component {
                 onClose={this.handleClose}
                 >
               <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-               <Theme1/>
+               <ThemePC/>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
               CLOSE
