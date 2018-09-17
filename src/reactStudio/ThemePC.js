@@ -1,45 +1,21 @@
 import React, { Component } from 'react';
 import LocalizedStrings from 'react-localization';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
+import './App.css';
+import ScratchPadScreen from './ScratchPadScreen.js';
+import DataSheet_localizationSheet from './DataSheet_localizationSheet.js';
 
-import Page10Screen from '../TPL/Page10Screen'
-import Page9Screen from '../TPL/Page9Screen'
-import Page8Screen from '../TPL/Page8Screen'
-import Page7Screen from '../TPL/Page7Screen'
-import Page6Screen from '../TPL/Page6Screen'
-import Page5Screen from '../TPL/Page5Screen'
-import Page4Screen from '../TPL/Page4Screen'
-import Page3Screen from '../TPL/Page3Screen'
-import Page2Screen from '../TPL/Page2Screen'
-import Page1Screen from '../TPL/Page1Screen'
-import ScratchPadScreen from '../TPL/ScratchPadScreen';
-import DataSheet_localizationSheet from '../TPL/DataSheet_localizationSheet';
+import Page10Screen from './Page10Screen'
+import Page9Screen from './Page9Screen'
+import Page8Screen from './Page8Screen'
+import Page7Screen from './Page7Screen'
+import Page6Screen from './Page6Screen'
+import Page5Screen from './Page5Screen'
+import Page4Screen from './Page4Screen'
+import Page3Screen from './Page3Screen'
+import Page2Screen from './Page2Screen'
+import Page1Screen from './Page1Screen'
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  card: {
-    display: 'auto',
-    height: 200,
-    width: 200,
-  },
-  button: {
-    marginTop: theme.spacing.unit,
-  },
-  paper: {
-    color: theme.palette.text.secondary,
-    height: 500,
-    width: 500,
-  },
-});
-
-
-
-class EditList extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -240,15 +216,10 @@ class EditList extends React.Component {
     }
 
     return (
-      <Grid item xs={12}>
+      <div className="App">
         {prevScreenEl}
         {screenEl}
-        </Grid>
+      </div>
     );
   }
 }
-EditList.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-export default withStyles(styles)(EditList);

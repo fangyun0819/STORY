@@ -15,8 +15,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Theme1 from './Theme1';
-import Theme2 from './Theme2';
+import ThemeNPC from '../TPL/ThemeNPC';
 
 
 const styles = theme => ({
@@ -44,6 +43,11 @@ const styles = theme => ({
   marginLeft: theme.spacing.unit * 3,
   marginRight: theme.spacing.unit * 3,
  },
+ paper: {
+  padding: theme.spacing.unit * 2,
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+},
 });
 
 class ThemeList extends React.Component {
@@ -86,7 +90,17 @@ class ThemeList extends React.Component {
            onClose={this.handleClose}
           >
           <DialogTitle>{"學校風主題"}</DialogTitle>
-           <Theme2/>
+          <DialogContent>
+          <Grid container spacing={24}> 
+        <Grid item xs>
+        </Grid>
+          <Grid item xs={6}>
+         <ThemeNPC/>
+          </Grid>
+          <Grid item xs>
+          </Grid>
+          </Grid>
+           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
              CLOSE

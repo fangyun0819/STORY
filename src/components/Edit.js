@@ -22,13 +22,17 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Theme1 from './Theme1';
+import ThemePC from '../reactStudio/ThemePC';
 import { Redirect } from 'react-router-dom';
 
 import BackgroundImage from 'react-background-image-loader';
 import background from './images/b2.jpg';
 import p1 from './images/p1.jpg';
 import p2 from './images/p2.jpg';
+
+
+import Sticker from './Sticker';
+import Text from './Text';
 require('./components.css');
 
 const styles = theme => ({
@@ -56,12 +60,12 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: 'left',
     color: theme.palette.text.secondary,
-    height:250,
+    height:'auto',
     
   },
 
   img:{
-    marginTop: theme.spacing.unit * 3,
+    marginTop: theme.spacing.unit * 1,
   },
 });
 
@@ -113,7 +117,9 @@ class EditList extends React.Component {
            onClose={this.handleClose}
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-         <Theme1/>
+          <DialogContent>
+          <ThemePC/>
+           </DialogContent>
 
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
@@ -134,13 +140,13 @@ class EditList extends React.Component {
         <Typography>
           新增文字
          </Typography> 
-
+          <Text/>
         </Paper>
         <Paper  className={classes.papers}  >
         <Typography>
           新增貼圖
          </Typography> 
-
+          <Sticker/>
         </Paper>
         </Grid>
         
