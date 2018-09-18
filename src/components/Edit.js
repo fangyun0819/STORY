@@ -68,7 +68,7 @@ const styles = theme => ({
   },
 });
 
-class EditList extends React.Component {
+class Edit extends React.Component {
   state = {
     open: false,
   };
@@ -166,8 +166,8 @@ class EditList extends React.Component {
      );
    }
 }
-EditList.propTypes = {
+Edit.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(EditList);      
+export default withStyles(styles)(Edit);      
