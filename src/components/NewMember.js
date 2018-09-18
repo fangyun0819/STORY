@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '../../node_modules/@material-ui/core';
+import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
@@ -33,7 +33,7 @@ class NewMember extends React.Component {
     return this.state.members.map(function(item, i){
       return <Grid item xs={12} sm={12}>
       <TextField 
-      key={i}
+  
       label="輸入信箱"
       fullWidth>{item}</TextField>
       </Grid>
@@ -49,7 +49,7 @@ class NewMember extends React.Component {
         }}>
         <AddIcon />
       </Button>
-      <Button mini color="secondary" aria-label="Add">
+      <Button mini color="secondary" aria-label="Add" onClick={ () => alert('新增成功')}>
         <p>確定邀請</p>
       </Button>
     </Grid>

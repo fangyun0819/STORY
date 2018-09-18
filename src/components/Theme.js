@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import ThemeList from './ThemeList';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 require('./components.css');
 
@@ -14,8 +15,11 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     height: 'auto',
   },
+  button:{
+  display: 'flex',
+  justifyContent: 'flex-end',
+},
 
- 
 });
 
 class Theme extends React.Component {
@@ -37,11 +41,19 @@ changeColor(){
   return (
     <div>
       <React.Fragment>
-      <Paper className={classes.root} elevation={1}>
+      <Paper className={classes.root} >
+      <Grid container spacing={24}>
+        <Grid item xs={12}>
        <ThemeList/>
-       <Button id="button" variant="outlined" color="primary">
+       <div className={classes.button}>
+       <Button variant="outlined" color="primary" >
         確定套用</Button>
-      </Paper>
+        </div>
+       </Grid>
+       
+       </Grid>
+     </Paper>
+      
     </React.Fragment>
     
     </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -10,16 +9,7 @@ import purple from '@material-ui/core/colors/purple';
 require('./components.css');
 
 const styles = theme => ({
-  paper: {
-    marginTop: theme.spacing.unit * 6,
-    marginBottom: theme.spacing.unit * 6,
-    padding: theme.spacing.unit * 6,
-    [theme.breakpoints.up(600 + theme.spacing.unit * 6 * 6)]: {
-      marginTop: theme.spacing.unit * 6,
-      marginBottom: theme.spacing.unit * 6,
-      padding: theme.spacing.unit * 3,
-    },
-  },
+ 
 
   bootstrapRoot: {
     padding: 0,
@@ -72,7 +62,7 @@ class Info extends React.Component {
         請填寫畢業紀念冊基本資訊
       </Typography>
       
-      <Grid container spacing={24}>
+      <Grid container spacing={24} >
         <Grid item xs={12} sm={6}>
 
         <TextField

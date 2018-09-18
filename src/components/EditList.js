@@ -12,15 +12,20 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Theme1 from './Theme1';
+import ThemePC from '../reactStudio/ThemePC';
 
 
+import { Redirect } from 'react-router-dom';
+import { Route,Router } from 'react-router-dom';
+import Edit from './Edit';
 
+require('./components.css');
 
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+   
   },
   card: {
     display: 'auto',
@@ -31,16 +36,36 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
   },
   paper: {
+    padding: theme.spacing.unit * 2,
+    color: theme.palette.text.secondary,
+  },
+  papers: {
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
     color: theme.palette.text.secondary,
     height: 500,
-    width: 500,
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
   },
+  
 });
 
 class EditList extends React.Component {
   state = {
     open: false,
   };
+
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/allAlbums' />
+    }
+  }
 
   handleClickOpen = () =>{
     this.setState({ open: true });
@@ -53,16 +78,24 @@ class EditList extends React.Component {
   render() {
     const { classes } = this.props;
     
+      
+  
 
   return (
+
       <Grid item container xs={24}>
         
-        <Grid item xs={6} sm={3}>
-        <Card className={classes.card}>
-         <CardContent>
-           
-          <Button onClick={this.handleClickOpen} variant="outlined" color="primary" className={classes.button}>
+        <Grid item xs={12}>
+        <Paper  className={classes.paper}  >
+        
+         <Typography align="center" >
           畢業紀念冊1
+          </Typography>
+          <Button 
+          onClick={this.handleClickOpen} 
+          variant="outlined" color="primary" 
+          className={classes.button}>
+          預覽畢業紀念冊
           </Button>
           <Dialog
           fullScreen
@@ -70,23 +103,30 @@ class EditList extends React.Component {
            onClose={this.handleClose}
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-          <DialogContent>
-          <Theme1/>
-          </DialogContent>
+           <ThemePC/>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
              CLOSE
             </Button>
           </DialogActions>
           </Dialog>
-           
-          <Button  variant="outlined" color="primary" className={classes.button}>
-          更改設定
-          </Button>
-         </CardContent>
-        </Card>
+          </Paper>
+
+          <React.Fragment>
+          <Typography variant="headline" gutterBottom>
+                
+            {this.renderRedirect()}
+            <Button 
+            className={classes.button} 
+            onClick={this.setRedirect}
+            variant="outlined" 
+            color="primary">
+            HOMEPAGE</Button>
+            </Typography>
+          </React.Fragment>
         </Grid>
        </Grid>
+     
      );
    }
 }

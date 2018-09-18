@@ -32,7 +32,18 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import MobileStepper from '@material-ui/core/MobileStepper';
 import Avatar from '@material-ui/core/Avatar';
 
-import logo from './images/name.jpg';
+import BackgroundImage from 'react-background-image-loader';
+
+import background from './images/b2.jpg';
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Edit from './components/Edit';
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import ThemePC from './reactStudio/ThemePC';
 
 
 require('./css/style.css');
@@ -44,15 +55,13 @@ const styles = theme => ({
     width: 'auto',
     marginLeft: theme.spacing.unit * 6,
     marginRight: theme.spacing.unit * 6,
-    width: 1000,
+    width: 900,
     marginLeft: 'auto',
     marginRight: 'auto',
-    
   },
 
   root:{
-    backgroundColor:'#BDBDBD',
-    color: theme.palette.common.white,
+    alignItems: 'center',
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 6,
@@ -61,12 +70,10 @@ const styles = theme => ({
       marginBottom: theme.spacing.unit * 6,
       padding: theme.spacing.unit * 3,
     },
-
+    
   },
  
   paper: {
-    backgroundColor:'#FAFAFA',
-    color: theme.palette.common.white,
     marginTop: theme.spacing.unit * 6,
     marginBottom: theme.spacing.unit * 6,
     padding: theme.spacing.unit * 6,
@@ -77,7 +84,6 @@ const styles = theme => ({
     },
   },
   stepper: {
-    backgroundColor:'#BDBDBD',
     padding: `${theme.spacing.unit * 3}px 0 ${theme.spacing.unit * 5}px`,
   },
   buttons: {
@@ -90,16 +96,15 @@ const styles = theme => ({
   },
 });
 
-
 function getSteps(){
-  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇','編輯頁面'];
+  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
 }
 
 //步驟設定
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Info />;
+      return <Info/>;
     case 1:
       return <NewMember />;
     case 2:
@@ -108,8 +113,6 @@ function getStepContent(step) {
       return <OrganizePhoto />;
     case 4:
       return <Theme/>;
-    case 5:
-      return <EditList/>;
     default:
       throw new Error('Unknown step');
   }
@@ -132,11 +135,23 @@ class AddAlbumList extends React.Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/allAlbums' />
+    if(this.state.isRedirect === 0){
+
+    }else if(this.state.isRedirect === 1){
+      return <Redirect to={`/showalbumlist`}/>
+    }else if(this.state.isRedirect === 2){
+      return <Redirect to={`/editlist`}/>
     }
   }
   
+  handleClickOpen = () =>{
+    this.setState({ open: true });
+  };
+
+  handleClose = () =>{
+    this.setState({ open: false });
+  };
+
   handleNext = () => {
     const { activeStep } = this.state;
     this.setState({
@@ -155,10 +170,15 @@ class AddAlbumList extends React.Component {
       activeStep: step,
     });
   };
-
+  
+  handleReset = () => {
+    this.setState({
+      activeStep: 0,
+    });
+  };
   
   render() {
-    const { classes } = this.props;
+    const { classes ,source} = this.props;
     const { activeStep } = this.state;
     const steps = getSteps();
 
@@ -166,53 +186,93 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <main  className={classes.layout} >
-          <Paper  className={classes.root} >
-          <Typography id="font" variant="display1" align="center">
+        <BackgroundImage src={source} placeholder={background} id="img">
+        <div className={classes.layout} id="layout" >
+       
+      
+          <Paper  className={classes.root}  >
+          <Typography id="font"  align="center" >
             CREATE YOUR STORY
           </Typography>
-            <Stepper 
-            activeStep={activeStep}  
-            className={classes.stepper} 
-            id="flex-container">
+            <Stepper  
+           activeStep={activeStep}  
+           className={classes.stepper}>
             
-            {steps.map((label, index) => {
-            const props = {};
-            const buttonProps = {};
-            return (
-              <Step key={label} {...props} >
-              
-                <StepButton
-                 onClick={this.handleStep(index)}
-                {...buttonProps}
-                >
-                  {label}
-                </StepButton>
-              </Step>
-            );
-          })}
+            {steps.map(label => (
+                <Step key={label} >
+                  <StepLabel >{label}</StepLabel>
+                </Step>
+              ))}
 
             </Stepper>
 
-            <Divider />
+            <Divider/>
 
-            <Paper className={classes.paper} id="stepper" >
+            <Paper className={classes.paper} id="paper" >
             <React.Fragment>
             
               {activeStep === steps.length ? (
                 <React.Fragment>
-                  <Typography variant="headline" gutterBottom>
-                
-                {this.renderRedirect()}
+          <div>
+            <Paper className={classes.root} elevation={1}>
+              <Typography variant="headline" component="h3">
+               說明
+              </Typography>
+              <Typography component="p">
+                想要編輯者請選擇進入編輯區，否則選擇完成
+              </Typography>
+            </Paper>
+           </div>
                 <Button 
+                onClick={this.handleClickOpen}
                  className={classes.button} 
-                 onClick={this.setRedirect}
                  variant="outlined" 
                  color="primary">
-                HOMEPAGE</Button>
+                 預覽我的畢業紀念冊
+                 </Button>
                   
-                  </Typography>
+                 <Dialog
+                fullScreen
+                open={this.state.open}
+                onClose={this.handleClose}
+                >
+              <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
+               <ThemePC/>
+               <DialogActions>
+              <Button onClick={this.handleClose} color="primary" autoFocus>
+              CLOSE
+              </Button>
+            </DialogActions>
+           </Dialog>
+
                   
+                {this.renderRedirect()}
+               
+                <Button 
+                 className={classes.button} 
+                 onClick={ ()=> this.setState({isRedirect: 2})}
+                 variant="outlined" 
+                 color="primary">
+                進入編輯頁面</Button>
+               
+                
+                <div className={classes.buttons}>
+                  <Button 
+                    required
+                    id="back"
+                    onClick={this.handleBack} 
+                    className={classes.button}>
+                    BACK
+                    </Button>
+                    <Button
+                     required
+                     id="next"
+                     className={classes.button}
+                     onClick={ ()=> this.setState({isRedirect: 1})}>
+                     FINISH
+                    </Button>
+                    </div>
+
                 </React.Fragment>
               ) : (
                 <React.Fragment>
@@ -233,9 +293,8 @@ class AddAlbumList extends React.Component {
                       required
                       id="next"
                       onClick={this.handleNext}
-                      className={classes.button}
-                    >
-                      {activeStep === steps.length - 1 ? 'FINISH' : 'NEXT'}
+                      className={classes.button}>
+                     NEXT
                     </Button>
                   </div>
                 </React.Fragment>
@@ -244,9 +303,10 @@ class AddAlbumList extends React.Component {
             </Paper>
             
           </Paper>
-        </main>
+          
+        </div>
+        </BackgroundImage>
       </React.Fragment>
-     
     );
   }
 }

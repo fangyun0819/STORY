@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { Button } from '../../node_modules/@material-ui/core';
+import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
@@ -21,6 +21,10 @@ const styles = theme => ({
   container: {
     marginTop: 200,
     //backgroundColor: '#00B1E1'
+  },
+  button:{
+    display: 'flex',
+    justifyContent: 'flex-end',
   },
 });
 
@@ -75,7 +79,7 @@ class OrganizePhoto extends React.Component {
   };
 
   render(){
-    
+    const { classes } = this.props;
     return  (
     <React.Fragment>
       <Grid
@@ -90,8 +94,12 @@ class OrganizePhoto extends React.Component {
             <Tab label="成員"></Tab>
           </Tabs>
           {this._renderImagePicker()}
+          
       </Grid>
-
+      <div className={classes.button}>
+       <Button variant="outlined" color="primary" >
+        目前已使用0張照片</Button>
+        </div>
   </React.Fragment>)
   }
 }
