@@ -3,46 +3,43 @@ import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
-import s1 from './stickers/datasheet_addText_row0_image.png';
-import s2 from './stickers/datasheet_addText_row1_image.png';
-import s3 from './stickers/datasheet_addText_row2_image.png';
-import s4 from './stickers/datasheet_addText_row3_image.png';
-import s5 from './stickers/datasheet_addText_row4_image.png';
-import s6 from './stickers/datasheet_addText_row5_image.png';
+import TextList from './TextList';
 
 
 const styles = theme => ({
   root: {
-    flexGrow: 1,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    backgroundColor: theme.palette.background.paper,
   },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  gridList: {
+    width: 'auto',
+    height: 250,
   },
   img:{
-    marginTop: theme.spacing.unit * 3,
-  },
+    width:100 ,
+    height:100,
+  }
+ 
 });
-
 
 function FullWidthGrid(props) {
   const { classes } = props;
 
   return (
   <div className={classes.root}>
-  <Grid container spacing={24}>
-  
-    
-    <img className={classes.img} src={s1} width="100" height="100"/>
-    <img className={classes.img} src={s2} width="100" height="100"/>
-    <img className={classes.img} src={s3} width="100" height="100"/>
-    <img className={classes.img} src={s4} width="100" height="100"/>
-    <img className={classes.img} src={s5} width="100" height="100"/>
-    <img className={classes.img} src={s6} width="100" height="100"/>
-   
-  </Grid>
+   <GridList  className={classes.gridList} cols={2}>
+        {TextList.map(tile => (
+          <GridListTile key={tile.img} cols={tile.cols || 1}>
+          <img className={classes.img} src={tile.img} />
+          </GridListTile>
+        ))}
+      </GridList>
 </div>
 
 );
