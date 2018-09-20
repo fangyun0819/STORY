@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import ThemeList from './ThemeList';
+
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Theme1 from './Theme1';
 import Theme2 from './Theme2';
 
 require('./components.css');
@@ -42,11 +43,13 @@ changeColor(){
   return (
     <div>
       <React.Fragment>
-      <Paper className={classes.root} >
+     
       <Grid container spacing={24}>
-        <Grid item xs={12}>
-       <ThemeList/>
-       <Theme2/>
+        
+        <Theme1/>
+        <Theme2/>
+        
+       <Grid item xs={12}>
        <div className={classes.button}>
        <Button variant="outlined" color="primary" >
         確定套用</Button>
@@ -54,7 +57,7 @@ changeColor(){
        </Grid>
        
        </Grid>
-     </Paper>
+    
       
     </React.Fragment>
     
