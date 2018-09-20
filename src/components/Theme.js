@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import ThemeList from './ThemeList';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Theme2 from './Theme2';
 
 require('./components.css');
 
@@ -45,6 +46,7 @@ changeColor(){
       <Grid container spacing={24}>
         <Grid item xs={12}>
        <ThemeList/>
+       <Theme2/>
        <div className={classes.button}>
        <Button variant="outlined" color="primary" >
         確定套用</Button>
