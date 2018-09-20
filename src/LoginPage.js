@@ -4,6 +4,7 @@ import { userLogin } from 'react-admin';
 import LoginForm from './components/LoginForm.js'
 import RegisterForm from './components/RegisterForm.js'
 import ForgetForm from './components/ForgetForm.js'
+import axios from 'axios';
 
 //import Background from './40409997_346579822551613_6666760567425859584_n.png';
 
@@ -12,7 +13,7 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   container: {
-    marginTop: 200,
+    marginTop: 100,
     //backgroundColor: '#00B1E1'
   },
 });
@@ -21,16 +22,16 @@ class LoginPage extends Component {
     super();
     this.state = {
       isLogin: 1,
-      username: 'username',
-      password: 'password'
+      memberAccount: 'memberAccount',
+      memberPassword: 'memberPassword'
     }
   }
   submit() {
     //e.preventDefault();
     // gather your data/credentials here
-    const { username, password } = this.state;
+    const { memberAccount, memberPassword } = this.state;
     //props父子 vs authprovider後端
-    const credentials = { username: username, password: password };
+    const credentials = { memberAccount: memberAccount, memberPassword: memberPassword };
     // Dispatch the userLogin action (injected by connect)
     this.props.userLogin(credentials);
   }
@@ -47,12 +48,12 @@ class LoginPage extends Component {
     this.setState({ isLogin: 3 })
   }
 //讓框框值變
-  _handerUsernameChange(username) {
-    this.setState(username);
+  _handermemberAccountChange(memberAccount) {
+    this.setState(memberAccount);
   }
 
-  _handerPasswordChange(password) {
-    this.setState(password);
+  _handermemberPasswordChange(memberPassword) {
+    this.setState(memberPassword);
   }
 
   _renderForm() {
@@ -60,7 +61,7 @@ class LoginPage extends Component {
       return (<LoginForm
         _handerRegister={() => this._handerRegister()}
         _handleForget={() => this._handleForget()}
-        onSubmit={(username, password) => this.props.userLogin({ username, password })} />)
+        onSubmit={(memberAccount, memberPassword) => this.props.userLogin({  username: memberAccount, password: memberPassword })} />)
     else if (this.state.isLogin === 2)
       return (<RegisterForm 
         _handleLogin={() => this._handleLogin()} />)
@@ -72,12 +73,22 @@ class LoginPage extends Component {
   render() {
     return (
       <form style={{
-        top: '0', bottom: '0', left: '0', right: '0', position: 'absolute',
-        backgroundImage: `url('https://i.imgur.com/qHHR7vK.jpg')`,
-        backgroundPosition: 'top left',
+        top: '0', bottom: '0', left: '0', right: '0',height:'100vh', padding:'0 0px',
+        backgroundImage: `url('https://i.imgur.com/qN0F3Ro.jpg')`,
+        backgroundsize: 'cover',
+        backgroundPosition: 'center',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#55333b'
+
+
+
       }}>
+
+
       
         {this._renderForm()}
       </form>
