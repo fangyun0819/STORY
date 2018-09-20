@@ -16,7 +16,6 @@ import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
 import Theme from './components/Theme';
-import EditList from './components/EditList';
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -43,8 +42,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Theme1 from './components/Theme1';
-import axios from 'axios';
+import ThemePC from './reactStudio/ThemePC';
+
 
 require('./css/style.css');
 
@@ -100,16 +99,32 @@ function getSteps(){
   return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
 }
 
+//步驟設定
+function getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <Info/>;
+    case 1:
+      return <NewMember />;
+    case 2:
+      return <ImageUpload />;
+    case 3:
+      return <OrganizePhoto />;
+    case 4:
+      return <Theme/>;
+    default:
+      throw new Error('Unknown step');
+  }
+}
+
+
 //點選按鈕設定
 class AddAlbumList extends React.Component {
   state = {
     activeStep: 0,
     completed: new Set(),
     skipped: new Set(),
-    redirect: false,
-    members: [],
-    bookId: '',
-    token: ''
+    redirect: false
   };
   
   setRedirect = () => {
@@ -138,19 +153,6 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
-    const token = localStorage.getItem('token').split(": ")[1];
-    this.setState({token});
-    if( activeStep === 0){
-      axios.post('http://localhost:8081/rest/newMemoryProject', {
-        "loginToken": token,
-        "memoryProjectName": this.state.bookName
-      }).then((res) => this.setState({bookId: res.data}) );
-    }else if( activeStep === 1){
-      axios.post('http://localhost:8081/rest/newMember', {
-        "loginToken": token,
-        "members": this.state.members
-      })
-    }
     this.setState({
       activeStep: activeStep + 1,
     });
@@ -173,31 +175,6 @@ class AddAlbumList extends React.Component {
       activeStep: 0,
     });
   };
-
-  //步驟設定
-getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <Info handleChange={(data) => {
-      //console.log(data);
-      this.setState({ bookName: data})
-    }}/>;
-    case 1:
-      return <NewMember handleChange={(data) => {
-      this.setState({ members: data})
-      //console.log(data);
-    }}/>;
-    case 2:
-      return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
-    case 3:
-      return <OrganizePhoto />;
-    case 4:
-      return <Theme/>;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
   
   render() {
     const { classes ,source} = this.props;
@@ -259,7 +236,7 @@ getStepContent(step) {
                 onClose={this.handleClose}
                 >
               <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-               <Theme1/>
+               <ThemePC/>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
               關閉
@@ -298,7 +275,7 @@ getStepContent(step) {
                 </React.Fragment>
               ) : (
                 <React.Fragment>
-                  {this.getStepContent(activeStep)}
+                  {getStepContent(activeStep)}
                   
                   <div className={classes.buttons}>
                     
