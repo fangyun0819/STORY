@@ -112,7 +112,7 @@ class Profile extends React.Component {
           </Grid>
           <Grid item xs={12} sm={12}>
           <TextField
-            required
+            requiredgit pull url master
             id="description"
             name="description"
             label="原密碼"
