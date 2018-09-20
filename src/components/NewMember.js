@@ -26,13 +26,39 @@ class NewMember extends React.Component {
     super();
     this.state = {
       members: ["default"],
-      confirmedMembers: ["default", "default", "default"],
-      currentEmail: ''
+      confirmedMembers: [{
+        name: "vivi",
+        image: "https://i.imgur.com/Qvi9mAP.png",
+        confirmed: false
+      },{
+        name: "travis",
+        image: "https://i.imgur.com/yIymoWh.png",
+        confirmed: false
+      }, {
+        name: "chinchin",
+        image: "https://i.imgur.com/tPDnEDb.png",
+        confirmed: false
+      }, {
+        name: "stacy",
+        image: "https://i.imgur.com/2YmwqrU.png",
+        confirmed: false
+      }, {
+        name: "kevin",
+        image: "https://i.imgur.com/mupYPXP.png",
+        confirmed: false
+      }],
+      currentEmail: '',
+      showAvatar: false
     }
   }
 
   componentDidMount(){
     this.handleChange = this.props.handleChange;
+    setTimeout(() => {
+      let {confirmedMembers} = this.state;
+      confirmedMembers[3].confirmed = true;  
+      this.setState({confirmedMembers})
+    }, 20000);
   }
   _renderMemberInput(){
     return this.state.members.map(function(item, i){
@@ -46,7 +72,7 @@ class NewMember extends React.Component {
         this.setState({members});
         this.handleChange(members);
         //console.log(members)
-    }}
+    }, this}
       fullWidth>{item}</TextField>
       </Grid>
     }, this)
@@ -64,19 +90,29 @@ class NewMember extends React.Component {
         }}>
         <AddIcon />
       </Button>
+      <Button mini color="secondary" aria-label="Add" onClick={ () =>{
+        this.setState({showAvatar: true});
+        alert('新增成功');
+      }}>
+        <p>確定邀請</p>
+      </Button>
     </Grid>
     )
   }
   
   _renderMembers(){
-    return this.state.confirmedMembers.map(function(item, i){
-      return (
-        <div>
-          <a>已加入</a>
-          <Avatar alt="members" src="https://i.imgur.com/JbUZQho.jpg" />
-          <a>Chia Yu</a>
-        </div>
-      )
+    return this.state.members.map((item, i) => {
+      console.log(i)
+      if( this.state.showAvatar ){
+        return (
+          <div>
+            { this.state.confirmedMembers[i].confirmed ? <a>已加入</a> : "未加入"}
+            <Avatar alt="members" src={this.state.confirmedMembers[i].image} />
+            { this.state.confirmedMembers[i].confirmed ? <a>{this.state.confirmedMembers[i].name}</a> : this.state.confirmedMembers[i].name}
+            <br/>
+          </div>
+        )
+      }
     })
   }
   
