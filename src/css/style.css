@@ -1,10 +1,19 @@
 #font{
   font-family: "Times New Roman", Times, serif;
+<<<<<<< HEAD
 	font-style: oblique;
 	font-size: 30px;
 	color: #050505;
 }
 
+=======
+  font-style: oblique;
+  color: #070707;
+}
+#stepper{
+  background-color: rgba(102, 133, 165, 0.6);;
+}
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
 #next
 	{
 		display: inline-block;
@@ -33,6 +42,7 @@
 		font-size: 1em;
 		color: #3f0900;
 	}
+<<<<<<< HEAD
 	#paper{
 		background:rgba(0, 0, 0, 0.4);
 	}
@@ -44,3 +54,5 @@
 {
 	background: rgba(0, 0, 0, 0.3);
 }
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da

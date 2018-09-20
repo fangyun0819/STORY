@@ -7,6 +7,7 @@
 }
 #button
 {
+<<<<<<< HEAD
 	float:right;
 }  
 
@@ -22,3 +23,21 @@ float:right;
 	width: 1000;
 	height:500;
 }
+=======
+	display: inline-block;
+	padding: 1em 2em 1em 2em;
+	letter-spacing: 0.10em;
+	margin-top: 2em;
+	margin-left: 50em;
+	background: #ffffff;
+	border-radius: 6px;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 1em;
+	color: #3f0900;
+}  
+btn:focus{
+	background: red;
+}
+	
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da

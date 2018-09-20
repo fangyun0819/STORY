@@ -4,15 +4,22 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "7.0.0-beta.55",
+<<<<<<< HEAD
     "@material-ui/core": "^3.0.3",
     "muicss": "^0.9.41",
     "npm": "^6.4.1",
+=======
+    "muicss": "^0.9.41",
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
     "prop-types": "^15.6.2",
     "ra-data-json-server": "^2.2.0",
     "react": "^16.4.2",
     "react-admin": "^2.2.2",
+<<<<<<< HEAD
     "react-avatar-edit": "^0.6.0",
     "react-background-image-loader": "0.0.5",
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
     "react-dom": "^16.4.2",
     "react-image-picker": "^1.1.1",
     "react-localization": "^1.0.10",

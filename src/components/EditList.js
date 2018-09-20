@@ -13,6 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Theme1 from './Theme1';
+<<<<<<< HEAD
 import Theme2 from './Theme2';
 
 import { Redirect } from 'react-router-dom';
@@ -20,12 +21,20 @@ import { Route,Router } from 'react-router-dom';
 import Edit from './Edit';
 
 require('./components.css');
+=======
+
+
+
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
 
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+<<<<<<< HEAD
    
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
   },
   card: {
     display: 'auto',
@@ -36,6 +45,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit,
   },
   paper: {
+<<<<<<< HEAD
     padding: theme.spacing.unit * 2,
     color: theme.palette.text.secondary,
   },
@@ -48,6 +58,12 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 3,
   },
   
+=======
+    color: theme.palette.text.secondary,
+    height: 500,
+    width: 500,
+  },
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
 });
 
 class EditList extends React.Component {
@@ -55,6 +71,7 @@ class EditList extends React.Component {
     open: false,
   };
 
+<<<<<<< HEAD
   setRedirect = () => {
     this.setState({
       redirect: true
@@ -67,6 +84,8 @@ class EditList extends React.Component {
     }
   }
 
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
   handleClickOpen = () =>{
     this.setState({ open: true });
   };
@@ -78,6 +97,7 @@ class EditList extends React.Component {
   render() {
     const { classes } = this.props;
     
+<<<<<<< HEAD
       
   
 
@@ -96,6 +116,18 @@ class EditList extends React.Component {
           variant="outlined" color="primary" 
           className={classes.button}>
           預覽畢業紀念冊
+=======
+
+  return (
+      <Grid item container xs={24}>
+        
+        <Grid item xs={6} sm={3}>
+        <Card className={classes.card}>
+         <CardContent>
+           
+          <Button onClick={this.handleClickOpen} variant="outlined" color="primary" className={classes.button}>
+          畢業紀念冊1
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
           </Button>
           <Dialog
           fullScreen
@@ -103,13 +135,20 @@ class EditList extends React.Component {
            onClose={this.handleClose}
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
+<<<<<<< HEAD
            <Theme1/>
+=======
+          <DialogContent>
+          <Theme1/>
+          </DialogContent>
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
              CLOSE
             </Button>
           </DialogActions>
           </Dialog>
+<<<<<<< HEAD
           </Paper>
 
           <React.Fragment>
@@ -127,6 +166,16 @@ class EditList extends React.Component {
         </Grid>
        </Grid>
      
+=======
+           
+          <Button  variant="outlined" color="primary" className={classes.button}>
+          更改設定
+          </Button>
+         </CardContent>
+        </Card>
+        </Grid>
+       </Grid>
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
      );
    }
 }

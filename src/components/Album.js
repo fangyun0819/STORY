@@ -14,6 +14,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import  SimpleModalWrapped from './SimpleModalWrapped';
+<<<<<<< HEAD
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -21,6 +22,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 import { Redirect } from 'react-router-dom';
 
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
 
 const styles = theme => ({
   appBar: {
@@ -65,6 +68,7 @@ const styles = theme => ({
 const cards = ['全部', '個人', '團體'];
 const images = ["https://images.pexels.com/photos/935789/pexels-photo-935789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/583399/pexels-photo-583399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/1330808/pexels-photo-1330808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
 
+<<<<<<< HEAD
 class Album extends React.Component {
   state = {
 
@@ -84,6 +88,11 @@ renderRedirect = () => {
 }
 render(){
   const { classes } = this.props;
+=======
+function Album(props) {
+  const { classes } = props;
+
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
   return (
     <React.Fragment>
       <main>
@@ -92,6 +101,7 @@ render(){
           <Grid container spacing={40}>
             {cards.map( (card ,index) => (
               <Grid item key={card} sm={4} md={4} lg={4}>
+<<<<<<< HEAD
                 <ExpansionPanel>
                   <ExpansionPanelSummary>
                     <Typography className={classes.heading}>{card}</Typography>
@@ -122,6 +132,34 @@ render(){
                   </Card>
                 </ExpansionPanelDetails>
                 </ExpansionPanel>
+=======
+                <Card>
+                  <CardActions style={{ flex: 1 }}>
+                    <Button size="small">
+                      {card}
+                    </Button>
+                  </CardActions>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={images[index]}
+                    title="Image title"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="headline" component="h2">
+                      畢業五組
+                    </Typography>
+
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      更改基本設定
+                    </Button>
+                    <Button size="small" color="primary">
+                      檢視作品集
+                    </Button>
+                  </CardActions>
+                </Card>
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
               </Grid>
             ))}
           </Grid>
@@ -130,9 +168,16 @@ render(){
     </React.Fragment>
   );
 }
+<<<<<<< HEAD
 }
 Album.propTypes = {
   classes: PropTypes.object.isRequired,
 }
+=======
+
+Album.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
 
 export default withStyles(styles)(Album);

@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+<<<<<<< HEAD
 #button
 {
 	display: inline-block;
@@ -17,3 +18,5 @@ body {
 	font-size: 1em;
 	color: #3f0900;
 }  
+=======
+>>>>>>> 4ea69ab0408ab35033e6961373c44f0c8c1450da
