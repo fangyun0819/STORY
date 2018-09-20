@@ -6,6 +6,8 @@ import AddAlbumList from './AddAlbumList';
 import AAAAIcon from '@material-ui/icons/Camera';
 import PersonIcon from '@material-ui/icons/Person';
 import authProvider from './authProvider';
+import dataProvider from './dataProvider';
+
 import LoginPage from './LoginPage';
 import { Route,Router } from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -75,7 +77,7 @@ class App extends Component {
   
 
     return(
-      <Admin theme={theme} authProvider={authProvider}  loginPage={LoginPage}
+      <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
       title="StoryMaker"
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, 
                     <Route path="/showalbumlist" component={ShowAlbumList} />,
