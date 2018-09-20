@@ -33,10 +33,13 @@ function FullWidthGrid(props) {
 
   return (
   <div className={classes.root}>
-   <GridList  className={classes.gridList} cols={2}>
+   <GridList id="source-container" className={classes.gridList} cols={2}>
         {StickerList.map(tile => (
           <GridListTile key={tile.img} cols={tile.cols || 1}>
-          <img className={classes.img} src={tile.img} />
+          
+          
+          <img id="drag-source" draggable="true" className={classes.img} src={tile.img} />
+
           </GridListTile>
         ))}
       </GridList>

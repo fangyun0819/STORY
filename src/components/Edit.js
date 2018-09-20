@@ -153,7 +153,7 @@ class Edit extends React.Component {
         
         <Grid item item xs={10}>
         <BackgroundImage src={source} placeholder={background} id="img" > 
-        <div className={classes.layout} id="layout" >
+        <div className={classes.layout} id="target-container" >
         
         <img className={classes.img} src={p1} width="300" height="400"/>
         <img className={classes.img} src={p2} height="300" width="500"/>

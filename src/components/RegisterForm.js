@@ -62,7 +62,7 @@ class RegisterForm extends React.Component {
       <Grid container spacing={24}>
         <Grid className={classes.container} container justify = "center" alignItems="center"   direction="column">
           <Button variant="outlined" size="large" color="primary" className={classes.button} onClick= { () => _handleLogin()}>
-              Login
+              Login!
           </Button>
           <FormControl className={classes.margin}>
             <InputLabel classes={{root:classes.label }} htmlFor="adornment-name">Name</InputLabel>
