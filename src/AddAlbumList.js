@@ -16,7 +16,6 @@ import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
 import Theme from './components/Theme';
-import EditList from './components/EditList';
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
