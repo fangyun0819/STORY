@@ -63,7 +63,7 @@ class Info extends React.Component {
   
     <React.Fragment>
       <Typography id="text" >
-        請填寫畢業紀念冊基本資訊
+        請填寫畢業紀念冊基本資訊!!!!!!!!
       </Typography>
       
       <Grid container spacing={24} >
