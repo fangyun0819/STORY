@@ -1,0 +1,26 @@
+#text{
+	font-family: Arial, Helvetica, sans-serif, "Microsoft-JhengHei";
+	font-size: 30px;
+	color: #070707;
+	text-align: center;
+	
+}
+#button
+{
+	float:right;
+	
+	
+}  
+
+#paper
+{
+	background:#070707;
+}
+
+#position{
+float:right;
+}
+#img{
+	width: 1000;
+	height:500;
+}

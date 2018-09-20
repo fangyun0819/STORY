@@ -1,0 +1,63 @@
+#font{
+  font-family: "Times New Roman", Times, serif;
+	font-style: oblique;
+	font-size: 30px;
+	color: #050505;
+}
+#new
+	{
+		display: inline-block;
+		padding: 1em 1em 1em 1em;
+		letter-spacing: 0.1em;
+		margin-top: 0.5em;
+		padding: 2em 1em;
+		
+		border-radius: 6px;
+		text-decoration: column;
+		align-items:center;
+
+		font-weight: 600;
+		font-size: 13px;
+		color: #55333b;
+	
+		
+  }
+#next
+	{
+		display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #55333b;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #ffffff;
+  }
+  #back
+  {
+    display: inline-block;
+		padding: 1em 2em 1em 2em;
+		letter-spacing: 0.10em;
+		margin-top: 2em;
+		padding: 1em 1em;
+		background: #ffffff;
+		border-radius: 6px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1em;
+		color: #55333b;
+	}
+	#paper{
+		background:rgba(0, 0, 0, 0.4);
+	}
+	#root
+	{
+		background: rgba(0, 0, 0, 0.7);
+	}
+#img
+{
+	background: rgba(0, 0, 0, 0.3);
+}
