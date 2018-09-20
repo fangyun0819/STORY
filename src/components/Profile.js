@@ -8,7 +8,11 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+  },
 
 });
 
@@ -53,12 +57,13 @@ class Profile extends Component {
         <Grid item xs={12} sm={12}>
           <TextField
             required
+            
             id="firstName"
             name="firstName"
             label="名稱"
             value={this.state.username}
             onChange={this.handleChange('username')}
-            fullWidth
+            
           />
         </Grid>
         <Grid item xs={12} sm={12}>
@@ -70,7 +75,7 @@ class Profile extends Component {
             value={this.state.email}
             onChange={this.handleChange('email')}
 
-            fullWidth
+            
           />
           </Grid>
           <Grid item xs={12} sm={12}>
@@ -79,7 +84,7 @@ class Profile extends Component {
             id="description"
             name="description"
             label="原密碼"
-            fullWidth
+            
           />
           </Grid>
       <Grid item xs={12} sm={12}>
@@ -88,7 +93,7 @@ class Profile extends Component {
             id="description"
             name="description"
             label="新密碼"
-            fullWidth
+            
           />
           </Grid>
       </Grid>

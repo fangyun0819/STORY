@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
-
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -27,30 +27,42 @@ class NewMember extends React.Component {
     this.state = {
       members: ["default"],
       confirmedMembers: ["default", "default", "default"],
+      currentEmail: ''
     }
+  }
+
+  componentDidMount(){
+    this.handleChange = this.props.handleChange;
   }
   _renderMemberInput(){
     return this.state.members.map(function(item, i){
       return <Grid item xs={12} sm={12}>
       <TextField 
-  
+      key={i}
       label="輸入信箱"
+      onChange={ (event) => {
+        let {members} = this.state;
+        members[i] = event.target.value;
+        this.setState({members});
+        this.handleChange(members);
+        //console.log(members)
+    }}
       fullWidth>{item}</TextField>
       </Grid>
-    })
+    }, this)
   }
   _renderButton(){
     return(
     <Grid item xs={12} sm={12}>
       <Button mini color="secondary" aria-label="Add" onClick={ () => {
         let {members} = this.state;
+        /*axios.post('http://localhost:8081/rest/newMember', {
+          "email": this.state.currentEmail
+        })*/
         members.push("default")
         this.setState({members})
         }}>
         <AddIcon />
-      </Button>
-      <Button mini color="secondary" aria-label="Add" onClick={ () => alert('新增成功')}>
-        <p>確定邀請</p>
       </Button>
     </Grid>
     )
@@ -67,6 +79,7 @@ class NewMember extends React.Component {
       )
     })
   }
+  
   render(){
     
     return  (<React.Fragment>

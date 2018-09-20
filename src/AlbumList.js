@@ -51,14 +51,14 @@ class AlbumList extends Component {
         backgroundImage: `url('https://i.imgur.com/kea3uBg.jpg')`,
         //backgroundPosition: 'top left',
         backgroundRepeat: 'no-repeat',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#dbd1c6'
       }}>
-            <Button mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: 1})}>
+            <Button id="new"  mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: 1})}>
 
               <AddIcon />
               <a>新增畢業紀念冊</a>
             </Button>
-            <Button mini color="secondary" aria-label="Add" className={classes.button}
+            <Button id="new"  aria-label="Add" className={classes.button}
              onClick={ ()=> this.setState({isRedirect: 2})}>
               <AddIcon />
               <a>畢業紀念冊</a>

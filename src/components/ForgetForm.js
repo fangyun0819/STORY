@@ -22,9 +22,20 @@ const styles = theme => ({
     //backgroundColor: '#00B1E1'
   },
   container: {
-    marginTop: 380,
-    marginLeft: 725,
+    marginTop: 60,
+    marginLeft: 0,
     //backgroundColor: '#6b6f70'
+  },
+
+  button1: {
+    color: '#ffffff',
+    'border-color': '#ffffff',
+    backgroundColor: '#ac999d'
+  },
+  button2: {
+    color: '#ffffff',
+    'border-color': '#ffffff',
+    backgroundColor: '#b38b94'
   },
   button: {
     color: '#ffffff',
@@ -32,10 +43,10 @@ const styles = theme => ({
   },
   label: {
     fontSize: '10px',
-    color: '#c1c1c2',
+    color: '#9d9795',
     '&:focus':{
       fontSize: '10px',
-      color: '#c1c1c2',
+      color: '#9d9795',
     }
   },
 });
@@ -76,12 +87,12 @@ class RegisterForm extends React.Component {
               />
           </FormControl>
           <br/>
-          <Button variant="outlined" size="large" className={classes.button}  onClick= { () => alert("驗證信已寄出")}>
-              Confirm
+          <Button variant="outlined" size="large" className={classes.button2}  onClick= { () => alert("驗證信已寄出")}>
+              確認
           </Button>
           <br/>
           <Button variant="outlined" size="large" className={classes.button} onClick= { () => _handleLogin()}>
-              Login
+              返回登入
           </Button>
           </Grid>
       </Grid>

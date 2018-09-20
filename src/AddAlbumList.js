@@ -16,6 +16,7 @@ import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
 import Theme from './components/Theme';
+import EditList from './components/EditList';
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -42,8 +43,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemePC from './reactStudio/ThemePC';
-
+import Theme1 from './components/Theme1';
+import axios from 'axios';
 
 require('./css/style.css');
 
@@ -99,32 +100,16 @@ function getSteps(){
   return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
 }
 
-//步驟設定
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <Info/>;
-    case 1:
-      return <NewMember />;
-    case 2:
-      return <ImageUpload />;
-    case 3:
-      return <OrganizePhoto />;
-    case 4:
-      return <Theme/>;
-    default:
-      throw new Error('Unknown step');
-  }
-}
-
-
 //點選按鈕設定
 class AddAlbumList extends React.Component {
   state = {
     activeStep: 0,
     completed: new Set(),
     skipped: new Set(),
-    redirect: false
+    redirect: false,
+    members: [],
+    bookId: '',
+    token: ''
   };
   
   setRedirect = () => {
@@ -153,6 +138,19 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
+    const token = localStorage.getItem('token').split(": ")[1];
+    this.setState({token});
+    if( activeStep === 0){
+      axios.post('http://localhost:8081/rest/newMemoryProject', {
+        "loginToken": token,
+        "memoryProjectName": this.state.bookName
+      }).then((res) => this.setState({bookId: res.data}) );
+    }else if( activeStep === 1){
+      axios.post('http://localhost:8081/rest/newMember', {
+        "loginToken": token,
+        "members": this.state.members
+      })
+    }
     this.setState({
       activeStep: activeStep + 1,
     });
@@ -175,6 +173,31 @@ class AddAlbumList extends React.Component {
       activeStep: 0,
     });
   };
+
+  //步驟設定
+getStepContent(step) {
+  switch (step) {
+    case 0:
+      return <Info handleChange={(data) => {
+      //console.log(data);
+      this.setState({ bookName: data})
+    }}/>;
+    case 1:
+      return <NewMember handleChange={(data) => {
+      this.setState({ members: data})
+      //console.log(data);
+    }}/>;
+    case 2:
+      return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
+    case 3:
+      return <OrganizePhoto />;
+    case 4:
+      return <Theme/>;
+    default:
+      throw new Error('Unknown step');
+  }
+}
+
   
   render() {
     const { classes ,source} = this.props;
@@ -191,7 +214,7 @@ class AddAlbumList extends React.Component {
       
           <Paper  className={classes.root}  >
           <Typography id="font"  align="center" >
-            CREATE YOUR STORY
+            創建屬於你們的故事
           </Typography>
             <Stepper  
            activeStep={activeStep}  
@@ -236,10 +259,10 @@ class AddAlbumList extends React.Component {
                 onClose={this.handleClose}
                 >
               <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-               <ThemePC/>
+               <Theme1/>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
-              CLOSE
+              關閉
               </Button>
             </DialogActions>
            </Dialog>
@@ -261,21 +284,21 @@ class AddAlbumList extends React.Component {
                     id="back"
                     onClick={this.handleBack} 
                     className={classes.button}>
-                    BACK
+                    返回
                     </Button>
                     <Button
                      required
                      id="next"
                      className={classes.button}
                      onClick={ ()=> this.setState({isRedirect: 1})}>
-                     FINISH
+                     完成
                     </Button>
                     </div>
 
                 </React.Fragment>
               ) : (
                 <React.Fragment>
-                  {getStepContent(activeStep)}
+                  {this.getStepContent(activeStep)}
                   
                   <div className={classes.buttons}>
                     
@@ -285,7 +308,7 @@ class AddAlbumList extends React.Component {
                       id="back"
                       onClick={this.handleBack} 
                       className={classes.button}>
-                      BACK
+                      返回
                       </Button>
                     )}
                       <Button
@@ -293,7 +316,7 @@ class AddAlbumList extends React.Component {
                       id="next"
                       onClick={this.handleNext}
                       className={classes.button}>
-                     NEXT
+                     下一步
                     </Button>
                   </div>
                 </React.Fragment>

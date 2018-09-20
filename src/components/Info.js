@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import purple from '@material-ui/core/colors/purple';
@@ -50,7 +51,10 @@ const styles = theme => ({
 
 
 class Info extends React.Component {
-   
+  handleChange = event  => {
+    this.props.handleChange(event.target.value);
+  };
+  
   render() {
     const { classes } = this.props;
     
@@ -81,6 +85,7 @@ class Info extends React.Component {
           shrink: true,
           className: classes.bootstrapFormLabel,
         }}
+        onChange= {this.handleChange}
       />
         </Grid>
        
