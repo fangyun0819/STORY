@@ -133,7 +133,7 @@ class AddAlbumList extends React.Component {
       case 2:
         return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 3:
-        return <OrganizePhoto />;
+        return <OrganizePhoto bookId={this.state.bookId}/>;
       case 4:
         return <Theme/>;
       default:
