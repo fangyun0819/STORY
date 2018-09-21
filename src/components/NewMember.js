@@ -92,7 +92,7 @@ class NewMember extends React.Component {
         this.setState({showAvatar: true});
         axios.post('http://localhost:8081/rest/newMember', {
           "email": this.state.members
-        })
+        });
         alert('新增成功');
       }}>
         <p>確定邀請</p>
