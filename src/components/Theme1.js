@@ -21,6 +21,7 @@ import ThemeNPC from '../TPL/ThemeNPC';
 const styles = theme => ({
 
   card: {
+    marginTop: theme.spacing.unit*3,
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     display: 'auto',
@@ -69,7 +70,7 @@ class ThemeList extends React.Component {
   return (
      
         <Card className={classes.card}>
-         <CardContent>
+         <CardContent align="center">
           <FormControlLabel
           className={classes.form}
             align="center"

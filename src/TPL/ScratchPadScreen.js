@@ -3,6 +3,7 @@ import './App.css';
 
 // UI framework component imports
 import Button from 'muicss/lib/react/button';
+import background from './images/storybook.jpg';
 
 
 export default class ScratchPadScreen extends Component {
@@ -33,21 +34,18 @@ export default class ScratchPadScreen extends Component {
     const style_background = {
         width: '100%',
         height: '100%',
+        backgroundImage: 'url('+background+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
      };
     const style_background_outer = {
         backgroundColor: '#f6f6f6',
         pointerEvents: 'none',
      };
-    const style_text = {
-        color: 'rgba(7, 7, 7, 0.8500)',
-        textAlign: 'left',
-        textShadow: 'rgba(255, 255, 255, 0.7500) 0.0px 2.3px 0.0px',
-     };
-    const style_text_outer = {
-        pointerEvents: 'none',
-     };
+
     const style_button = {
-        display: 'block',
+       
+        display: 'center',
         textAlign: 'center',
      };
     const style_button_outer = {
@@ -59,21 +57,13 @@ export default class ScratchPadScreen extends Component {
         <div className="background">
           <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
             <div style={style_background} />
-          
-          </div>
+           </div>
           
         </div>
-        <div className="layoutFlow" style={layoutFlowStyle}>
-          <div className='baseFont elText' style={style_text_outer}>
-            <div style={style_text}>
-              <div>{this.props.locStrings.scratchpad_text_289930}</div>
-            </div>
-          
-          </div>
-          
+      <div className="layoutFlow" style={layoutFlowStyle}>
           <div className='actionFont elButton' style={style_button_outer}>
-            <Button style={style_button}  color="accent" onClick={this.onClick_elButton} >
-              {this.props.locStrings.scratchpad_button_379999}
+            <Button  style={style_button}  color="accent" onClick={this.onClick_elButton} >
+            開啟
             </Button>
           
           </div>

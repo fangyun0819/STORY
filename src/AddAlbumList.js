@@ -33,7 +33,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
 
-import background from './images/b2.jpg';
+import background from './images/background.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Edit from './components/Edit';
@@ -162,23 +162,11 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
-    const token = localStorage.getItem('token').split(": ")[1];
-    this.setState({token});
-    if( activeStep === 0){
-      axios.post('http://localhost:8081/rest/newMemoryProject', {
-        "loginToken": token,
-        "memoryProjectName": this.state.bookName
-      }).then((res) => this.setState({bookId: res.data}) );
-    }else if( activeStep === 1){
-      axios.post('http://localhost:8081/rest/newMember', {
-        "loginToken": token,
-        "members": this.state.members
-      })
-    }
     this.setState({
       activeStep: activeStep + 1,
     });
   };
+  
 
   handleBack = () => {
     const { activeStep } = this.state;

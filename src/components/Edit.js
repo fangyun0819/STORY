@@ -26,7 +26,7 @@ import ThemePC from '../reactStudio/ThemePC';
 import { Redirect } from 'react-router-dom';
 
 import BackgroundImage from 'react-background-image-loader';
-import background from './images/b2.jpg';
+import background from './images/background.jpg';
 import p1 from './images/p1.jpg';
 import p2 from './images/p2.jpg';
 

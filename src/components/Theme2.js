@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import story from './images/b1.jpg';
+import story from './images/b2.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -21,6 +21,7 @@ import ThemeNPC2 from '../TPL2/ThemeNPC';
 const styles = theme => ({
 
   card: {
+    marginTop: theme.spacing.unit*3,
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     display: 'auto',
@@ -69,7 +70,7 @@ class ThemeList extends React.Component {
   return (
      
         <Card className={classes.card}>
-         <CardContent>
+         <CardContent align="center">
           <FormControlLabel
           className={classes.form}
             align="center"
