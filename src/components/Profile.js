@@ -5,7 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import Avatar from 'react-avatar-edit'
+import Avatar from 'react-avatar-edit';
 
 const styles = theme => ({
   root: {

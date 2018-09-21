@@ -33,7 +33,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
 
-import background from './images/images.jpg';
+import background from './images/b2.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Edit from './components/Edit';
