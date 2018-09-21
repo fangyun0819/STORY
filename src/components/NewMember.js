@@ -72,7 +72,7 @@ class NewMember extends React.Component {
         this.setState({members});
         this.handleChange(members);
         //console.log(members)
-    }, this}
+    }}
       fullWidth>{item}</TextField>
       </Grid>
     }, this)
@@ -82,9 +82,7 @@ class NewMember extends React.Component {
     <Grid item xs={12} sm={12}>
       <Button mini color="secondary" aria-label="Add" onClick={ () => {
         let {members} = this.state;
-        /*axios.post('http://localhost:8081/rest/newMember', {
-          "email": this.state.currentEmail
-        })*/
+
         members.push("default")
         this.setState({members})
         }}>
@@ -92,6 +90,9 @@ class NewMember extends React.Component {
       </Button>
       <Button mini color="secondary" aria-label="Add" onClick={ () =>{
         this.setState({showAvatar: true});
+        axios.post('http://localhost:8081/rest/newMember', {
+          "email": this.state.members
+        })
         alert('新增成功');
       }}>
         <p>確定邀請</p>
@@ -102,7 +103,6 @@ class NewMember extends React.Component {
   
   _renderMembers(){
     return this.state.members.map((item, i) => {
-      console.log(i)
       if( this.state.showAvatar ){
         return (
           <div>
