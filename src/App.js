@@ -6,6 +6,8 @@ import AddAlbumList from './AddAlbumList';
 import AAAAIcon from '@material-ui/icons/Camera';
 import PersonIcon from '@material-ui/icons/Person';
 import authProvider from './authProvider';
+import dataProvider from './dataProvider';
+
 import LoginPage from './LoginPage';
 import { Route,Router } from 'react-router-dom';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -30,15 +32,15 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // light: will be calculated from palette.primary.main,
-      main: '#000066',
+      main: '#55333b',
       // dark: will be calculated from palette.primary.main,
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
-      light: '#0066ff',
-      main: '#000066',
+      light: '#b38b94',
+      main: '#55333b',
       // dark: will be calculated from palette.secondary.main,
-      contrastText: '#ffcc00',
+      contrastText: '#d5aeb7',
     },
     // error: will use the default color
   },
@@ -75,7 +77,7 @@ class App extends Component {
   
 
     return(
-      <Admin theme={theme} authProvider={authProvider}  loginPage={LoginPage}
+      <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
       title="StoryMaker"
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, 
                     <Route path="/showalbumlist" component={ShowAlbumList} />,

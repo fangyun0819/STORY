@@ -1,95 +1,97 @@
-import React, {ReactDOM} from 'react';
-import ImagePicker from 'react-image-picker'
-import 'react-image-picker/dist/index.css'
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Button } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
-const styles = theme => ({
-  button: {
-    margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
-  },
-});
-
-class ImageUpload extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {file: [],imagePreviewUrl: []};
+export default class ImageUpload extends Component {
+  constructor() {
+    super();
+    this.state = {
+      selectedFile: [],
+      selectedFileDate: [],
+      file: [],
+      numOfFiles: 1
+    };
   }
 
-  _handleSubmit(e) {
-    e.preventDefault();
-    // TODO: do something with -> this.state.file
-    console.log('handle uploading-', this.state.file);
+  onChange = (e, i) => {
+    //console.log(index)
+    let {selectedFile, file, selectedFileDate}= this.state;
+    //console.log('lastModified' + e.target.files[0].lastModified)
+    if(selectedFile.length < i){
+      selectedFile.push(e.target.files[0]);
+      selectedFileDate.push(e.target.files[0].lastModified);
+      file.push(URL.createObjectURL(e.target.files[0]));  
+    }else{
+      selectedFile[i] = e.target.files[0];
+      selectedFileDate[i] = e.target.files[0].lastModified;
+      file[i] = URL.createObjectURL(e.target.files[0]);
+    }
+    this.setState({ selectedFile , file});
+
   }
 
-  _handleImageChange(e) {
+  onSubmit = (e) => {
     e.preventDefault();
-    let files = Array.from(e.target.files)
+    const { selectedFile, selectedFileDate } = this.state;
+    const { token, bookId} = this.props;
+    for(let i = 0 ; i < selectedFile.length ; i ++){
+      let formData = new FormData();
 
-    files.forEach( (file) => {
-      let reader = new FileReader();
+      formData.append('timeModified', selectedFileDate[i]);
+      formData.append('selectedFile', selectedFile[i]);
+      formData.append('token', token);
+      formData.append('bookId', bookId);
 
-      reader.onloadend = () => {
-        let {imagePreviewUrl} = this.state;
-        let _file = this.state.file;
-        _file.push(file)
-        imagePreviewUrl.push(reader.result)
-        this.setState({
-          file: _file,
-          imagePreviewUrl: imagePreviewUrl
-        });
-      }
   
-      reader.readAsDataURL(file)
-  
-    })
+      axios.post('http://localhost:8081/upload-image', formData)
+      .then((result) => {
+        
+      });
+    }
+  }
+
+  _renderInput(){
+    let input = [];
+    for(let i = 0; i < this.state.numOfFiles ; i ++){
+      input.push(
+        <div>
+          <input
+            type="file"
+            name="selectedFile"
+            onChange={ (e) => this.onChange(e, i)}
+          />
+          <img src={this.state.file[i]} height="42" width="42"/>
+        </div>
+      )
+    }
+
+      return (
+        <div>
+          {input.map(function(item){
+            return item;
+          })}
+        </div>
+      );
   }
 
   render() {
-    const { classes } = this.props;
-    let {imagePreviewUrl} = this.state;
-    let $imagePreview = null;
-    if (imagePreviewUrl.length !== 0) {
-      $imagePreview = <ImagePicker 
-      multiple
-      images={this.state.imagePreviewUrl.map((image, i) => ({src: image, value: i}))}
-    />
-    } else {
-      $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
-    }
-
+    const { description, selectedFile } = this.state;
+    
     return (
-      <div className="previewComponent">
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
-        <input
-          accept="image/*"
-          className={classes.input}
-          id="contained-button-file"
-          multiple
-          type="file"
-          onChange={(e)=>this._handleImageChange(e)} 
-        />
-        <label htmlFor="contained-button-file">
-          <Button variant="contained" component="span" className={classes.button}>
-            選擇照片
-          </Button>
-        </label>
-            <Button
-              type="submit" 
-              variant="contained"
-              onClick={(e)=>this._handleSubmit(e)}>
-              確認上傳
-            </Button>
-        </form>
-        <div className="imgPreview">
-          {$imagePreview}
-        </div>
-      </div>
-    )
+      <form onSubmit={this.onSubmit}>
+        {this._renderInput()}
+        <br/>
+          <Button mini color="secondary" aria-label="Add" onClick={ () => {
+            let {numOfFiles} = this.state;
+            numOfFiles += 1;
+            this.setState({numOfFiles})
+          }}>
+          <AddIcon />
+        </Button>
+        <br/>
+        <button type="submit">Submit</button>
+      </form>
+    );
   }
 }
-
-export default withStyles(styles)(ImageUpload);

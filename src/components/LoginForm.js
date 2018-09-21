@@ -18,23 +18,30 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   container: {
-    marginTop: 380,
-    marginLeft: 725,
+    marginTop: 60,
+    marginLeft: 0,
     //backgroundColor: '#6b6f70'
   },
   button: {
     color: '#ffffff',
     'border-color': '#ffffff',
   },
-  third: {
-    marginLeft: 720,
+  button1: {
+    color: '#ffffff',
+    'border-color': '#ffffff',
+    backgroundColor: '#ac999d'
+  },
+  button2: {
+    color: '#ffffff',
+    'border-color': '#ffffff',
+    backgroundColor: '#b38b94'
   },
   label: {
     fontSize: '10px',
-    color: '#c1c1c2',
+    color: '#9d9795',
     '&:focus':{
       fontSize: '10px',
-      color: '#c1c1c2',
+      color: '#9d9795',
     }
   },
 });
@@ -44,11 +51,12 @@ class LoginForm extends React.Component {
     username: '',
     password: ''
   };
-//把全部值改掉
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
     });
+    //alert(event.target.value)
   };
 
   render() {
@@ -58,53 +66,51 @@ class LoginForm extends React.Component {
       <div style={styles.container}>
         <Grid container spacing={24}>
           <Grid className={classes.container} container justify="center" alignItems="center" direction="column">
-            <Button variant="outlined" size="large" color="primary" className={classes.button} onClick={() => _handerRegister()}>
-              Register
+            <Button variant="outlined" size="large"  color="primary" className={classes.button} onClick={() => _handerRegister()}>
+              去註冊
           </Button>
             <FormControl className={classes.margin}>
-              <InputLabel htmlFor="adornment-login" classes={{root:classes.label }}>Email</InputLabel>
+              <InputLabel classes={{root:classes.label }} htmlFor="adornment-login" classes={{root:classes.label }}>會員信箱帳號</InputLabel>
               <Input
                 id="adornment-login"
                 type={'text'}
                 value={this.state.username}
                 onChange={this.handleChange('username')}
+                endAdornment={
+                  <InputAdornment position="end">
 
+                  </InputAdornment>
+                }
               />
             </FormControl>
             <FormControl className={classes.margin}>
-              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password">Password</InputLabel>
+              <InputLabel classes={{root:classes.label }} htmlFor="adornment-password" classes={{root:classes.label }}>會員密碼</InputLabel>
               <Input
                 id="adornment-password"
+                class="loginInput"
                 type={'password'}
                 value={this.state.password}
                 onChange={this.handleChange('password')}
-                
+                endAdornment={
+                  <InputAdornment position="end">
+
+                  </InputAdornment>
+                }
               />
             </FormControl>
-              <Button variant="outlined" size="large" className={classes.button} onClick={() => onSubmit(this.state.username, this.state.password)}>
-                Login
+              <Button variant="outlined" size="large" className={classes.button2} onClick={() => {
+                onSubmit(this.state.username, this.state.password);
+                //console.log(this.state.username)
+                }}>
+                確認登入
           </Button>
           <br/>
-          <Button variant="outlined" size="large" className={classes.button} onClick={() => _handleForget()}>
-                忘記密碼     
+              <Button variant="outlined" size="large" className={classes.button1} onClick={() => _handleForget()}>
+                忘記密碼
           </Button>
-          <br/>  
           </Grid>
-          
-          <Grid className={classes.third} container justify="center" alignItems="center" direction="row">
-          <Button variant="contained" color="secondary" size="large"  >
-            Google
-          </Button>
-          <span></span>
-          <Button variant="contained" color="primary" size="large"  >
-            Facebook
-          </Button>
-          
-          </Grid>
-          </Grid>
-        
+        </Grid>
       </div>
-      
     )
   }
 }

@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Divider from '@material-ui/core/Divider';
 import Avatar from '@material-ui/core/Avatar';
-
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -26,30 +26,75 @@ class NewMember extends React.Component {
     super();
     this.state = {
       members: ["default"],
-      confirmedMembers: ["default", "default", "default"],
+      confirmedMembers: [{
+        name: "vivi",
+        image: "https://i.imgur.com/Qvi9mAP.png",
+        confirmed: false
+      },{
+        name: "travis",
+        image: "https://i.imgur.com/yIymoWh.png",
+        confirmed: false
+      }, {
+        name: "chinchin",
+        image: "https://i.imgur.com/tPDnEDb.png",
+        confirmed: false
+      }, {
+        name: "stacy",
+        image: "https://i.imgur.com/2YmwqrU.png",
+        confirmed: false
+      }, {
+        name: "kevin",
+        image: "https://i.imgur.com/mupYPXP.png",
+        confirmed: false
+      }],
+      currentEmail: '',
+      showAvatar: false
     }
+  }
+
+  componentDidMount(){
+    this.handleChange = this.props.handleChange;
+    setTimeout(() => {
+      let {confirmedMembers} = this.state;
+      confirmedMembers[3].confirmed = true;  
+      this.setState({confirmedMembers})
+    }, 20000);
   }
   _renderMemberInput(){
     return this.state.members.map(function(item, i){
       return <Grid item xs={12} sm={12}>
       <TextField 
-  
+      key={i}
       label="輸入信箱"
+      onChange={ (event) => {
+        let {members} = this.state;
+        members[i] = event.target.value;
+        this.setState({members});
+        this.handleChange(members);
+        //console.log(members)
+    }}
       fullWidth>{item}</TextField>
       </Grid>
-    })
+    }, this)
   }
   _renderButton(){
     return(
     <Grid item xs={12} sm={12}>
       <Button mini color="secondary" aria-label="Add" onClick={ () => {
         let {members} = this.state;
+
         members.push("default")
         this.setState({members})
         }}>
         <AddIcon />
       </Button>
-      <Button mini color="secondary" aria-label="Add" onClick={ () => alert('新增成功')}>
+      <Button mini color="secondary" aria-label="Add" onClick={ () =>{
+        this.setState({showAvatar: true});
+        axios.post('http://localhost:8081/rest/newMember', {
+          "email": this.state.members
+        })
+        alert('新增成功');
+      }}>
         <p>確定邀請</p>
       </Button>
     </Grid>
@@ -57,16 +102,20 @@ class NewMember extends React.Component {
   }
   
   _renderMembers(){
-    return this.state.confirmedMembers.map(function(item, i){
-      return (
-        <div>
-          <a>已加入</a>
-          <Avatar alt="members" src="https://i.imgur.com/JbUZQho.jpg" />
-          <a>Chia Yu</a>
-        </div>
-      )
+    return this.state.members.map((item, i) => {
+      if( this.state.showAvatar ){
+        return (
+          <div>
+            { this.state.confirmedMembers[i].confirmed ? <a>已加入</a> : "未加入"}
+            <Avatar alt="members" src={this.state.confirmedMembers[i].image} />
+            { this.state.confirmedMembers[i].confirmed ? <a>{this.state.confirmedMembers[i].name}</a> : this.state.confirmedMembers[i].name}
+            <br/>
+          </div>
+        )
+      }
     })
   }
+  
   render(){
     
     return  (<React.Fragment>
