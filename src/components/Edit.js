@@ -26,12 +26,16 @@ import ThemePC from '../reactStudio/ThemePC';
 import { Redirect } from 'react-router-dom';
 
 import BackgroundImage from 'react-background-image-loader';
-import background from './images/b2.jpg';
+import background from './images/background.jpg';
 import p1 from './images/p1.jpg';
 import p2 from './images/p2.jpg';
 
 import Sticker from './Sticker';
 import Text from './Text';
+
+import Page1Screen from './theme/Page1Screen';
+
+
 require('./components.css');
 
 const styles = theme => ({
@@ -117,7 +121,15 @@ class Edit extends React.Component {
           >
           <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
-          <ThemePC/>
+          <Grid container spacing={24}> 
+        <Grid item xs>
+        </Grid>
+          <Grid item xs={6}>
+         <ThemePC/>
+          </Grid>
+          <Grid item xs>
+          </Grid>
+          </Grid>
            </DialogContent>
 
           <DialogActions>
@@ -152,14 +164,10 @@ class Edit extends React.Component {
       
         
         <Grid item item xs={10}>
-        <BackgroundImage src={source} placeholder={background} id="img" > 
         <div className={classes.layout} id="target-container" >
-        
-        <img className={classes.img} src={p1} width="300" height="400"/>
-        <img className={classes.img} src={p2} height="300" width="500"/>
-        
+        <Page1Screen/>
+
         </div>
-        </BackgroundImage>
         </Grid>
        </Grid>
      

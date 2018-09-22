@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+
 
 import Page10Screen from './Page10Screen'
 import Page9Screen from './Page9Screen'
@@ -225,9 +227,16 @@ export default class App extends Component {
 
     return (
       <div className="App">
+      <Grid container spacing={24}>
+      <Grid item xs={12}>
+      <Paper innerWidth='500'>
         {prevScreenEl}
         {screenEl}
+        </Paper>
+        </Grid>
+        </Grid>
         </div>
+        
     );
   }
 }
