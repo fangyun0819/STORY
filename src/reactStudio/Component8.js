@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component8_elImage_779429.jpg';
-import img_elImageCopy from './images/Component8_elImageCopy_560966.jpg';
+import img_elImageCopy from './photo/14.jpg';
 
 
 export default class Component8 extends Component {

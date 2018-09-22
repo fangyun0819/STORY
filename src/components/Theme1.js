@@ -90,7 +90,7 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"學校風主題"}</DialogTitle>
+          <DialogTitle align="center">{"主題1"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
         <Grid item xs>
