@@ -23,6 +23,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
+import InviteMember from './IniviteMember';
 
 require('./components.css');
 
@@ -94,39 +95,10 @@ class SimpleDialog extends React.Component {
                   </IconButton>
               </ListItem>
             ))}
-            <ListItem button onClick={() => this.handleClickOpen2('addAccount')}>
-              <ListItemAvatar>
-                <Avatar>
-                  <AddIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="add account" />
-              <Dialog
-              
-              open={this.state.open}
-              onClose={() => this.handleClickClose2}
-              aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle  style={{width: 500}} id="form-dialog-title">請輸入邀請信箱</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick= { () => alert("邀請信已寄出")} color="primary">
-              邀請
-            </Button>
-            <Button onClose={() => this.handleClickClose2} variant="outlined" >
-                關閉
-              </Button>
-          </DialogActions>
-        </Dialog>
+
+            <ListItem >
+             
+              <InviteMember/>
 
             </ListItem>
             <Button onClick={this.handleClose} variant="outlined" >
