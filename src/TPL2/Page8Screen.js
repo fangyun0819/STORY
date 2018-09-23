@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import './App.css';
-import Component6 from './Component6';
+import Component8 from './Component8';
+import btn_icon_back_page8 from './images/btn_icon_back_page8.png';
 
 // UI framework component imports
 import Button from 'muicss/lib/react/button';
+import Appbar from 'muicss/lib/react/appbar';
 import Container from 'muicss/lib/react/container';
 
 
-export default class Screen6 extends Component {
+export default class Page8Screen extends Component {
 
   // Properties used by this component:
   // appActions, deviceInfo
 
   onClick_elButton = (ev) => {
-    // Go to screen 'Screen7'
-    this.props.appActions.goToScreen('screen7', { transitionId: 'fadeIn' });
+    // Go to screen 'Page.9'
+    this.props.appActions.goToScreen('page9', { transitionId: 'fadeIn' });
   
   }
   
@@ -49,7 +51,7 @@ export default class Screen6 extends Component {
      };
     
     return (
-      <Container fluid={true} className="AppScreen Screen6" style={baseStyle}>
+      <Container fluid={true} className="AppScreen Page8Screen" style={baseStyle}>
         <div className="background">
           <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
             <div style={style_background} />
@@ -60,19 +62,23 @@ export default class Screen6 extends Component {
         <div className="layoutFlow" style={layoutFlowStyle}>
           <div className='hasNestedComps elComponent'>
             <div>
-              <Component6 appActions={this.props.appActions} deviceInfo={this.props.deviceInfo} locStrings={this.props.locStrings} />
+              <Component8 appActions={this.props.appActions} deviceInfo={this.props.deviceInfo} locStrings={this.props.locStrings} />
             </div>
           
           </div>
           
           <div className='actionFont elButton' style={style_button_outer}>
             <Button style={style_button}  color="accent" onClick={this.onClick_elButton} >
-              {this.props.locStrings.screen16_button_863213}
+              {this.props.locStrings.screen18_button_25210}
             </Button>
           
           </div>
           
         </div>
+        <Appbar className="navBar">
+          <div className="title">Page.8</div>  <div className="backBtn" onClick={ (ev)=>{ this.props.appActions.goBack() } }><img src={btn_icon_back_page8} alt="" style={{width: '50%'}} /></div>
+        </Appbar>
+        
       </Container>
     )
   }

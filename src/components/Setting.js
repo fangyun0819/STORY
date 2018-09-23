@@ -22,6 +22,7 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
+import IconButton from '@material-ui/core/IconButton';
 
 require('./components.css');
 
@@ -91,9 +92,9 @@ class SimpleDialog extends React.Component {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={email} />
-                  <Avatar>
+                  <IconButton className={classes.button} aria-label="Delete">
                   <DeleteIcon />
-                  </Avatar>
+                  </IconButton>
               </ListItem>
             ))}
             <ListItem button onClick={() => this.handleClickOpen('addAccount')}>

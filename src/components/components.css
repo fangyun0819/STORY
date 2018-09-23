@@ -5,11 +5,10 @@
 	text-align: center;
 	
 }
-#button
+#buttonText
 {
-	float:right;
-	
-	
+	color: #FAFAFA;
+	text-align: center;
 }  
 
 #paper

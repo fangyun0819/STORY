@@ -247,6 +247,7 @@ class AddAlbumList extends React.Component {
                 onClose={this.handleClose}
                 >
               <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogContent>
               <Grid container spacing={24}> 
               <Grid item xs>
               </Grid>
@@ -256,9 +257,10 @@ class AddAlbumList extends React.Component {
               <Grid item xs>
               </Grid>
               </Grid>
+              </DialogContent>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
-              關閉
+              CLOSE
               </Button>
             </DialogActions>
            </Dialog>

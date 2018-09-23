@@ -119,7 +119,7 @@ class Edit extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
+          <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
         <Grid item xs>
