@@ -60,18 +60,15 @@ class SimpleDialog extends React.Component {
     open: false,
   };
 
-  handleClickOpen = () => {
+  handleClickOpen2 = () => {
     this.setState({ open: true });
   };
-  handleClose = () => {
-    this.props.onClose(this.props.chooseMember);
+  handleClose2 = () => {
+    this.setState({ open: false });
   };
-
   handleClose = () => {
     this.props.onClose(this.props.selectedValue);
   };
- 
-
   handleListItemClick = value => {
     this.props.onClose(value);
   };
@@ -97,7 +94,7 @@ class SimpleDialog extends React.Component {
                   </IconButton>
               </ListItem>
             ))}
-            <ListItem button onClick={() => this.handleClickOpen('addAccount')}>
+            <ListItem button onClick={() => this.handleClickOpen2('addAccount')}>
               <ListItemAvatar>
                 <Avatar>
                   <AddIcon />
@@ -107,7 +104,7 @@ class SimpleDialog extends React.Component {
               <Dialog
               
               open={this.state.open}
-              onClose={this.handleClose2}
+              onClose={() => this.handleClickClose2}
               aria-labelledby="form-dialog-title"
         >
           <DialogTitle  style={{width: 500}} id="form-dialog-title">請輸入邀請信箱</DialogTitle>
@@ -125,7 +122,7 @@ class SimpleDialog extends React.Component {
             <Button onClick= { () => alert("邀請信已寄出")} color="primary">
               邀請
             </Button>
-            <Button onClick={this.handleClose} variant="outlined" >
+            <Button onClose={() => this.handleClickClose2} variant="outlined" >
                 關閉
               </Button>
           </DialogActions>
