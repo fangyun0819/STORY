@@ -44,7 +44,7 @@ export default class ImageUpload extends Component {
       formData.append('bookId', bookId);
 
   
-      axios.post('http://localhost:8081/upload-image', formData)
+      axios.post('/rest/upload-image', formData)
       .then((result) => {
         
       });

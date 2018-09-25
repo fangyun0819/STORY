@@ -163,11 +163,24 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
+    const token = localStorage.getItem('token').split(": ")[1];
+    this.setState({token});
+    if( activeStep === 0){
+      axios.post('/rest/newMemoryProject', {
+        "loginToken": token,
+        "memoryProjectName": this.state.bookName
+      }).then((res) => this.setState({bookId: res.data}) );
+    }else if( activeStep === 1){
+      axios.post('/rest/newMember', {
+        "loginToken": token,
+        "members": this.state.members
+      })
+    }
     this.setState({
       activeStep: activeStep + 1,
     });
   };
-  
+
 
   handleBack = () => {
     const { activeStep } = this.state;

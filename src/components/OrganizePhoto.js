@@ -60,7 +60,7 @@ class OrganizePhoto extends React.Component {
   }
 
   componentDidMount(){
-    axios.post('http://localhost:8081/rest/getPhoto', {
+    axios.post('/rest/getPhoto', {
       "memoryProjectId": this.props.bookId,
       "order" : 0
     }).then( (res)=> {
@@ -80,7 +80,7 @@ class OrganizePhoto extends React.Component {
         <ImagePicker 
           multiple
           onPick={(image) => this.setState({numOfPic: image.length})}
-          images={imageData.map(( image, i ) => ({src: "http://localhost:8080/" + image.photoPath, value: i}))}
+          images={imageData.map(( image, i ) => ({src: "/static/" + image.photoPath, value: i}))}
         />
         <Divider/>
       </div>)
@@ -108,7 +108,7 @@ class OrganizePhoto extends React.Component {
     //let images = this.state.images[0];
     //images = shuffle(images);
     //this.setState({images: [images]})
-    axios.post('http://localhost:8081/rest/getPhoto', {
+    axios.post('/rest/getPhoto', {
       "memoryProjectId": this.props.bookId,
       "order" : value
     }).then( (res)=> {

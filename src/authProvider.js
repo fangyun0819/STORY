@@ -4,7 +4,7 @@ import axios from 'axios';
 export default async function(type, params){
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        const data = await axios.post('http://localhost:8081/rest/login',  { memberAccount: username, memberPassword: password } )
+        const data = await axios.post('/rest/login',  { memberAccount: username, memberPassword: password } )
         .then(res=> {
             if (res.status < 200 || res.status >= 300) {
                 throw new Error(res.statusText);

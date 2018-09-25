@@ -90,7 +90,7 @@ class NewMember extends React.Component {
       </Button>
       <Button mini color="secondary" aria-label="Add" onClick={ () =>{
         this.setState({showAvatar: true});
-        axios.post('http://localhost:8081/rest/newMember', {
+        axios.post('/rest/newMember', {
           "email": this.state.members
         });
         alert('新增成功');
