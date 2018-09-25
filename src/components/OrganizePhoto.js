@@ -14,6 +14,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
 import axios from 'axios';
+import Chip from '@material-ui/core/Chip';
 
 const styles = theme => ({
   margin: {
@@ -26,6 +27,9 @@ const styles = theme => ({
   button:{
     display: 'flex',
     justifyContent: 'flex-end',
+  },
+  chip: {
+    margin: theme.spacing.unit,
   },
 });
 
@@ -70,6 +74,8 @@ class OrganizePhoto extends React.Component {
 
   _renderImagePicker(){
     let {imageData} = this.state;
+    const { classes } = this.props;
+
 
     if(this.state.order === 0 || this.state.order === 1){
 
@@ -77,6 +83,31 @@ class OrganizePhoto extends React.Component {
       <div styles = {{
         whiteSpace: 'nowrap'
       }}>
+      <div className={classes.root}>
+
+      { (this.state.order === 0) ? 
+        <div>
+          <Chip
+            label="9 21"
+          />
+          <Chip
+            label="9 22"
+          />
+          <br/>
+        </div> : 
+        <div>
+          <Chip
+            label="Vegas"
+          />
+          <Chip
+            label="LA"
+          />
+          <br/>
+        </div>
+      }
+
+      </div>
+
         <ImagePicker 
           multiple
           onPick={(image) => this.setState({numOfPic: image.length})}
@@ -105,9 +136,6 @@ class OrganizePhoto extends React.Component {
   }
 
   handleChange = (event, value) => {
-    //let images = this.state.images[0];
-    //images = shuffle(images);
-    //this.setState({images: [images]})
     axios.post('/rest/getPhoto', {
       "memoryProjectId": this.props.bookId,
       "order" : value
