@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component9_elImage_213121.jpg';
-
+import img_elImageCopy2 from './images/Component10_elImage2_257160.jpg';
+import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
+import img_elImageCopy3 from './images/Component10_elImage2_257160.jpg';
 
 
 export default class Component9 extends Component {
@@ -37,6 +39,27 @@ export default class Component9 extends Component {
     const style_text_outer = {
         pointerEvents: 'none',
      };
+    const style_imageCopy2 = {
+        backgroundImage: 'url('+img_elImageCopy2+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+     };
+    const style_imageCopy = {
+        backgroundImage: 'url('+img_elImageCopy+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+     };
+    const style_imageCopy3 = {
+        backgroundImage: 'url('+img_elImageCopy3+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+     };
     
     return (
       <div className="Component9" style={baseStyle}>
@@ -58,7 +81,9 @@ export default class Component9 extends Component {
           
         </div>
         <div className="foreground">
-       
+          <div className='elImageCopy2' style={style_imageCopy2} />
+          <div className='elImageCopy' style={style_imageCopy} />
+          <div className='elImageCopy3' style={style_imageCopy3} />
         </div>
       </div>
     )

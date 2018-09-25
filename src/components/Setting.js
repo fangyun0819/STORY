@@ -22,6 +22,8 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import blue from '@material-ui/core/colors/blue';
 import PropTypes from 'prop-types';
+import IconButton from '@material-ui/core/IconButton';
+import InviteMember from './IniviteMember';
 
 require('./components.css');
 
@@ -59,18 +61,15 @@ class SimpleDialog extends React.Component {
     open: false,
   };
 
-  handleClickOpen = () => {
+  handleClickOpen2 = () => {
     this.setState({ open: true });
   };
-  handleClose = () => {
-    this.props.onClose(this.props.chooseMember);
+  handleClose2 = () => {
+    this.setState({ open: false });
   };
-
   handleClose = () => {
     this.props.onClose(this.props.selectedValue);
   };
- 
-
   handleListItemClick = value => {
     this.props.onClose(value);
   };
@@ -91,44 +90,15 @@ class SimpleDialog extends React.Component {
                   </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={email} />
-                  <Avatar>
+                  <IconButton className={classes.button} aria-label="Delete">
                   <DeleteIcon />
-                  </Avatar>
+                  </IconButton>
               </ListItem>
             ))}
-            <ListItem button onClick={() => this.handleClickOpen('addAccount')}>
-              <ListItemAvatar>
-                <Avatar>
-                  <AddIcon />
-                </Avatar>
-              </ListItemAvatar>
-              <ListItemText primary="add account" />
-              <Dialog
-              
-              open={this.state.open}
-              onClose={this.handleClose2}
-              aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle  style={{width: 500}} id="form-dialog-title">請輸入邀請信箱</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick= { () => alert("邀請信已寄出")} color="primary">
-              邀請
-            </Button>
-            <Button onClick={this.handleClose} variant="outlined" >
-                關閉
-              </Button>
-          </DialogActions>
-        </Dialog>
+
+            <ListItem >
+             
+              <InviteMember/>
 
             </ListItem>
             <Button onClick={this.handleClose} variant="outlined" >

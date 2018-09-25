@@ -14,8 +14,13 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import  SimpleModalWrapped from './SimpleModalWrapped';
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
+
+import ThemePC from '../reactStudio/ThemePC';
 
 
 const styles = theme => ({
@@ -71,13 +76,22 @@ class Album extends React.Component {
   this.setState({
     redirect: true
   })
-}
+};
 
 renderRedirect = () => {
   if (this.state.redirect) {
     return <Redirect to='/setting' />
   }
-}
+};
+
+handleClickOpen = () =>{
+  this.setState({ open: true });
+};
+
+handleClose = () =>{
+  this.setState({ open: false });
+};
+
 render(){
   const { classes } = this.props;
   return (
@@ -113,9 +127,34 @@ render(){
                 更改基本設定</Button>
 
             
-                    <Button size="small" color="primary">
+                    <Button onClick={this.handleClickOpen} size="small" color="primary">
                       檢視作品集
                     </Button>
+                    <Dialog
+          fullScreen
+           open={this.state.open}
+           onClose={this.handleClose}
+          >
+          <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+          <DialogContent>
+          <Grid container spacing={24}> 
+        <Grid item xs>
+        </Grid>
+          <Grid item xs={6}>
+         <ThemePC/>
+          </Grid>
+          <Grid item xs>
+          </Grid>
+          </Grid>
+           </DialogContent>
+
+          <DialogActions>
+            <Button onClick={this.handleClose} color="primary" autoFocus>
+             CLOSE
+            </Button>
+          </DialogActions>
+          </Dialog> 
+
                   </CardActions>
                 </Card>
               </Grid>

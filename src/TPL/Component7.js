@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component7_elImage_876138.jpg';
-
+import img_elImage2 from './images/Component10_elImage2_257160.jpg';
 
 
 export default class Component7 extends Component {
@@ -38,7 +38,13 @@ export default class Component7 extends Component {
         boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
      };
-    
+    const style_image2 = {
+        backgroundImage: 'url('+img_elImage2+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+     };
     
     return (
       <div className="Component7" style={baseStyle}>
@@ -56,6 +62,7 @@ export default class Component7 extends Component {
           
           </div>
           
+          <div className='elImage2' style={style_image2} />
         </div>
       </div>
     )

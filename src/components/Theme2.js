@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import story from './images/b1.jpg';
+import story from './images/b2.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -15,12 +15,13 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC from '../TPL/ThemeNPC';
+import ThemeNPC from '../TPL2/ThemeNPC';
 
 
 const styles = theme => ({
 
   card: {
+    marginTop: theme.spacing.unit*3,
     marginLeft: theme.spacing.unit * 3,
     marginRight: theme.spacing.unit * 3,
     display: 'auto',
@@ -69,12 +70,12 @@ class ThemeList extends React.Component {
   return (
      
         <Card className={classes.card}>
-         <CardContent>
+         <CardContent align="center">
           <FormControlLabel
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" />}
-            label="畢業風1"
+            label="畢業風2"
           />
           <img className={classes.img} src={story} />
           
@@ -89,7 +90,7 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"學校風主題"}</DialogTitle>
+          <DialogTitle align="center">{"主題2"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
         <Grid item xs>
