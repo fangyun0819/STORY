@@ -58,7 +58,7 @@ class NewMember extends React.Component {
       let {confirmedMembers} = this.state;
       confirmedMembers[3].confirmed = true;  
       this.setState({confirmedMembers})
-    }, 20000);
+    }, 40000);
   }
   _renderMemberInput(){
     return this.state.members.map(function(item, i){

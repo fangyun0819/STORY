@@ -27,7 +27,7 @@ import InviteMember from './IniviteMember';
 
 require('./components.css');
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+const emails = ['karts0064431@gmail.com', 'chaling1997@gmail.com','fumandy.05060819@gmail.com','Viviannove0731@gmail.com','dinoleejames@gmail.com'];
 const styles = theme => ({
   avatar: {
     backgroundColor: blue[100],

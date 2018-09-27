@@ -31,6 +31,9 @@ const styles = theme => ({
   chip: {
     margin: theme.spacing.unit,
   },
+  bootstrapFormLabel: {
+    fontSize: 18,
+  },
 });
 
 function shuffle(array) {
@@ -88,20 +91,26 @@ class OrganizePhoto extends React.Component {
       { (this.state.order === 0) ? 
         <div>
           <Chip
-            label="9 21"
+            label="2018/9/21"
           />
+          &ensp;
           <Chip
-            label="9 22"
+            label="2018/9/22"
           />
           <br/>
+          <br/>
+
         </div> : 
         <div>
+          
           <Chip
             label="Vegas"
           />
+          &ensp;
           <Chip
             label="LA"
           />
+          <br/>
           <br/>
         </div>
       }
@@ -166,7 +175,12 @@ class OrganizePhoto extends React.Component {
         justify="space-evenly"    
       >
           <Tabs  onChange={this.handleChange}>
-            <Tab label="時間" ></Tab>
+            <Tab  label="時間"
+             InputLabelProps={{
+              shrink: true,
+              className: classes.bootstrapFormLabel,
+            }}
+                ></Tab>
             <Tab label="地點" ></Tab>
             <Tab label="人"></Tab>
             <Tab label="成員"></Tab>

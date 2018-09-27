@@ -131,11 +131,11 @@ class AddAlbumList extends React.Component {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
-      case 2:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 3:
-        return <OrganizePhoto bookId={this.state.bookId}/>;
+        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 4:
+        return <OrganizePhoto bookId={this.state.bookId}/>;
+      case 2:
         return <Theme/>;
       default:
         throw new Error('Unknown step');
