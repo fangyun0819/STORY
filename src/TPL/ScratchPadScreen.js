@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from '@material-ui/core/Button';
-import background from './images/story.jpeg';
+import background from './images/b1.jpg';
 
 export default class ScratchPadScreen extends Component {
 
@@ -54,7 +54,7 @@ export default class ScratchPadScreen extends Component {
       <div className="AppScreen ScratchPadScreen" style={baseStyle}>
       <img style={style_img} src={background} />
           <div className='actionFont elButton' style={style_button_outer} textAlign='center'>
-          <Button  style={style_button}  color="accent" onClick={this.onClick_elButton} >
+          <Button  style={style_button}  variant="contained" onClick={this.onClick_elButton} >
           開啟
           </Button>
         </div>

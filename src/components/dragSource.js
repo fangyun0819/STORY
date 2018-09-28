@@ -25,4 +25,3 @@ function cancelDefault (e) {
   return false
 }
 
-export 

@@ -54,21 +54,20 @@ class AlbumList extends Component {
         backgroundColor: '#dbd1c6'
       }}>
             <Button id="new"  mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: 1})}>
-
-              <AddIcon />
-              <a>新增畢業紀念冊</a>
+            
+            
+              <a> 新增畢業紀念冊</a>
+              
             </Button>
             <Button id="new"  aria-label="Add" className={classes.button}
              onClick={ ()=> this.setState({isRedirect: 2})}>
-              <AddIcon />
-              <a>畢業紀念冊</a>
+              
+              <a> 畢業紀念冊</a>
             </Button>
         {
           this._renderRedirect()
         }
-        <br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        
       </div>
     )
   }

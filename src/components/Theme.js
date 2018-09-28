@@ -25,21 +25,21 @@ const styles = theme => ({
 });
 
 class Theme extends React.Component {
-  constructor(){
-    super();
-
+  constructor(props){
+    super(props); 
     this.state = {
-       black: true
+        color_black: true
     }
+    this.changeColor = this.changeColor.bind(this);
 }
 
 changeColor(){
-   this.setState({black: !this.state.black})
+    this.setState({color_black: !this.state.color_black})
 }
 
- 
   render() {
     const { classes } = this.props;
+    let bgColor = this.state.color_black ? "primary" : "#424242"
   return (
     <div>
       <React.Fragment>
@@ -51,7 +51,7 @@ changeColor(){
         
        <Grid item xs={12}>
        <div className={classes.button}>
-       <Button variant="outlined" color="primary" >
+       <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >
         確定套用</Button>
         </div>
        </Grid>

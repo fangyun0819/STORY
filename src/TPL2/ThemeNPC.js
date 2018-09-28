@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import LocalizedStrings from 'react-localization';
 import './App.css';
-import Screen10 from './Screen10';
-import Screen9 from './Screen9';
-import Screen8 from './Screen8';
-import Screen7 from './Screen7';
-import Screen6 from './Screen6';
-import Screen5 from './Screen5';
-import Screen4 from './Screen4';
-import Screen3 from './Screen3';
-import Screen2 from './Screen2';
-import Screen1 from './Screen1';
-import StartScreen from './StartScreen';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
+import Page10Screen from './Page10Screen'
+import Page9Screen from './Page9Screen'
+import Page8Screen from './Page8Screen'
+import Page7Screen from './Page7Screen'
+import Page6Screen from './Page6Screen'
+import Page5Screen from './Page5Screen'
+import Page4Screen from './Page4Screen'
+import Page3Screen from './Page3Screen'
+import Page2Screen from './Page2Screen'
+import Page1Screen from './Page1Screen'
+import ScratchPadScreen from './ScratchPadScreen';
 import DataSheet_localizationSheet from './DataSheet_localizationSheet';
+
+
+
 
 
 export default class App extends Component {
@@ -28,7 +36,7 @@ export default class App extends Component {
     this.updateLocalizationFromDataSheet(this.dataSheets['localizationSheet']);
 
     this.state = {
-      currentScreen: 'start',
+      currentScreen: 'scratchpad',
       currentScreenProps: {},
       screenFormatId: '',
       screenTransitionForward: true,
@@ -183,28 +191,28 @@ export default class App extends Component {
       switch (screenId) {
         default:
           return null;
-        case 'screen10':
-          return (<Screen10 {...screenProps} />)
-        case 'screen9':
-          return (<Screen9 {...screenProps} />)
-        case 'screen8':
-          return (<Screen8 {...screenProps} />)
-        case 'screen7':
-          return (<Screen7 {...screenProps} />)
-        case 'screen6':
-          return (<Screen6 {...screenProps} />)
-        case 'screen5':
-          return (<Screen5 {...screenProps} />)
-        case 'screen4':
-          return (<Screen4 {...screenProps} />)
-        case 'screen3':
-          return (<Screen3 {...screenProps} />)
-        case 'screen2':
-          return (<Screen2 {...screenProps} />)
-        case 'screen1':
-          return (<Screen1 {...screenProps} />)
-        case 'start':
-          return (<StartScreen {...screenProps} />)
+        case 'page10':
+          return (<Page10Screen {...screenProps} />)
+        case 'page9':
+          return (<Page9Screen {...screenProps} />)
+        case 'page8':
+          return (<Page8Screen {...screenProps} />)
+        case 'page7':
+          return (<Page7Screen {...screenProps} />)
+        case 'page6':
+          return (<Page6Screen {...screenProps} />)
+        case 'page5':
+          return (<Page5Screen {...screenProps} />)
+        case 'page4':
+          return (<Page4Screen {...screenProps} />)
+        case 'page3':
+          return (<Page3Screen {...screenProps} />)
+        case 'page2':
+          return (<Page2Screen {...screenProps} />)
+        case 'page1':
+          return (<Page1Screen {...screenProps} />)
+        case 'scratchpad':
+          return (<ScratchPadScreen {...screenProps} />)
       }
     }
 
@@ -219,7 +227,7 @@ export default class App extends Component {
       <div className="App">
         {prevScreenEl}
         {screenEl}
-      </div>
+        </div>
     );
   }
 }

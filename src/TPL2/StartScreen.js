@@ -12,8 +12,8 @@ export default class StartScreen extends Component {
   // appActions, deviceInfo
 
   onClick_elButton = (ev) => {
-    // Go to screen 'Screen1'
-    this.props.appActions.goToScreen('screen1', { transitionId: 'fadeIn' });
+    // Go to screen 'Page.1'
+    this.props.appActions.goToScreen('page1', { transitionId: 'fadeIn' });
   
   }
   

@@ -14,12 +14,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import ThemePC from '../reactStudio/ThemePC';
@@ -119,7 +113,7 @@ class Edit extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
+          <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
         <Grid item xs>

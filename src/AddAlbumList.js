@@ -131,11 +131,11 @@ class AddAlbumList extends React.Component {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
-      case 2:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 3:
-        return <OrganizePhoto bookId={this.state.bookId}/>;
+        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 4:
+        return <OrganizePhoto bookId={this.state.bookId}/>;
+      case 2:
         return <Theme/>;
       default:
         throw new Error('Unknown step');
@@ -163,11 +163,24 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
+    const token = localStorage.getItem('token').split(": ")[1];
+    this.setState({token});
+    if( activeStep === 0){
+      axios.post('/rest/newMemoryProject', {
+        "loginToken": token,
+        "memoryProjectName": this.state.bookName
+      }).then((res) => this.setState({bookId: res.data}) );
+    }else if( activeStep === 1){
+      axios.post('/rest/newMember', {
+        "loginToken": token,
+        "members": this.state.members
+      })
+    }
     this.setState({
       activeStep: activeStep + 1,
     });
   };
-  
+
 
   handleBack = () => {
     const { activeStep } = this.state;
@@ -247,6 +260,7 @@ class AddAlbumList extends React.Component {
                 onClose={this.handleClose}
                 >
               <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogContent>
               <Grid container spacing={24}> 
               <Grid item xs>
               </Grid>
@@ -256,9 +270,10 @@ class AddAlbumList extends React.Component {
               <Grid item xs>
               </Grid>
               </Grid>
+              </DialogContent>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
-              關閉
+              CLOSE
               </Button>
             </DialogActions>
            </Dialog>

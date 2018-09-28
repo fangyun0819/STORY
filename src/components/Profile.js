@@ -36,8 +36,8 @@ class Profile extends Component {
   super(props);
   const src = './example/https://i.imgur.com/J0AQ8cG.png'
   this.state= {
-    username: 'vivi',
-    email: 'vivi@gmail.com',
+    username: 'lulu',
+    email: 'kon70209@yahoo.com.tw',
     preview: "https://i.imgur.com/pckzHQt.jpg",
     isConfirmed: false
   }
@@ -97,11 +97,11 @@ onCrop(preview) {
         </Grid>
           <Grid item xs={12} sm={12}>
             <TextField
-              required
+              
               
               id="firstName"
               name="firstName"
-              label="名稱"
+              label="會員名稱"
               value={this.state.username}
               onChange={this.handleChange('username')}
               
@@ -112,7 +112,7 @@ onCrop(preview) {
               required
               id="description"
               name="description"
-              label="email"
+              label="會員信箱"
               value={this.state.email}
               onChange={this.handleChange('email')}
 
@@ -124,7 +124,7 @@ onCrop(preview) {
               required
               id="description"
               name="description"
-              label="原密碼"
+              label="會員原密碼"
               
             />
             </Grid>
@@ -133,7 +133,7 @@ onCrop(preview) {
               required
               id="description"
               name="description"
-              label="新密碼"
+              label="會員新密碼"
               
             />
             </Grid>

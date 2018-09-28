@@ -31,7 +31,7 @@ export default class Component3 extends Component {
         pointerEvents: 'none',
      };
     const style_text = {
-        fontSize: 23.7,
+        fontSize: 23.5,
         color: 'rgba(0, 0, 0, 0.8500)',
         textAlign: 'left',
      };
