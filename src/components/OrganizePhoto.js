@@ -58,8 +58,10 @@ class OrganizePhoto extends React.Component {
   constructor(){
     super();
     this.state = {
+
       images: [],
       members: [],
+
       numOfPic: 0,
       order: 0,
       imageData: [],
@@ -68,6 +70,7 @@ class OrganizePhoto extends React.Component {
   }
 
   componentDidMount(){
+
     axios.post('/rest/getPhoto', {
       "memoryProjectId": this.props.bookId,
       "order" : 0
@@ -86,13 +89,18 @@ class OrganizePhoto extends React.Component {
 
   _renderImagePicker(){
     let {imageData} = this.state;
+
+<<<<<<< HEAD
+=======
     const { classes } = this.props;
 
+>>>>>>> a4b64a3f344a686fca86dc5c8b18459859cfc6f2
     if(this.state.order === 0 || this.state.order === 1){
       return (
       <div styles = {{
         whiteSpace: 'nowrap'
       }}>
+
       <div className={classes.root}>
       { /*(this.state.order === 0) ? 
         <div>
@@ -141,6 +149,7 @@ class OrganizePhoto extends React.Component {
           multiple
           onPick={(image) => this.setState({numOfPic: image.length})}
           images={imageData.map(( image, i ) => ({src: "/static/" + image.photoPath, value: i}))}
+
         />
         <Divider/>
       </div>)
@@ -154,7 +163,9 @@ class OrganizePhoto extends React.Component {
             <ImagePicker 
               multiple
               onPick={(image) => this.setState({numOfPic: image.length})}
+                                   
               images={imagesOfSomeone.map((image, i) => ({src: image.replace('uploads', 'static'), value: i}))}
+
             />
             <Divider/>
           </div>
@@ -164,6 +175,7 @@ class OrganizePhoto extends React.Component {
   }
 
   handleChange = (event, value) => {
+
     axios.post('/rest/getPhoto', {
       "memoryProjectId": this.props.bookId,
       "order" : value
@@ -181,6 +193,7 @@ class OrganizePhoto extends React.Component {
       }else{
         this.setState({imageData: res.data});
       }
+
     });
     this.setState({order: value})
   };
