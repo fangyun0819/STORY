@@ -21,6 +21,9 @@ const styles = theme => ({
     marginLeft: 725,
     //backgroundColor: '#6b6f70'
   },
+
+  
+
 });
 
 class AlbumList extends Component {

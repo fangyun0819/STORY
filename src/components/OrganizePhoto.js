@@ -62,7 +62,8 @@ class OrganizePhoto extends React.Component {
       members: [],
       numOfPic: 0,
       order: 0,
-      imageData: []
+      imageData: [],
+      label: [] 
     }
   }
 
@@ -71,7 +72,15 @@ class OrganizePhoto extends React.Component {
       "memoryProjectId": this.props.bookId,
       "order" : 0
     }).then( (res)=> {
-      this.setState({imageData: res.data});
+      let {label} = this.state;
+      res.data.forEach((val) => {
+        let date = new Date(parseInt(val.photoDate));
+        if(!label.includes(`${date.getMonth() + 1}/${date.getDate()}`)){
+          label.push(`${date.getMonth() + 1}/${date.getDate()}`)
+        }
+        console.log(date);
+      });
+      this.setState({imageData: res.data, label});
     });
   }
 
@@ -79,16 +88,13 @@ class OrganizePhoto extends React.Component {
     let {imageData} = this.state;
     const { classes } = this.props;
 
-
     if(this.state.order === 0 || this.state.order === 1){
-
       return (
       <div styles = {{
         whiteSpace: 'nowrap'
       }}>
       <div className={classes.root}>
-
-      { (this.state.order === 0) ? 
+      { /*(this.state.order === 0) ? 
         <div>
           <Chip
             label="2018/9/21"
@@ -99,10 +105,8 @@ class OrganizePhoto extends React.Component {
           />
           <br/>
           <br/>
-
         </div> : 
         <div>
-          
           <Chip
             label="Vegas"
           />
@@ -113,10 +117,26 @@ class OrganizePhoto extends React.Component {
           <br/>
           <br/>
         </div>
+      */}
+
+      {
+        <div>
+          {
+            this.state.label.map( (val) => {
+              return (
+              <a>
+                <Chip
+                label={val}
+                />
+                &ensp;
+              </a>)
+            })
+          }
+          <br/>
+          <br/>
+        </div>
       }
-
       </div>
-
         <ImagePicker 
           multiple
           onPick={(image) => this.setState({numOfPic: image.length})}
@@ -141,7 +161,6 @@ class OrganizePhoto extends React.Component {
         )
       })
     }
-
   }
 
   handleChange = (event, value) => {
@@ -157,6 +176,7 @@ class OrganizePhoto extends React.Component {
           images.push( res.data[data]);
           members.push('/' + data.split('[No]')[0])
         }
+        
         this.setState({images, members})
       }else{
         this.setState({imageData: res.data});
@@ -186,7 +206,6 @@ class OrganizePhoto extends React.Component {
             <Tab label="成員"></Tab>
           </Tabs>
           {this._renderImagePicker()}
-          
       </Grid>
       <div className={classes.button}>
       <Button variant="outlined" color="primary" >

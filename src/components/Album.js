@@ -21,6 +21,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
 
 import ThemePC from '../reactStudio/ThemePC';
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -69,7 +70,8 @@ const images = ["https://i.imgur.com/9NUDaSC.jpg", "https://images.pexels.com/ph
 class Album extends React.Component {
   state = {
     redirect: false,
-    selection: 0
+    selection: 0,
+    albumName: '',
   };
 
   setRedirect = () => {
@@ -77,6 +79,13 @@ class Album extends React.Component {
       redirect: true
     })
   };
+
+  componentDidMount(){
+    axios.get('/rest/getgraduatebook')
+    .then((result) => {
+     this.setState( { albumName : result.data[0].memoryProjectName});
+    });
+  }
 
   renderRedirect = () => {
     if (this.state.redirect) {
@@ -121,7 +130,7 @@ class Album extends React.Component {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="headline" component="h2">
-                      畢業五組
+                     {this.state.albumName}
                     </Typography>
                   </CardContent>
                   <CardActions>
