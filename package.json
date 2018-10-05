@@ -19,6 +19,7 @@
     "react-image-picker": "^1.1.1",
     "react-localization": "^1.0.10",
     "react-scripts": "1.1.4",
+    "react-swipeable-views": "^0.13.0",
     "react-tabs": "^2.2.2"
   },
   "scripts": {
