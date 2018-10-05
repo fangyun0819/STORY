@@ -89,12 +89,7 @@ class OrganizePhoto extends React.Component {
 
   _renderImagePicker(){
     let {imageData} = this.state;
-
-<<<<<<< HEAD
-=======
-    const { classes } = this.props;
-
->>>>>>> a4b64a3f344a686fca86dc5c8b18459859cfc6f2
+   const {classes} =this.props;
     if(this.state.order === 0 || this.state.order === 1){
       return (
       <div styles = {{
