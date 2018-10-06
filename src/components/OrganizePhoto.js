@@ -70,21 +70,33 @@ class OrganizePhoto extends React.Component {
   }
 
   componentDidMount(){
-
-    axios.post('/rest/getPhoto', {
-      "memoryProjectId": this.props.bookId,
-      "order" : 0
-    }).then( (res)=> {
-      let {label} = this.state;
-      res.data.forEach((val) => {
-        let date = new Date(parseInt(val.photoDate));
-        if(!label.includes(`${date.getMonth() + 1}/${date.getDate()}`)){
-          label.push(`${date.getMonth() + 1}/${date.getDate()}`)
-        }
-        console.log(date);
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      axios.get('/rest/getgraduatebook', {
+        "loginToken": token,
+      }).then((res) => {
+        this.setState({
+          token,
+          bookId: res.data[0].memoryProjectId
+        })
+        axios.post('/rest/getPhoto', {
+          "memoryProjectId": res.data[0].memoryProjectId,
+          "order" : 0
+        }).then( (res)=> {
+          let {label} = this.state;
+          res.data.forEach((val) => {
+            let date = new Date(parseInt(val.photoDate));
+            if(!label.includes(`${date.getMonth() + 1}/${date.getDate()}`)){
+              label.push(`${date.getMonth() + 1}/${date.getDate()}`)
+            }
+            console.log(date);
+          });
+          this.setState({imageData: res.data, label});
+        });
       });
-      this.setState({imageData: res.data, label});
-    });
+    }catch(e){
+
+    }
   }
 
   _renderImagePicker(){
@@ -172,7 +184,7 @@ class OrganizePhoto extends React.Component {
   handleChange = (event, value) => {
 
     axios.post('/rest/getPhoto', {
-      "memoryProjectId": this.props.bookId,
+      "memoryProjectId": this.state.bookId,
       "order" : value
     }).then( (res)=> {
       if(this.state.order === 2){

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import Photo from './Photo';
 
 export default class ImageUpload extends Component {
   constructor() {
@@ -14,6 +15,22 @@ export default class ImageUpload extends Component {
     };
   }
 
+  componentDidMount(){
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      axios.get('/rest/getgraduatebook', {
+        "loginToken": token,
+      }).then((res) => {
+        this.setState({
+          token,
+          bookId: res.data[0].memoryProjectId
+        })
+      });
+    }catch(e){
+
+    }
+
+  }
   onChange = (e, i) => {
     let selectedFile = [], file = [], selectedFileDate = [];
 
@@ -28,7 +45,7 @@ export default class ImageUpload extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const { selectedFile, selectedFileDate } = this.state;
-    const { token, bookId} = this.props;
+    const { token, bookId} = this.state;
     for(let i = 0 ; i < selectedFile.length ; i ++){
       let formData = new FormData();
 

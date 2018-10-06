@@ -52,6 +52,11 @@ const theme = createMuiTheme({
 
 class App extends Component {
   isTwoSideBar = true;
+
+  componentDidMount(){
+
+  };
+
   _renderResources(){
 
     if(this.isTwoSideBar){
@@ -76,7 +81,6 @@ class App extends Component {
 
   render() {
   
-
     return(
       <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
       title="StoryMaker"
