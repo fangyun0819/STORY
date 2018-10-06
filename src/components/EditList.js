@@ -99,11 +99,7 @@ const styles = theme => ({
   },
 });
 
-function getSteps(){
-  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
-}
 
-//步驟設定
 
 
 //點選按鈕設定
@@ -121,26 +117,7 @@ class AddAlbumList extends React.Component {
     })
   }
 
-  getStepContent(step) {
-    switch (step) {
-      case 0:
-        return <Info handleChange={(data) => {
-          //console.log(data);
-          this.setState({ bookName: data})
-        }}/>;
-      case 1:
-        return <NewMember handleChange={(data) => {
-        this.setState({ members: data})
-        //console.log(data);
-      }}/>;
-      case 2:
-        return <Mode/>;
-      case 3:
-        return <Theme/>;
-      default:
-        throw new Error('Unknown step');
-    }
-  }
+  
 
   
   renderRedirect = () => {
@@ -157,155 +134,75 @@ class AddAlbumList extends React.Component {
     this.setState({ open: true });
   };
 
-  handleClose = () =>{
-    this.setState({ open: false });
-  };
-
-  handleNext = () => {
-    const { activeStep } = this.state;
-    
-    try{
-      const token = localStorage.getItem('token').split(": ")[1];
-      this.setState({token});
-      if( activeStep === 0){
-        axios.post('/rest/newMemoryProject', {
-          "loginToken": token,
-          "memoryProjectName": this.state.bookName
-        }).then((res) => this.setState({bookId: res.data}) );
-      }else if( activeStep === 1){
-        axios.post('/rest/newMember', {
-          "loginToken": token,
-          "members": this.state.members
-        })
-      }
   
-    }catch(err){
-      
-    }
-    this.setState({
-      activeStep: activeStep + 1,
-    });
-  };
 
 
-  handleBack = () => {
-    const { activeStep } = this.state;
-    this.setState({
-      activeStep: activeStep - 1,
-    });
-  };
-  handleStep = step => () => {
-    this.setState({
-      activeStep: step,
-    });
-  };
   
-  handleReset = () => {
-    this.setState({
-      activeStep: 0,
-    });
-  };
   
   render() {
     const { classes ,source} = this.props;
-    const { activeStep } = this.state;
-    const steps = getSteps();
+   
 
     return (
-     
-      <React.Fragment>
-        <CssBaseline />
-        <BackgroundImage src={source} placeholder={background} id="img">
-        <div className={classes.layout} id="layout" >
-       
-      
-          <Paper  className={classes.root}  >
-          <Typography id="font"  align="center" >
-            創建屬於你們的故事
-          </Typography>
-            <Stepper  
-           activeStep={activeStep}  
-           className={classes.stepper}>
-            
-            {steps.map(label => (
-                <Step key={label} >
-                  <StepLabel >{label}</StepLabel>
-                </Step>
-              ))}
-
-            </Stepper>
-
-            <Divider/>
-
+    
             <Paper className={classes.paper} id="paper" >
             <React.Fragment>
             
-              {activeStep === steps.length ? (
-                <React.Fragment>
+            
               <div>
               <Paper className={classes.root} elevation={1}>
               <Typography variant="headline" component="h3">
                說明
               </Typography>
               <Typography component="p">
-                已成功邀請朋友加入
-
+                想要編輯者請選擇進入編輯區，否則選擇完成
               </Typography>
             </Paper>
            </div>
-               
-                <div className={classes.buttons}>
-                  <Button 
-                    required
-                    id="back"
-                    onClick={this.handleBack} 
-                    className={classes.button}>
-                    返回
-                    </Button>
-                    <Button
-                     required
-                     id="next"
-                     className={classes.button}
-                     onClick={ ()=> this.setState({isRedirect: 1})}>
-                     完成
-                    </Button>
-                    {this.renderRedirect()}
-                    </div>
-
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {this.getStepContent(activeStep)}
+                <Button 
+                onClick={this.handleClickOpen}
+                 className={classes.button} 
+                 variant="outlined" 
+                 color="primary">
+                 預覽我的畢業紀念冊
+                 </Button>
                   
-                  <div className={classes.buttons}>
-                    
-                    {activeStep !== 0 && (
-                      <Button 
-                      required
-                      id="back"
-                      onClick={this.handleBack} 
-                      className={classes.button}>
-                      返回
-                      </Button>
-                    )}
-                      <Button
-                      required
-                      id="next"
-                      onClick={this.handleNext}
-                      className={classes.button}>
-                     下一步
-                    </Button>
-                  </div>
+                 <Dialog
+                fullScreen
+                open={this.state.open}
+                onClose={this.handleClose}
+                >
+              <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogContent>
+              <Grid container spacing={24}> 
+              <Grid item xs>
+              </Grid>
+              <Grid item xs={6}>
+              <ThemePC/>
+              </Grid>
+              <Grid item xs>
+              </Grid>
+              </Grid>
+              </DialogContent>
+               <DialogActions>
+              <Button onClick={this.handleClose} color="primary" autoFocus>
+              CLOSE
+              </Button>
+            </DialogActions>
+           </Dialog>
+
+                  
+                {this.renderRedirect()}
+               
+                <Button 
+                 className={classes.button} 
+                 onClick={ ()=> this.setState({isRedirect: 2})}
+                 variant="outlined" 
+                 color="primary">
+                進入編輯頁面</Button>
+           
                 </React.Fragment>
-              )}
-            </React.Fragment>
-            </Paper>
-            
-          </Paper>
-          
-        </div>
-        </BackgroundImage>
-      </React.Fragment>
+                </Paper>
     );
   }
 }
