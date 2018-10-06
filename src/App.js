@@ -21,7 +21,7 @@ import BackgroundImage from 'react-background-image-loader';
 import Edit from './components/Edit';
 import Setting from './components/Setting';
 import EditList from './components/Edit';
-import Photo from './components/Photo';
+import Photo from './Photo';
 
 const styles = theme => ({
   root:{

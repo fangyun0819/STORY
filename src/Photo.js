@@ -12,11 +12,10 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import Info from './components/Info';
-import NewMember from './components/NewMember';
+
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
-import Theme from './components/Theme';
+
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -37,19 +36,12 @@ import BackgroundImage from 'react-background-image-loader';
 import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Edit from './components/Edit';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
-import axios from 'axios';
-import Mode from './components/Mode';
-
-
-
-require('./css/style.css');
 
 
 //樣式設定
@@ -92,7 +84,7 @@ const styles = theme => ({
   buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
-  },//按鈕位直
+  },
   button: {
     marginTop: theme.spacing.unit * 3,
     marginLeft: theme.spacing.unit,
@@ -100,13 +92,9 @@ const styles = theme => ({
 });
 
 function getSteps(){
-  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
+  return ['上傳照片', '照片匯集'];
 }
 
-//步驟設定
-
-
-//點選按鈕設定
 class AddAlbumList extends React.Component {
   state = {
     activeStep: 0,
@@ -124,19 +112,9 @@ class AddAlbumList extends React.Component {
   getStepContent(step) {
     switch (step) {
       case 0:
-        return <Info handleChange={(data) => {
-          //console.log(data);
-          this.setState({ bookName: data})
-        }}/>;
+        return <ImageUpload/>;
       case 1:
-        return <NewMember handleChange={(data) => {
-        this.setState({ members: data})
-        //console.log(data);
-      }}/>;
-      case 2:
-        return <Mode/>;
-      case 3:
-        return <Theme/>;
+        return <OrganizePhoto/>;
       default:
         throw new Error('Unknown step');
     }
@@ -204,7 +182,7 @@ class AddAlbumList extends React.Component {
       
           <Paper  className={classes.root}  >
           <Typography id="font"  align="center" >
-            創建屬於你們的故事
+            照片區
           </Typography>
             <Stepper  
            activeStep={activeStep}  
@@ -231,11 +209,52 @@ class AddAlbumList extends React.Component {
                說明
               </Typography>
               <Typography component="p">
-                已成功邀請朋友加入
-
+                想要編輯者請選擇進入編輯區，否則選擇完成
               </Typography>
             </Paper>
            </div>
+                <Button 
+                onClick={this.handleClickOpen}
+                 className={classes.button} 
+                 variant="outlined" 
+                 color="primary">
+                 預覽我的畢業紀念冊
+                 </Button>
+                  
+                 <Dialog
+                fullScreen
+                open={this.state.open}
+                onClose={this.handleClose}
+                >
+              <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogContent>
+              <Grid container spacing={24}> 
+              <Grid item xs>
+              </Grid>
+              <Grid item xs={6}>
+              <ThemePC/>
+              </Grid>
+              <Grid item xs>
+              </Grid>
+              </Grid>
+              </DialogContent>
+               <DialogActions>
+              <Button onClick={this.handleClose} color="primary" autoFocus>
+              CLOSE
+              </Button>
+            </DialogActions>
+           </Dialog>
+
+                  
+                {this.renderRedirect()}
+               
+                <Button 
+                 className={classes.button} 
+                 onClick={ ()=> this.setState({isRedirect: 2})}
+                 variant="outlined" 
+                 color="primary">
+                進入編輯頁面</Button>
+           
                
                 <div className={classes.buttons}>
                   <Button 

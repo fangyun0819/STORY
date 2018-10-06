@@ -1,70 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-
-import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
-import Theme1 from './Theme1';
-import Theme2 from './Theme2';
-
-require('./components.css');
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 const styles = theme => ({
   root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    height: 'auto',
+    display: 'flex',
+    
   },
-  button:{
-  display: 'flex',
-  justifyContent: 'flex-end',
-},
-
+  formControl: {
+    margin: theme.spacing.unit * 3,
+  },
+  group: {
+    margin: `${theme.spacing.unit}px 0`,
+  },
 });
 
-class Theme extends React.Component {
-  constructor(props){
-    super(props); 
-    this.state = {
-        color_black: true
-    }
-    this.changeColor = this.changeColor.bind(this);
-}
+class RadioButtonsGroup extends React.Component {
+  state = {
+    value: 'female',
+  };
 
-changeColor(){
-    this.setState({color_black: !this.state.color_black})
-}
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
 
   render() {
     const { classes } = this.props;
-    let bgColor = this.state.color_black ? "primary" : "#424242"
-  return (
-    <div>
-      <React.Fragment>
-     
-      <Grid container spacing={24}>
-        
-      <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >
-       自由編輯</Button>
-        <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >
-       一鍵生成</Button>
-       <Grid item xs={12}>
-      
-       </Grid>
-       
-       </Grid>
-    
-      
-    </React.Fragment>
-    
-    </div>
-  );
+
+    return (
+      <div className={classes.root}>
+        <FormControl className={classes.formControl}>
+          <FormLabel >請選擇想要的模式</FormLabel>
+          <RadioGroup
+            aria-label="Model"
+            name="model"
+            className={classes.group}
+            value={this.state.value}
+            onChange={this.handleChange}
+          >
+            <FormControlLabel value="model1" control={<Radio />} label="自由編輯" />
+            <FormControlLabel value="model2" control={<Radio />} label="一鍵生成" />
+          </RadioGroup>
+        </FormControl>
+      </div>
+    );
+  }
 }
-}
-Theme.propTypes = {
+
+RadioButtonsGroup.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Theme); 
+export default withStyles(styles)(RadioButtonsGroup);
