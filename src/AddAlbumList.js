@@ -34,7 +34,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
 
-import background from './images/background.jpg';
+import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Edit from './components/Edit';
@@ -45,6 +45,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
 import axios from 'axios';
+import Mode from './components/Mode';
+
 
 
 require('./css/style.css');
@@ -98,7 +100,7 @@ const styles = theme => ({
 });
 
 function getSteps(){
-  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
+  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
 }
 
 //步驟設定
@@ -131,11 +133,9 @@ class AddAlbumList extends React.Component {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
-      case 3:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
-      case 4:
-        return <OrganizePhoto bookId={this.state.bookId}/>;
       case 2:
+        return <Mode/>;
+      case 3:
         return <Theme/>;
       default:
         throw new Error('Unknown step');
@@ -163,18 +163,24 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
-    const token = localStorage.getItem('token').split(": ")[1];
-    this.setState({token});
-    if( activeStep === 0){
-      axios.post('/rest/newMemoryProject', {
-        "loginToken": token,
-        "memoryProjectName": this.state.bookName
-      }).then((res) => this.setState({bookId: res.data}) );
-    }else if( activeStep === 1){
-      axios.post('/rest/newMember', {
-        "loginToken": token,
-        "members": this.state.members
-      })
+    
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      this.setState({token});
+      if( activeStep === 0){
+        axios.post('/rest/newMemoryProject', {
+          "loginToken": token,
+          "memoryProjectName": this.state.bookName
+        }).then((res) => this.setState({bookId: res.data}) );
+      }else if( activeStep === 1){
+        axios.post('/rest/newMember', {
+          "loginToken": token,
+          "members": this.state.members
+        })
+      }
+  
+    }catch(err){
+      
     }
     this.setState({
       activeStep: activeStep + 1,

@@ -21,6 +21,7 @@ import BackgroundImage from 'react-background-image-loader';
 import Edit from './components/Edit';
 import Setting from './components/Setting';
 import EditList from './components/Edit';
+import Photo from './components/Photo';
 
 const styles = theme => ({
   root:{
@@ -83,6 +84,7 @@ class App extends Component {
                     <Route path="/showalbumlist" component={ShowAlbumList} />,
                     <Route path="/setting" component={Setting} />,
                     <Route path="/editlist" component={EditList} />,
+                    <Route path="/photo" component={Photo} />,
       ]}>
           {this._renderResources()}
 

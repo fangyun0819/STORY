@@ -88,10 +88,14 @@ class Album extends React.Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/setting' />
+    if(this.state.isRedirect === 0){
+
+    }else if(this.state.isRedirect === 1){
+      return <Redirect to={`/photo`}/>
+    }else if(this.state.isRedirect === 2){
+      return <Redirect to={`/setting`}/>
     }
-  };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -134,9 +138,13 @@ class Album extends React.Component {
                     </Typography>
                   </CardContent>
                   <CardActions>
+                  <Button
+                      onClick={ () => this.setState({isRedirect: 1})}
+                      size="small" color="primary">
+                      上傳照片</Button>
                     {this.renderRedirect()}
                     <Button
-                      onClick={this.setRedirect}
+                      onClick={ () => this.setState({isRedirect: 2})}
                       size="small" color="primary">
                       更改基本設定</Button>
                     <Button onClick={this.handleClickOpen} size="small" color="primary">
