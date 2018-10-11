@@ -20,6 +20,10 @@ const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
   },
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
   container: {
     marginTop: 200,
     //backgroundColor: '#00B1E1'
@@ -65,7 +69,8 @@ class OrganizePhoto extends React.Component {
       numOfPic: 0,
       order: 0,
       imageData: [],
-      label: [] 
+      label: [],
+      chosenAvatar: -1
     }
   }
 
@@ -109,31 +114,6 @@ class OrganizePhoto extends React.Component {
       }}>
 
       <div className={classes.root}>
-      { /*(this.state.order === 0) ? 
-        <div>
-          <Chip
-            label="2018/9/21"
-          />
-          &ensp;
-          <Chip
-            label="2018/9/22"
-          />
-          <br/>
-          <br/>
-        </div> : 
-        <div>
-          <Chip
-            label="Vegas"
-          />
-          &ensp;
-          <Chip
-            label="LA"
-          />
-          <br/>
-          <br/>
-        </div>
-      */}
-
       {
         <div>
           {
@@ -161,23 +141,37 @@ class OrganizePhoto extends React.Component {
         <Divider/>
       </div>)
     }else{
-      return this.state.images.map(( imagesOfSomeone, i) => {
-        return (
-          <div styles = {{
-            whiteSpace: 'nowrap'
-          }}>
-            <Avatar alt="members" src={this.state.members[i]}/>
-            <ImagePicker 
-              multiple
-              onPick={(image) => this.setState({numOfPic: image.length})}
-                                   
-              images={imagesOfSomeone.map((image, i) => ({src: image.replace('uploads', 'static'), value: i}))}
+      return(
+        <div>
+      <p  className={classes.row}>
+        {
+            this.state.images.map(( imagesOfSomeone, i) => {
+            return (
+                <a onClick={ () => {
+                  this.setState({
+                    chosenAvatar: i
+                  })
+                }}>
+                  <Avatar alt="members" src={this.state.members[i]}/>
+                </a>
+            )
+          })
+        }
+      </p>
+      <div>
+        {
+          (this.state.chosenAvatar === -1) ? null :
+          <ImagePicker 
+          multiple
+          onPick={(image) => this.setState({numOfPic: image.length})}
+                              
+          images={this.state.images[this.state.chosenAvatar].map((image, i) => ({src: image.replace('uploads', 'static'), value: i}))}
 
-            />
-            <Divider/>
-          </div>
-        )
-      })
+        />
+        }
+        </div>
+      </div>
+      ) 
     }
   }
 
@@ -214,6 +208,7 @@ class OrganizePhoto extends React.Component {
         direction="row"
         justify="space-evenly"    
       >
+      <div>
           <Tabs  onChange={this.handleChange}>
             <Tab  label="時間"
              InputLabelProps={{
@@ -225,7 +220,14 @@ class OrganizePhoto extends React.Component {
             <Tab label="人"></Tab>
             <Tab label="成員"></Tab>
           </Tabs>
+      </div>
+      </Grid>
+      <Grid
+        justify="space-evenly"    
+      >
+        <div>
           {this._renderImagePicker()}
+        </div>
       </Grid>
       <div className={classes.button}>
       <Button variant="outlined" color="primary" >

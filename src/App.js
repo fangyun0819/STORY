@@ -21,7 +21,7 @@ import BackgroundImage from 'react-background-image-loader';
 import Edit from './components/Edit';
 import Setting from './components/Setting';
 import EditList from './components/Edit';
-import Photo from './Photo';
+import Photo from './components/Photo';
 
 const styles = theme => ({
   root:{
@@ -81,6 +81,7 @@ class App extends Component {
 
   render() {
   
+
     return(
       <Admin theme={theme} authProvider={authProvider} dataProvider={dataProvider} loginPage={LoginPage}
       title="StoryMaker"
