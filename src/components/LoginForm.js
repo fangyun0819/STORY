@@ -110,11 +110,11 @@ class LoginForm extends React.Component {
               <Button variant="outlined" size="large" className={classes.button1} onClick={() => _handleForget()}>
                 忘記密碼
           </Button>
-          <br />
-          <Facebook />
-
+          
           </Grid>
         </Grid>
+        
+        <Facebook />
 
       </div>
 
