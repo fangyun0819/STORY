@@ -12,6 +12,8 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
+import Facebook from './components/Facebook';
+
 
 const styles = theme => ({
   margin: {
@@ -108,9 +110,14 @@ class LoginForm extends React.Component {
               <Button variant="outlined" size="large" className={classes.button1} onClick={() => _handleForget()}>
                 忘記密碼
           </Button>
+          <br />
+          <Facebook />
+
           </Grid>
         </Grid>
+
       </div>
+
     )
   }
 }
