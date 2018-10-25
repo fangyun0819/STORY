@@ -18,14 +18,11 @@ export default class ImageUpload extends Component {
   componentDidMount(){
     try{
       const token = localStorage.getItem('token').split(": ")[1];
-      axios.get('/rest/getgraduatebook', {
-        "loginToken": token,
-      }).then((res) => {
-        this.setState({
-          token,
-          bookId: res.data[0].memoryProjectId
-        })
-      });
+      const currentBookId = localStorage.getItem('currentBookId');
+      this.setState({
+        token,
+        bookId: currentBookId
+      })
     }catch(e){
 
     }
