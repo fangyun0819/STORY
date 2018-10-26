@@ -20,9 +20,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
 
-import ThemePC from '../reactStudio/ThemePC';
+import ThemePC from '../TPL-TEST/ThemePC';
 import axios from 'axios';
 
+import TEST from './TEST/AutoRotatingCarousel';
 
 const styles = theme => ({
   appBar: {
@@ -161,7 +162,7 @@ class Album extends React.Component {
                           <Grid item xs>
                           </Grid>
                           <Grid item xs={6}>
-                            <ThemePC />
+                            <TEST/>
                           </Grid>
                           <Grid item xs>
                           </Grid>
