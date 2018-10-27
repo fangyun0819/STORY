@@ -14,7 +14,6 @@ import classNames from 'classnames'
 import Carousel from './SwipableCarouselView'
 import { modulo } from './util'
 
-
 const styles = {
   root: {
     '& > *:focus': {

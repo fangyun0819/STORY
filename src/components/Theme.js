@@ -7,9 +7,6 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Theme1 from './Theme1';
 import Theme2 from './Theme2';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 require('./components.css');
 
@@ -48,10 +45,10 @@ changeColor(){
       <React.Fragment>
      
       <Grid container spacing={24}>
-      
+        
         <Theme1/>
         <Theme2/>
-         
+        
        <Grid item xs={12}>
        <div className={classes.button}>
        <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >
