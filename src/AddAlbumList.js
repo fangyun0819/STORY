@@ -124,7 +124,7 @@ class AddAlbumList extends React.Component {
   getStepContent(step) {
     switch (step) {
       case 0:
-        return <Theme handleChange={(data) => {
+        return <Info handleChange={(data) => {
           //console.log(data);
           this.setState({ bookName: data})
         }}/>;
