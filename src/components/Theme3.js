@@ -15,7 +15,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC from '../TPL2/ThemeNPC';
+import ThemeNPC from '../TPL3/ThemeNPC';
 
 
 const styles = theme => ({
@@ -75,7 +75,7 @@ class ThemeList extends React.Component {
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" />}
-            label="簡約風"
+            label="經典風"
           />
           <img className={classes.img} src={story} />
           
@@ -93,13 +93,10 @@ class ThemeList extends React.Component {
           <DialogTitle align="center">{"主題2"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
-        <Grid item xs>
-        </Grid>
-          <Grid item xs={6}>
+        
          <ThemeNPC/>
-          </Grid>
-          <Grid item xs>
-          </Grid>
+          
+         
           </Grid>
            </DialogContent>
           <DialogActions>

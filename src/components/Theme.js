@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Theme1 from './Theme1';
 import Theme2 from './Theme2';
-
+import Theme3 from './Theme3';
 require('./components.css');
 
 const styles = theme => ({
@@ -48,6 +48,7 @@ changeColor(){
         
         <Theme1/>
         <Theme2/>
+        <Theme3/>
         
        <Grid item xs={12}>
        <div className={classes.button}>

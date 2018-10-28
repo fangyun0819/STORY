@@ -22,11 +22,11 @@ const styles = theme => ({
 
   card: {
     marginTop: theme.spacing.unit*3,
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
+    marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2,
     display: 'auto',
     height: 250,
-    width: 250,
+    width: 240,
   },
   button: {
     marginTop: theme.spacing.unit,
@@ -75,7 +75,7 @@ class ThemeList extends React.Component {
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" />}
-            label="畢業風1"
+            label="經典風"
           />
           <img className={classes.img} src={story} />
           
