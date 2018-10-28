@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import Component10 from './Component10';
+import btn_icon_back_screen10 from './images/btn_icon_back_screen10.png';
 
 // UI framework component imports
-import Button from 'muicss/lib/react/button';
+import Appbar from 'muicss/lib/react/appbar';
 import Container from 'muicss/lib/react/container';
-import background from './images/T3.jpg';
 
 
-export default class StartScreen extends Component {
+export default class Screen10 extends Component {
 
   // Properties used by this component:
   // appActions, deviceInfo
 
-  onClick_elButton = (ev) => {
-    // Go to screen 'Screen1'
-    this.props.appActions.goToScreen('screen1', { transitionId: 'fadeIn' });
-  
-  }
-  
-  
   render() {
     // eslint-disable-next-line no-unused-vars
     let baseStyle = {};
@@ -33,25 +27,16 @@ export default class StartScreen extends Component {
     }
     
     const style_background = {
-        width: 1000,
-        height: 500,
-        backgroundImage: 'url('+background+')',
+        width: '100%',
+        height: '100%',
      };
     const style_background_outer = {
         backgroundColor: '#f6f6f6',
         pointerEvents: 'none',
      };
-    const style_button = {
-        display: 'block',
-        color: 'white',
-        textAlign: 'center',
-     };
-    const style_button_outer = {
-        cursor: 'pointer',
-     };
     
     return (
-      <Container fluid={true} className="AppScreen StartScreen" style={baseStyle}>
+      <Container fluid={true} className="AppScreen Screen10" style={baseStyle}>
         <div className="background">
           <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
             <div style={style_background} />
@@ -60,14 +45,18 @@ export default class StartScreen extends Component {
           
         </div>
         <div className="layoutFlow" style={layoutFlowStyle}>
-          <div className='actionFont elButton' style={style_button_outer}>
-            <Button style={style_button}  color="accent" onClick={this.onClick_elButton} >
-              {this.props.locStrings.start_button_499721}
-            </Button>
+          <div className='hasNestedComps elComponent'>
+            <div>
+              <Component10 ref={(el)=> this._elComponent = el} {...this.props} appActions={this.props.appActions} deviceInfo={this.props.deviceInfo} locStrings={this.props.locStrings} />
+            </div>
           
           </div>
           
         </div>
+        <Appbar className="navBar">
+          <div className="title">Page.10</div>  <div className="backBtn" onClick={ (ev)=>{ this.props.appActions.goBack() } }><img src={btn_icon_back_screen10} alt="" style={{width: '50%'}} /></div>
+        </Appbar>
+        
       </Container>
     )
   }

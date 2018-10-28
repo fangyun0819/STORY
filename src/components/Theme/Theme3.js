@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import story from './images/b1.jpg';
+import story from './images/T3.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -15,7 +15,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC from '../TPL/ThemeNPC';
+import ThemeNPC from '../../TPL3/ThemeNPC';
 
 
 const styles = theme => ({
@@ -90,16 +90,13 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle align="center">{"主題1"}</DialogTitle>
+          <DialogTitle align="center">{"主題2"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
-        <Grid item xs>
-        </Grid>
-          <Grid item xs={6}>
+        
          <ThemeNPC/>
-          </Grid>
-          <Grid item xs>
-          </Grid>
+          
+         
           </Grid>
            </DialogContent>
           <DialogActions>

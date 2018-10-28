@@ -4,7 +4,6 @@ import './App.css';
 // UI framework component imports
 import Button from 'muicss/lib/react/button';
 import Container from 'muicss/lib/react/container';
-import background from './images/T3.jpg';
 
 
 export default class StartScreen extends Component {
@@ -33,9 +32,8 @@ export default class StartScreen extends Component {
     }
     
     const style_background = {
-        width: 1000,
-        height: 500,
-        backgroundImage: 'url('+background+')',
+        width: '100%',
+        height: '100%',
      };
     const style_background_outer = {
         backgroundColor: '#f6f6f6',
