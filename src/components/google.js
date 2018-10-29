@@ -1,7 +1,9 @@
 import React from 'react';
-import { GoogleLogin } from 'react-google-login-component';
+import ReactDOM from 'react-dom';
+import GoogleLogin from 'react-google-login';
  
-class Login extends React.Component{
+class google extends React.Component{
+    state = {isLoggedIn: false};
  
   constructor (props, context) {
     super(props, context);
@@ -14,9 +16,14 @@ class Login extends React.Component{
     console.log({ googleId });
     console.log({accessToken: id_token});
     //anything else you want to do(save to localStorage)...
-  }
+
+    this.setState({isLoggedIn: true});
+  };
  
+  componentClicked = () => console.log("clicked");
+
   render () {
+      
     return (
       <div>
         <GoogleLogin socialId="550377049635-68reuqdhq4pc503mp25e15c5tdrgjv37.apps.googleusercontent.com"
@@ -24,7 +31,8 @@ class Login extends React.Component{
                      scope="profile"
                      fetchBasicProfile={false}
                      responseHandler={this.responseGoogle}
-                     buttonText="Login With Google"/>
+                     buttonText="Login With Google"
+                     />
       </div>
     );
   }
