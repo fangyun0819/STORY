@@ -13,7 +13,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Facebook from './Facebook';
-
+import google from './google';
 
 const styles = theme => ({
   margin: {
@@ -118,6 +118,8 @@ class LoginForm extends React.Component {
         <br/>
         <Facebook/>
         <br/>
+        
+        <google/>
 
       </div>
 
