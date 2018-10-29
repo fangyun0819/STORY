@@ -5,8 +5,12 @@ import Paper from '@material-ui/core/Paper';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Theme1 from './Theme1';
-import Theme2 from './Theme2';
+import Theme1 from './Theme/Theme1';
+import Theme2 from './Theme/Theme2';
+import Theme3 from './Theme/Theme3';
+import Theme4 from './Theme/Theme4';
+import Theme5 from './Theme/Theme5';
+import Theme6 from './Theme/Theme6';
 
 require('./components.css');
 
@@ -25,21 +29,21 @@ const styles = theme => ({
 });
 
 class Theme extends React.Component {
-  constructor(){
-    super();
-
+  constructor(props){
+    super(props); 
     this.state = {
-       black: true
+        color_black: true
     }
+    this.changeColor = this.changeColor.bind(this);
 }
 
 changeColor(){
-   this.setState({black: !this.state.black})
+    this.setState({color_black: !this.state.color_black})
 }
 
- 
   render() {
     const { classes } = this.props;
+    let bgColor = this.state.color_black ? "primary" : "#424242"
   return (
     <div>
       <React.Fragment>
@@ -48,10 +52,14 @@ changeColor(){
         
         <Theme1/>
         <Theme2/>
-        
+        <Theme3/>
+        <Theme4/>
+        <Theme5/>
+        <Theme6/>
+
        <Grid item xs={12}>
        <div className={classes.button}>
-       <Button variant="outlined" color="primary" >
+       <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >
         確定套用</Button>
         </div>
        </Grid>

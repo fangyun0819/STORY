@@ -22,12 +22,12 @@ export default class Component8 extends Component {
      };
     const style_cardCopy2_outer = {
         backgroundColor: 'white',
-        boxShadow: '0.0px 6.8px 75px rgba(0, 0, 0, 0.4500)',
+        boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
      };
     const style_cardCopy_outer = {
         backgroundColor: 'white',
-        boxShadow: '0.0px 6.8px 75px rgba(0, 0, 0, 0.4500)',
+        boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
      };
     

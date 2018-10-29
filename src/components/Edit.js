@@ -14,12 +14,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import ThemePC from '../reactStudio/ThemePC';
@@ -32,6 +26,10 @@ import p2 from './images/p2.jpg';
 
 import Sticker from './Sticker';
 import Text from './Text';
+
+import Page1Screen from './EditList/Page1Screen';
+
+
 require('./components.css');
 
 const styles = theme => ({
@@ -115,9 +113,17 @@ class Edit extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
+          <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
           <DialogContent>
-          <ThemePC/>
+          <Grid container spacing={24}> 
+        <Grid item xs>
+        </Grid>
+          <Grid item xs={6}>
+         <ThemePC/>
+          </Grid>
+          <Grid item xs>
+          </Grid>
+          </Grid>
            </DialogContent>
 
           <DialogActions>
@@ -152,14 +158,10 @@ class Edit extends React.Component {
       
         
         <Grid item item xs={10}>
-        <BackgroundImage src={source} placeholder={background} id="img" > 
         <div className={classes.layout} id="target-container" >
-        
-        <img className={classes.img} src={p1} width="300" height="400"/>
-        <img className={classes.img} src={p2} height="300" width="500"/>
-        
+        <Page1Screen/>
+
         </div>
-        </BackgroundImage>
         </Grid>
        </Grid>
      

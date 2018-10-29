@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-
-// UI framework component imports
-import Button from 'muicss/lib/react/button';
-import background from './images/storybook.jpg';
-
+import Button from '@material-ui/core/Button';
+import background from './images/T1.jpg';
 
 export default class ScratchPadScreen extends Component {
 
@@ -32,42 +29,34 @@ export default class ScratchPadScreen extends Component {
     }
     
     const style_background = {
-        width: '100%',
-        height: '100%',
+        width: 1000,
+        height: 500,
         backgroundImage: 'url('+background+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
      };
     const style_background_outer = {
         backgroundColor: '#f6f6f6',
         pointerEvents: 'none',
+        textAlign:'center',
      };
 
     const style_button = {
-       
-        display: 'center',
-        textAlign: 'center',
+      display: 'block',
+      textAlign: 'center',
      };
     const style_button_outer = {
         cursor: 'pointer',
      };
-    
+    const style_img={
+      height: 500,
+      width: 800,
+    };
     return (
       <div className="AppScreen ScratchPadScreen" style={baseStyle}>
-        <div className="background">
-          <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
-            <div style={style_background} />
-           </div>
-          
-        </div>
-      <div className="layoutFlow" style={layoutFlowStyle}>
-          <div className='actionFont elButton' style={style_button_outer}>
-            <Button  style={style_button}  color="accent" onClick={this.onClick_elButton} >
-            開啟
-            </Button>
-          
-          </div>
-          
+      <img style={style_img} src={background} />
+          <div className='actionFont elButton' style={style_button_outer} textAlign='center'>
+          <Button  style={style_button}  variant="contained" onClick={this.onClick_elButton} >
+          開啟
+          </Button>
         </div>
       </div>
     )

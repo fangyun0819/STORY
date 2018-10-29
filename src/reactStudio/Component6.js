@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component9_elImage_213121.jpg';
-import img_elImageCopy from './images/Component8_elImageCopy_560966.jpg';
-import img_elImageCopy2 from './images/Component8_elImageCopy_560966.jpg';
+import img_elImageCopy from './photo/11.jpg';
+import img_elImageCopy2 from './photo/12.jpg';
 import img_elImage2 from './images/Component6_elImage2_934787.png';
 
 
@@ -66,7 +66,7 @@ export default class Component6 extends Component {
         <div className="foreground">
           <div className='elImageCopy' style={style_imageCopy} />
           <div className='elImageCopy2' style={style_imageCopy2} />
-          <div className='elImage2' style={style_image2} />
+         
         </div>
       </div>
     )

@@ -13,10 +13,16 @@ import 'react-image-picker/dist/index.css'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import AppBar from '@material-ui/core/AppBar';
+import axios from 'axios';
+import Chip from '@material-ui/core/Chip';
 
 const styles = theme => ({
   margin: {
     margin: theme.spacing.unit,
+  },
+  row: {
+    display: 'flex',
+    justifyContent: 'center',
   },
   container: {
     marginTop: 200,
@@ -25,6 +31,12 @@ const styles = theme => ({
   button:{
     display: 'flex',
     justifyContent: 'flex-end',
+  },
+  chip: {
+    margin: theme.spacing.unit,
+  },
+  bootstrapFormLabel: {
+    fontSize: 18,
   },
 });
 
@@ -50,34 +62,141 @@ class OrganizePhoto extends React.Component {
   constructor(){
     super();
     this.state = {
-      images: [["https://cdn.minephoto.tw/image/photo/70add93be6e841ea9943391cfb2ba503T5m3w1R3.jpg", "https://cdn.minephoto.tw/image/photo/0f9bf6ae5f5245b4a3beafd8d439c9d02E6zJA88.jpg", "https://cdn.minephoto.tw/image/photo/1d3440c2e1cf4871ab991a7d274d90f73c35Wa23.jpg", "https://cdn.minephoto.tw/image/photo/cd63bb0fab52468c9d0618f3bfbc79a3f92P70P2.jpg"]],
-      members: ['https://cdn.minephoto.tw/image/photo/70add93be6e841ea9943391cfb2ba503T5m3w1R3.jpg', "https://cdn.minephoto.tw/image/photo/0f9bf6ae5f5245b4a3beafd8d439c9d02E6zJA88.jpg", "https://cdn.minephoto.tw/image/photo/1d3440c2e1cf4871ab991a7d274d90f73c35Wa23.jpg", "https://cdn.minephoto.tw/image/photo/cd63bb0fab52468c9d0618f3bfbc79a3f92P70P2.jpg"],
-      numOfPic: 0
+
+      images: [],
+      members: [],
+
+      numOfPic: 0,
+      order: 0,
+      imageData: [],
+      label: [],
+      chosenAvatar: -1
+    }
+  }
+
+  componentDidMount(){
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      axios.get('/rest/getgraduatebook', {
+        "loginToken": token,
+      }).then((res) => {
+        this.setState({
+          token,
+          bookId: res.data[0].memoryProjectId
+        })
+        axios.post('/rest/getPhoto', {
+          "memoryProjectId": res.data[0].memoryProjectId,
+          "order" : 0
+        }).then( (res)=> {
+          let {label} = this.state;
+          res.data.forEach((val) => {
+            let date = new Date(parseInt(val.photoDate));
+            if(!label.includes(`${date.getMonth() + 1}/${date.getDate()}`)){
+              label.push(`${date.getMonth() + 1}/${date.getDate()}`)
+            }
+            console.log(date);
+          });
+          this.setState({imageData: res.data, label});
+        });
+      });
+    }catch(e){
+
     }
   }
 
   _renderImagePicker(){
-    return this.state.images.map(( imagesOfSomeone, i) => {
+    let {imageData} = this.state;
+   const {classes} =this.props;
+    if(this.state.order === 0 || this.state.order === 1){
       return (
-        <div styles = {{
-          whiteSpace: 'nowrap'
-        }}>
-          <Avatar alt="members" src={this.state.members[i]}/>
-          <ImagePicker 
-            multiple
-            onPick={(image) => this.setState({numOfPic: image.length})}
-            images={imagesOfSomeone.map((image, i) => ({src: image, value: i}))}
-          />
-          <Divider/>
+      <div styles = {{
+        whiteSpace: 'nowrap'
+      }}>
+
+      <div className={classes.root}>
+      {
+        <div>
+          {
+            this.state.label.map( (val) => {
+              return (
+              <a>
+                <Chip
+                label={val}
+                />
+                &ensp;
+              </a>)
+            })
+          }
+          <br/>
+          <br/>
         </div>
-      )
-    })
+      }
+      </div>
+        <ImagePicker 
+          multiple
+          onPick={(image) => this.setState({numOfPic: image.length})}
+          images={imageData.map(( image, i ) => ({src: "/static/" + image.photoPath, value: i}))}
+
+        />
+        <Divider/>
+      </div>)
+    }else{
+      return(
+        <div>
+      <p  className={classes.row}>
+        {
+            this.state.images.map(( imagesOfSomeone, i) => {
+            return (
+                <a onClick={ () => {
+                  this.setState({
+                    chosenAvatar: i
+                  })
+                }}>
+                  <Avatar alt="members" src={this.state.members[i]}/>
+                </a>
+            )
+          })
+        }
+      </p>
+      <div>
+        {
+          (this.state.chosenAvatar === -1) ? null :
+          <ImagePicker 
+          multiple
+          onPick={(image) => this.setState({numOfPic: image.length})}
+                              
+          images={this.state.images[this.state.chosenAvatar].map((image, i) => ({src: image.replace('uploads', 'static'), value: i}))}
+
+        />
+        }
+        </div>
+      </div>
+      ) 
+    }
   }
 
   handleChange = (event, value) => {
-    let images = this.state.images[0];
-    images = shuffle(images);
-    this.setState({images: [images]})
+
+    axios.post('/rest/getPhoto', {
+      "memoryProjectId": this.state.bookId,
+      "order" : value
+    }).then( (res)=> {
+      if(this.state.order === 2){
+        let images = [];
+        let members = [];
+
+        for(let data in res.data){
+          images.push( res.data[data]);
+          members.push('/' + data.split('[No]')[0])
+        }
+        
+        this.setState({images, members})
+      }else{
+        this.setState({imageData: res.data});
+      }
+
+    });
+    this.setState({order: value})
   };
 
   render(){
@@ -89,14 +208,26 @@ class OrganizePhoto extends React.Component {
         direction="row"
         justify="space-evenly"    
       >
+      <div>
           <Tabs  onChange={this.handleChange}>
-            <Tab label="時間" ></Tab>
+            <Tab  label="時間"
+             InputLabelProps={{
+              shrink: true,
+              className: classes.bootstrapFormLabel,
+            }}
+                ></Tab>
             <Tab label="地點" ></Tab>
             <Tab label="人"></Tab>
             <Tab label="成員"></Tab>
           </Tabs>
+      </div>
+      </Grid>
+      <Grid
+        justify="space-evenly"    
+      >
+        <div>
           {this._renderImagePicker()}
-          
+        </div>
       </Grid>
       <div className={classes.button}>
       <Button variant="outlined" color="primary" >

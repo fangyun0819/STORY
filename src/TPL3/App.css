@@ -1,0 +1,1300 @@
+.App { /* Base font style */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 15.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: rgba(0, 0, 0, 0.8500);
+  background-color: #f6f6f6;
+}
+
+.App .baseFont * { /* Base font style override for UI framework components */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 15.1px;
+}
+
+.App .appBg {
+  background-color: #f6f6f6;
+}
+
+.App .cardBg {
+  background-color: white;
+}
+
+.App .baseTextBg { /* Base text color as background */
+  background-color: rgba(0, 0, 0, 0.8500);
+}
+
+.App .secondaryTextColor {
+  color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .secondaryTextBg {
+  background-color: rgba(0, 0, 0, 0.5000);
+}
+
+.App .primaryTextColor {
+  color: #bee9ee;
+}
+
+.App .primaryBg {
+  background-color: #bee9ee;
+}
+
+.App .highlightTextColor {
+  color: #0093d5;
+}
+
+.App .highlightBg {
+  background-color: #0093d5;
+}
+
+/* Styles to customize the UI framework plugin (MUI, https://muicss.com) */
+.mui-btn {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn--primary {
+    background-color: #bee9ee;
+}
+.mui-btn--primary:active, .mui-btn--primary:focus, .mui-btn--primary:hover {
+    background-color: #c3ebf0;
+}
+.mui-btn--accent {
+    background-color: #0093d5;
+}
+.mui-btn--accent:active, .mui-btn--accent:focus, .mui-btn--accent:hover {
+    background-color: #069fda;
+}
+.mui-textfield {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-checkbox, .mui-radio {  /* Reset UI framework styling that affects layout */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.mui-select {  /* Reset UI framework styling that affects layout */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+.mui-btn+.mui-btn {  /* Reset UI framework styling that affects layout */
+    margin-left: 0;
+}
+.mui-btn--fab {  /* Reset UI framework styling that breaks compositing */
+    z-index: auto;
+}
+
+@keyframes fadeIn {
+    0%   { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+@keyframes slideIn_right {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+@keyframes slideIn_bottom {
+    0%   { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+/* App-wide text styles specified in React Studio */
+.App .actionFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 14.2px;
+  font-weight: 400;
+}
+.App .actionFont * {
+  font-size: 14.2px;
+}
+.App .headlineFont {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 19.4px;
+  font-weight: 400;
+}
+.App .headlineFont * {
+  font-size: 19.4px;
+}
+.App .navBar {
+  background-color: #bee9ee;
+  color: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", sans-serif;
+  font-size: 18px;
+}
+
+.App .navBar a {
+  color: black;
+}
+
+.App .navBar .title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  margin-top: 14px;
+}
+
+.App .navBar .backBtn {
+  position: absolute;
+  padding: 4px;
+  margin-left: 14px;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) {
+  .mui-container {
+    max-width: 320px;
+  }
+}
+@media (min-width: 568px) {
+  .mui-container {
+    max-width: 568px;
+  }
+}
+@media (min-width: 768px) {
+  .mui-container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .mui-container {
+    max-width: 1024px;
+  }
+}
+
+.AppScreen {
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.App .background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.App .layoutFlow {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  float: left;
+}
+.App .layoutFlow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .layoutFlow .flowRow {
+  position: relative;
+  width: 100%;
+}
+
+.App .screenFgContainer {
+  /* Items in the foreground group within a screen are placed with fixed positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.App .foreground {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.App .compContent {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.App ul {
+  margin: 0;
+  padding: 0;
+}
+.App li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+}
+.App .hasNestedComps {
+  position: relative;
+}
+.App .hasNestedComps:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.App .hasNestedComps .background {
+  position: absolute;
+}
+.App .hasNestedComps .layoutFlow {
+  position: relative;
+}
+.App .hasNestedComps .foreground {
+  position: absolute;
+}
+.App .bottomAlignedContent {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* This component has a fixed-size layout */
+  .Component10 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component10 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component10 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component10 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component10 .elImageCopy2 {
+    position: absolute;
+    left: 9px;
+    top: 90px;
+    width: 204px;
+    height: 272px;
+  }
+
+
+  .Component10 .elImageCopy {
+    position: absolute;
+    left: 231px;
+    top: 90px;
+    width: 204px;
+    height: 272px;
+  }
+
+
+  .Component10 .elImageCopy3 {
+    position: absolute;
+    left: 455px;
+    top: 90px;
+    width: 204px;
+    height: 272px;
+  }
+
+.Screen10 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen10 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen10 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 400px;
+  }
+  .Screen10 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen10 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+/* This component has a fixed-size layout */
+  .Component9 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component9 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component9 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component9 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component9 .elImageCopy2 {
+    position: absolute;
+    left: 15px;
+    top: 102px;
+    width: 204px;
+    height: 272px;
+  }
+
+
+  .Component9 .elImageCopy {
+    position: absolute;
+    left: 232px;
+    top: 102px;
+    width: 204px;
+    height: 272px;
+  }
+
+
+  .Component9 .elImageCopy3 {
+    position: absolute;
+    left: 454px;
+    top: 102px;
+    width: 204px;
+    height: 272px;
+  }
+
+.Screen9 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen9 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen9 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 314px;
+  }
+  .Screen9 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen9 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen9 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen9 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 575px;
+  }
+  .Screen9 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component8 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component8 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component8 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component8 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component8 .elImageCopy2 {
+    position: absolute;
+    left: 22px;
+    top: 12px;
+    width: 308px;
+    height: 452px;
+  }
+
+
+  .Component8 .elImageCopy {
+    position: absolute;
+    left: 337px;
+    top: 12px;
+    width: 308px;
+    height: 452px;
+  }
+
+.Screen8 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen8 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen8 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 412px;
+  }
+  .Screen8 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen8 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen8 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen8 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 457px;
+  }
+  .Screen8 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component7 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component7 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component7 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component7 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component7 .elImageCopy {
+    position: absolute;
+    left: 87px;
+    top: 98px;
+    width: 512px;
+    height: 336px;
+  }
+
+.Screen7 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen7 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen7 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 444px;
+  }
+  .Screen7 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen7 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen7 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen7 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 604px;
+  }
+  .Screen7 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component6 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component6 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component6 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component6 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component6 .elImageCopy {
+    position: absolute;
+    left: 49px;
+    top: 52px;
+    width: 253px;
+    height: 336px;
+  }
+
+
+  .Component6 .elImageCopy2 {
+    position: absolute;
+    left: 375px;
+    top: 50px;
+    width: 253px;
+    height: 336px;
+  }
+
+/* This component has a fixed-size layout */
+  .Component5 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component5 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component5 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component5 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component5 .elImageCopy {
+    position: absolute;
+    left: 23px;
+    top: 14px;
+    width: 302px;
+    height: 452px;
+  }
+
+
+  .Component5 .elImageCopy2 {
+    position: absolute;
+    right: 23px;
+    top: 14px;
+    width: 302px;
+    height: 452px;
+  }
+
+.Screen6 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen6 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen6 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 454px;
+  }
+  .Screen6 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen6 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen6 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen6 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 593px;
+  }
+  .Screen6 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component4 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component4 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component4 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component4 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component4 .elImageCopy2 {
+    position: absolute;
+    left: 309px;
+    top: 10px;
+    width: 340px;
+    height: 452px;
+  }
+
+.Screen5 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen5 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen5 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 480px;
+  }
+  .Screen5 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen5 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen5 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen5 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 536px;
+  }
+  .Screen5 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component3 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component3 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component3 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component3 .elImage {
+    position: absolute;
+    left: 234px;
+    top: 0px;
+    width: 200px;
+    height: 480px;
+  }
+
+
+  .Component3 .elImageCopy2 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 238px;
+    height: 238px;
+  }
+
+
+  .Component3 .elImageCopy {
+    position: absolute;
+    left: 0px;
+    top: 238px;
+    width: 238px;
+    height: 238px;
+  }
+
+
+  .Component3 .elImageCopy3 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 238px;
+    height: 238px;
+  }
+
+
+  .Component3 .elImageCopy4 {
+    position: absolute;
+    right: 0px;
+    top: 238px;
+    width: 238px;
+    height: 238px;
+  }
+
+.Screen4 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen4 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen4 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 460px;
+  }
+  .Screen4 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen4 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen4 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen4 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 610px;
+  }
+  .Screen4 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component2 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component2 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component2 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component2 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component2 .elImageCopy2 {
+    position: absolute;
+    left: 11px;
+    top: 44px;
+    width: 315px;
+    height: 372px;
+  }
+
+
+  .Component2 .elImageCopy {
+    position: absolute;
+    left: 341px;
+    top: 43px;
+    width: 315px;
+    height: 372px;
+  }
+
+.Screen3 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen3 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen3 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 472px;
+  }
+  .Screen3 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen3 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen3 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen3 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 574px;
+  }
+  .Screen3 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+/* This component has a fixed-size layout */
+  .Component1 {
+    min-height: 476px;
+    overflow: hidden;
+    width: 100%; /* This component was designed using a width of 673px */
+  }
+  .Component1 > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+  .Component1 .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Component1 .elImage {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 672px;
+    height: 476px;
+  }
+
+
+  .Component1 .elImageCopy2 {
+    position: absolute;
+    left: 26px;
+    top: 155px;
+    width: 334px;
+    height: 304px;
+  }
+
+
+  .Component1 .elImageCopy {
+    position: absolute;
+    left: 328px;
+    top: 15px;
+    width: 334px;
+    height: 304px;
+  }
+
+.Screen2 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen2 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen2 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 458px;
+  }
+  .Screen2 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen2 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen2 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen2 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 594px;
+  }
+  .Screen2 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+.Screen1 {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .Screen1 > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+
+  .Screen1 > .layoutFlow > .elComponent {
+    position: relative;
+    margin-top: 68px;
+    width: 672px;
+    margin-left: 384px;
+  }
+  .Screen1 > .layoutFlow > .elComponent > * { 
+  width: 672px;
+  height: 476px;
+  }
+  
+  .Screen1 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+    min-height: 476px;
+  }
+
+
+.Screen1 .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .Screen1 > .layoutFlow > .elButton {
+    line-height: 35px;
+    position: relative;
+    margin-top: 68px;
+    width: 145px;
+    margin-left: 598px;
+  }
+  .Screen1 > .layoutFlow > .elButton > * { 
+  width: 145px;
+  height: 35px;
+  }
+  
+
+.StartScreen {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+  .StartScreen > .background > .elBackground {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    width: 100.0%;
+    height: 100%;
+  }
+
+.StartScreen .elButton button {
+  border: 0.0px solid transparent;
+}
+
+
+
+  .StartScreen > .layoutFlow > .elButton {
+    line-height: 27px;
+    position: relative;
+    margin-top: 344px;
+    width: 113px;
+    margin-left: 573px;
+  }
+  .StartScreen > .layoutFlow > .elButton > * { 
+  width: 113px;
+  height: 27px;
+  }
+  
+

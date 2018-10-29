@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
 
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -33,7 +34,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
 
-import background from './images/background.jpg';
+import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Edit from './components/Edit';
@@ -44,6 +45,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
 import axios from 'axios';
+import Mode from './components/Mode';
+
 
 
 require('./css/style.css');
@@ -97,7 +100,7 @@ const styles = theme => ({
 });
 
 function getSteps(){
-  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
+  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
 }
 
 //步驟設定
@@ -122,19 +125,17 @@ class AddAlbumList extends React.Component {
     switch (step) {
       case 0:
         return <Info handleChange={(data) => {
-        //console.log(data);
-        this.setState({ bookName: data})
-      }}/>;
+          //console.log(data);
+          this.setState({ bookName: data})
+        }}/>;
       case 1:
         return <NewMember handleChange={(data) => {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
       case 2:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
+        return <Mode/>;
       case 3:
-        return <OrganizePhoto />;
-      case 4:
         return <Theme/>;
       default:
         throw new Error('Unknown step');
@@ -162,11 +163,30 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
+    
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      this.setState({token});
+      if( activeStep === 0){
+        axios.post('/rest/newMemoryProject', {
+          "loginToken": token,
+          "memoryProjectName": this.state.bookName
+        }).then((res) => this.setState({bookId: res.data}) );
+      }else if( activeStep === 1){
+        axios.post('/rest/newMember', {
+          "loginToken": token,
+          "members": this.state.members
+        })
+      }
+  
+    }catch(err){
+      
+    }
     this.setState({
       activeStep: activeStep + 1,
     });
   };
-  
+
 
   handleBack = () => {
     const { activeStep } = this.state;
@@ -222,49 +242,18 @@ class AddAlbumList extends React.Component {
             
               {activeStep === steps.length ? (
                 <React.Fragment>
-          <div>
-            <Paper className={classes.root} elevation={1}>
+              <div>
+              <Paper className={classes.root} elevation={1}>
               <Typography variant="headline" component="h3">
                說明
               </Typography>
               <Typography component="p">
-                想要編輯者請選擇進入編輯區，否則選擇完成
+                已成功邀請朋友加入
+
               </Typography>
             </Paper>
            </div>
-                <Button 
-                onClick={this.handleClickOpen}
-                 className={classes.button} 
-                 variant="outlined" 
-                 color="primary">
-                 預覽我的畢業紀念冊
-                 </Button>
-                  
-                 <Dialog
-                fullScreen
-                open={this.state.open}
-                onClose={this.handleClose}
-                >
-              <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-               <ThemePC/>
-               <DialogActions>
-              <Button onClick={this.handleClose} color="primary" autoFocus>
-              關閉
-              </Button>
-            </DialogActions>
-           </Dialog>
-
-                  
-                {this.renderRedirect()}
                
-                <Button 
-                 className={classes.button} 
-                 onClick={ ()=> this.setState({isRedirect: 2})}
-                 variant="outlined" 
-                 color="primary">
-                進入編輯頁面</Button>
-               
-                
                 <div className={classes.buttons}>
                   <Button 
                     required
@@ -280,6 +269,7 @@ class AddAlbumList extends React.Component {
                      onClick={ ()=> this.setState({isRedirect: 1})}>
                      完成
                     </Button>
+                    {this.renderRedirect()}
                     </div>
 
                 </React.Fragment>

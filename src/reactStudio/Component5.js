@@ -3,10 +3,10 @@ import './App.css';
 import img_elImage from './images/Component9_elImage_213121.jpg';
 import img_elImageCopy5 from './images/Component5_elImageCopy5_539440.jpg';
 import img_elImage2 from './images/Component5_elImageCopy5_539440.jpg';
-import img_elImageCopy3 from './images/Component10_elImage2_257160.jpg';
-import img_elImageCopy4 from './images/Component10_elImage2_257160.jpg';
-import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
-import img_elImageCopy2 from './images/Component10_elImage2_257160.jpg';
+import img_elImageCopy3 from './photo/7.jpg';
+import img_elImageCopy4 from './photo/8.jpg';
+import img_elImageCopy from './photo/9.jpg';
+import img_elImageCopy2 from './photo/10.jpg';
 
 
 export default class Component5 extends Component {

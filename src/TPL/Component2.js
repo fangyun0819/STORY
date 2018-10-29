@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component2_elImage_430446.jpg';
+import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
 
 
 export default class Component2 extends Component {
@@ -28,7 +29,13 @@ export default class Component2 extends Component {
         backgroundSize: 'cover',
         pointerEvents: 'none',
      };
-    
+    const style_imageCopy = {
+        backgroundImage: 'url('+img_elImageCopy+')',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+        backgroundSize: 'cover',
+        pointerEvents: 'none',
+     };
     
     return (
       <div className="Component2" style={baseStyle}>
@@ -41,7 +48,7 @@ export default class Component2 extends Component {
           <div className='elImage' style={style_image} />
         </div>
         <div className="foreground">
-         
+          <div className='elImageCopy' style={style_imageCopy} />
         </div>
       </div>
     )
