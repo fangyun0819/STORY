@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FacebookLogin from "react-facebook-login";
 
-export default class Facebook  {
+export default class Facebook extends React.Component {
   state = {
     isLoggedIn: false,
     userID: "",
