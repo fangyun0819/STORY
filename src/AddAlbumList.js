@@ -171,7 +171,10 @@ class AddAlbumList extends React.Component {
         axios.post('/rest/newMemoryProject', {
           "loginToken": token,
           "memoryProjectName": this.state.bookName
-        }).then((res) => this.setState({bookId: res.data}) );
+        }).then((res) => {
+          localStorage.setItem('currentBookId', res.data);
+          this.setState({bookId: res.data});
+        })
       }else if( activeStep === 1){
         axios.post('/rest/newMember', {
           "loginToken": token,

@@ -85,7 +85,7 @@ class Album extends React.Component {
     .then((result) => {
       let albumNames = [];
       result.data.forEach(element => {
-        albumNames.push({bookName: element.memoryProjectName, bookId: element.memoryProjectId})
+        albumNames.push({bookName: element.memoryProjectName, bookId: element.memoryProjectId, coverPhoto: element.coverPhoto})
       });
      this.setState( { albumNames});
     });
@@ -114,7 +114,7 @@ class Album extends React.Component {
 
     return (
       <div>
-        {this.state.albumNames.map( (val ) => {
+        {this.state.albumNames.map( (val , idx) => {
           return (
             <Card>
             <CardActions style={{ flex: 1 }}>
@@ -124,7 +124,7 @@ class Album extends React.Component {
             </CardActions>
             <CardMedia
               className={classes.cardMedia}
-              image={images[this.state.selection]}
+              image={this.state.albumNames[idx].coverPhoto}
               title="Image title"
             />
             <CardContent>
