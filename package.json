@@ -17,6 +17,10 @@
     "react-avatar-editor": "^11.0.4",
     "react-background-image-loader": "0.0.5",
     "react-dom": "^16.4.2",
+
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^3.2.1",
+
     "react-flip-page": "^1.2.0",
     "react-image-picker": "^1.1.1",
     "react-localization": "^1.0.10",
