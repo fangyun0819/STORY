@@ -12,7 +12,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
-import Facebook from './components/Facebook';
+import Facebook from './Facebook';
 
 
 const styles = theme => ({
