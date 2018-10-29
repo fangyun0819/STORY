@@ -13,7 +13,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Facebook from './Facebook';
-import GoogleLogin from 'react-google-login';
+import google from './google';
 
 
 const styles = theme => ({
@@ -119,12 +119,7 @@ class LoginForm extends React.Component {
         <br/>
         <Facebook/>
         <br/>
-        <GoogleLogin
-                        clientId="550377049635-68reuqdhq4pc503mp25e15c5tdrgjv37.apps.googleusercontent.com"
-                        buttonText="Login with Google"
-                        onSuccess={this.googleResponse}
-                        onFailure={this.googleResponse}
-                    />
+       <google/>
 
       </div>
 

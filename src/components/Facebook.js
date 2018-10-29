@@ -35,6 +35,7 @@ export default class Facebook extends React.Component {
             margin: "auto",
             background: "#f4f4f4",
             padding: "20px"
+          
           }}
         >
           <img src={this.state.picture} alt={this.state.name} />
@@ -50,6 +51,7 @@ export default class Facebook extends React.Component {
           fields="name,email,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
+          
         />
       );
     }
