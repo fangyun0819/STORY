@@ -27,7 +27,7 @@ import p2 from './images/p2.jpg';
 import Sticker from './Sticker';
 import Text from './Text';
 
-import Page1Screen from './theme/Page1Screen';
+
 
 
 require('./components.css');
@@ -159,8 +159,7 @@ class Edit extends React.Component {
         
         <Grid item item xs={10}>
         <div className={classes.layout} id="target-container" >
-        <Page1Screen/>
-
+        
         </div>
         </Grid>
        </Grid>
