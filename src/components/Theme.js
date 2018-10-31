@@ -5,11 +5,12 @@ import Paper from '@material-ui/core/Paper';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Theme1 from './Theme1';
-import Theme2 from './Theme2';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Theme1 from './Theme/Theme1';
+import Theme2 from './Theme/Theme2';
+import Theme3 from './Theme/Theme3';
+import Theme4 from './Theme/Theme4';
+import Theme5 from './Theme/Theme5';
+import Theme6 from './Theme/Theme6';
 
 require('./components.css');
 
@@ -48,10 +49,14 @@ changeColor(){
       <React.Fragment>
      
       <Grid container spacing={24}>
-      
+        
         <Theme1/>
         <Theme2/>
-         
+        <Theme3/>
+        <Theme4/>
+        <Theme5/>
+        <Theme6/>
+
        <Grid item xs={12}>
        <div className={classes.button}>
        <Button id="buttonText" style={{backgroundColor: bgColor}} onClick={this.changeColor} variant="outlined" >

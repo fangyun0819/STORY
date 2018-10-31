@@ -27,7 +27,7 @@ import p2 from './images/p2.jpg';
 import Sticker from './Sticker';
 import Text from './Text';
 
-import Page1Screen from './theme/Page1Screen';
+import Page1Screen from './EditList/Page1Screen';
 
 
 require('./components.css');
