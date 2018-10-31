@@ -19,8 +19,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 
+
+import axios from 'axios';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Preview from './Preview';
 
@@ -159,7 +160,7 @@ class Album extends React.Component {
                     <Grid item xs>
                     </Grid>
                     <Grid item xs={6}>
-                      <Preview />
+                      <Preview/>
                     </Grid>
                     <Grid item xs>
                     </Grid>
@@ -195,64 +196,7 @@ class Album extends React.Component {
           <div className={classNames(classes.layout, classes.cardGrid)}>
             <Grid container spacing={40}>
               <Grid item key={cards[this.state.selection]} sm={4} md={4} lg={4}>
-
                 {this._showAlbums()}
-
-                <Card>
-                  <CardActions style={{ flex: 1 }}>
-                    <Button size="small">
-                      {cards[this.state.selection]}
-                    </Button>
-                  </CardActions>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={images[this.state.selection]}
-                    title="Image title"
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="headline" component="h2">
-                     {this.state.albumName}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                  <Button
-                      onClick={ () => this.setState({isRedirect: 1})}
-                      size="small" color="primary">
-                      上傳照片</Button>
-                    {this.renderRedirect()}
-                    <Button
-                      onClick={ () => this.setState({isRedirect: 2})}
-                      size="small" color="primary">
-                      更改基本設定</Button>
-                    <Button onClick={this.handleClickOpen} size="small" color="primary">
-                      檢視作品集
-                    </Button>
-                    <Dialog
-                      fullScreen
-                      open={this.state.open}
-                      onClose={this.handleClose}
-                    >
-                      <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
-                      <DialogContent>
-                        <Grid container spacing={24}>
-                          <Grid item xs>
-                          </Grid>
-                          <Grid item xs={6}>
-                            <Preview/>
-                          </Grid>
-                          <Grid item xs>
-                          </Grid>
-                        </Grid>
-                      </DialogContent>
-                      <DialogActions>
-                        <Button onClick={this.handleClose} color="primary" autoFocus>
-                          CLOSE
-                          </Button>
-                      </DialogActions>
-                    </Dialog>
-                  </CardActions>
-                </Card>
-
               </Grid>
             </Grid>
           </div>
