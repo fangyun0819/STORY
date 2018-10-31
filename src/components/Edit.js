@@ -27,11 +27,9 @@ import p2 from './images/p2.jpg';
 import Sticker from './Sticker';
 import Text from './Text';
 
-<<<<<<< HEAD
 
-=======
-import Page1Screen from './EditList/Page1Screen';
->>>>>>> 1023
+
+
 
 
 require('./components.css');

@@ -160,7 +160,7 @@ class Album extends React.Component {
                     <Grid item xs>
                     </Grid>
                     <Grid item xs={6}>
-                      <ThemePC />
+                     
                     </Grid>
                     <Grid item xs>
                     </Grid>
@@ -194,11 +194,10 @@ class Album extends React.Component {
         </Grid>
         <main>
           <div className={classNames(classes.layout, classes.cardGrid)}>
-            <Grid container spacing={40}>
+          <Grid container spacing={40}>
               <Grid item key={cards[this.state.selection]} sm={4} md={4} lg={4}>
-<<<<<<< HEAD
-                {this._showAlbums()}
-=======
+          {this._showAlbums()}
+
                 <Card>
                   <CardActions style={{ flex: 1 }}>
                     <Button size="small">
@@ -253,9 +252,8 @@ class Album extends React.Component {
                     </Dialog>
                   </CardActions>
                 </Card>
->>>>>>> 1023
               </Grid>
-            </Grid>
+            </Grid>       
           </div>
         </main>
       </React.Fragment>
