@@ -91,7 +91,9 @@ class NewMember extends React.Component {
       <Button mini color="secondary" aria-label="Add" onClick={ () =>{
         this.setState({showAvatar: true});
         axios.post('/rest/newMember', {
-          "email": this.state.members
+          "email": this.state.members,
+          "bookName": this.props.bookName,
+          "bookId": this.props.bookId
         });
         alert('新增成功');
       }}>

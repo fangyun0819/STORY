@@ -129,7 +129,7 @@ class AddAlbumList extends React.Component {
           this.setState({ bookName: data})
         }}/>;
       case 1:
-        return <NewMember handleChange={(data) => {
+        return <NewMember bookName={this.state.bookName} bookId={this.state.bookId} handleChange={(data) => {
         this.setState({ members: data})
         //console.log(data);
       }}/>;

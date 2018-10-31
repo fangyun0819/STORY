@@ -72,7 +72,7 @@ class Album extends React.Component {
   state = {
     redirect: false,
     selection: 0,
-    albumName: '',
+    albumNames: [],
   };
 
   setRedirect = () => {
@@ -84,7 +84,11 @@ class Album extends React.Component {
   componentDidMount(){
     axios.get('/rest/getgraduatebook')
     .then((result) => {
-     this.setState( { albumName : result.data[0].memoryProjectName});
+      let albumNames = [];
+      result.data.forEach(element => {
+        albumNames.push({bookName: element.memoryProjectName, bookId: element.memoryProjectId})
+      });
+     this.setState( { albumNames});
     });
   }
 
@@ -106,6 +110,76 @@ class Album extends React.Component {
     this.setState({ open: false });
   };
 
+  _showAlbums(){
+    const { classes } = this.props;
+
+    return (
+      <div>
+        {this.state.albumNames.map( (val ) => {
+          return (
+            <Card>
+            <CardActions style={{ flex: 1 }}>
+              <Button size="small">
+                {cards[this.state.selection]}
+              </Button>
+            </CardActions>
+            <CardMedia
+              className={classes.cardMedia}
+              image={images[this.state.selection]}
+              title="Image title"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h2">
+               {val.bookName}
+              </Typography>
+            </CardContent>
+            <CardActions>
+            <Button
+                onClick={ () => {
+                  this.setState({isRedirect: 1});
+                  localStorage.setItem('currentBookId',val.bookId)
+                }}
+                size="small" color="primary">
+                上傳照片</Button>
+              {this.renderRedirect()}
+              <Button
+                onClick={ () => this.setState({isRedirect: 2})}
+                size="small" color="primary">
+                更改基本設定</Button>
+              <Button onClick={this.handleClickOpen} size="small" color="primary">
+                檢視作品集
+              </Button>
+              <Dialog
+                fullScreen
+                open={this.state.open}
+                onClose={this.handleClose}
+              >
+                <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+                <DialogContent>
+                  <Grid container spacing={24}>
+                    <Grid item xs>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <ThemePC />
+                    </Grid>
+                    <Grid item xs>
+                    </Grid>
+                  </Grid>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={this.handleClose} color="primary" autoFocus>
+                    CLOSE
+                    </Button>
+                </DialogActions>
+              </Dialog>
+            </CardActions>
+          </Card>
+          )
+        })}
+      </div>
+    )
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -122,6 +196,9 @@ class Album extends React.Component {
           <div className={classNames(classes.layout, classes.cardGrid)}>
             <Grid container spacing={40}>
               <Grid item key={cards[this.state.selection]} sm={4} md={4} lg={4}>
+
+                {this._showAlbums()}
+
                 <Card>
                   <CardActions style={{ flex: 1 }}>
                     <Button size="small">
@@ -176,6 +253,7 @@ class Album extends React.Component {
                     </Dialog>
                   </CardActions>
                 </Card>
+
               </Grid>
             </Grid>
           </div>
