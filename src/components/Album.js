@@ -19,7 +19,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
-
 import axios from 'axios';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -160,7 +159,7 @@ class Album extends React.Component {
                     <Grid item xs>
                     </Grid>
                     <Grid item xs={6}>
-                      <ThemePC />
+                      <Preview />
                     </Grid>
                     <Grid item xs>
                     </Grid>
