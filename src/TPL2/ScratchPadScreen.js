@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Button from '@material-ui/core/Button';
-import background from './images/b2.jpg';
+import background from './images/T2.jpg';
 
 export default class ScratchPadScreen extends Component {
 
