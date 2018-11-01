@@ -212,6 +212,7 @@ class Album extends React.Component {
                   <CardContent>
                     <Typography gutterBottom variant="headline" component="h2">
                      {this.state.albumName}
+                     美國行
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -232,7 +233,7 @@ class Album extends React.Component {
                       open={this.state.open}
                       onClose={this.handleClose}
                     >
-                      <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+                      <DialogTitle align="center">{"畢業紀念冊之二"}</DialogTitle>
                       <DialogContent>
                         <Grid container spacing={24}>
                           <Grid item xs>

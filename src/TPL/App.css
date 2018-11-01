@@ -71,16 +71,16 @@
     margin-bottom: 0;
 }
 .mui-btn--primary {
-    background-color: #a9a9a9;
+    background-color: #55333b;
 }
 .mui-btn--primary:active, .mui-btn--primary:focus, .mui-btn--primary:hover {
-    background-color: #b1b1b1;
+    background-color: #55333b;
 }
 .mui-btn--accent {
-    background-color: #797979;
+    background-color: #55333b;
 }
 .mui-btn--accent:active, .mui-btn--accent:focus, .mui-btn--accent:hover {
-    background-color: #868686;
+    background-color: #55333b;
 }
 .mui-textfield {  /* Reset UI framework styling that affects layout */
     padding-top: 0;

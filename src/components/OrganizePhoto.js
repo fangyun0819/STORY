@@ -216,7 +216,7 @@ class OrganizePhoto extends React.Component {
             ></Tab>
             <Tab label="地點" ></Tab>
             <Tab label="人"></Tab>
-            <Tab label="成員"></Tab>
+            
           </Tabs>
       </div>
       </Grid>
