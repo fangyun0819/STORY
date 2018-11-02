@@ -20,9 +20,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
 
-import ThemePC from '../reactStudio/ThemePC';
 import axios from 'axios';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Preview from './Preview';
+import ThemePC from '../reactStudio/ThemePC';
 
 const styles = theme => ({
   appBar: {
