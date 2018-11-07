@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component3_elImage_878299.jpg';
-import img_elImage2 from './images/Component10_elImage2_257160.jpg';
 import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
+import img_elImageCopy2 from './images/Component8_elImageCopy_560966.jpg';
 
 
-export default class Component3 extends Component {
+export default class Component2 extends Component {
 
   // This component doesn't use any properties
 
@@ -20,28 +20,11 @@ export default class Component3 extends Component {
         height: '100%',
      };
     const style_background_outer = {
-        backgroundColor: '#f6f6f6',
+        backgroundColor: 'white',
         pointerEvents: 'none',
      };
     const style_image = {
         backgroundImage: 'url('+img_elImage+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        pointerEvents: 'none',
-     };
-    const style_card_outer = {
-        backgroundColor: 'white',
-        boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
-        pointerEvents: 'none',
-     };
-    const style_cardCopy2_outer = {
-        backgroundColor: 'white',
-        boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
-        pointerEvents: 'none',
-     };
-    const style_image2 = {
-        backgroundImage: 'url('+img_elImage2+')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
@@ -54,32 +37,28 @@ export default class Component3 extends Component {
         backgroundSize: 'cover',
         pointerEvents: 'none',
      };
+     const style_imageCopy2 = {
+      backgroundImage: 'url('+img_elImageCopy2+')',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: '50% 50%',
+      backgroundSize: 'cover',
+      pointerEvents: 'none',
+   };
     
     return (
-      <div className="Component3" style={baseStyle}>
+      <div className="Component2" style={baseStyle}>
         <div className="background">
-          <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
+          <div className='containerMinHeight elBackground' style={style_background_outer}>
             <div style={style_background} />
           
           </div>
           
           <div className='elImage' style={style_image} />
         </div>
-        <div className="layoutFlow">
-          <div className='cardBg elCard' style={style_card_outer}>
-            <div />
-          
-          </div>
-          
-          <div className='cardBg elCardCopy2' style={style_cardCopy2_outer}>
-            <div />
-          
-          </div>
-          
-        </div>
         <div className="foreground">
-          <div className='elImage2' style={style_image2} />
           <div className='elImageCopy' style={style_imageCopy} />
+          <div className='elImageCopy2' style={style_imageCopy2} />
+
         </div>
       </div>
     )

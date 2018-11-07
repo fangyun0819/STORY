@@ -1169,7 +1169,7 @@
   }
 
 
-  .Component2 .elImage {
+  .Component2.elImage {
     position: absolute;
     left: 467px;
     top: 0px;
