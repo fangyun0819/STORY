@@ -37,6 +37,10 @@ export default class Component4 extends Component {
         backgroundSize: 'cover',
         boxShadow: '0.0px 6.8px 48px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
+        left: '26px',
+        top: '27px',
+        width: '334px',
+        height: '252px',
      };
     const style_imageCopy2 = {
         backgroundImage: 'url('+img_elImageCopy2+')',
@@ -45,6 +49,10 @@ export default class Component4 extends Component {
         backgroundSize: 'cover',
         boxShadow: '0.0px 6.8px 48px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
+        left: '294px',
+        top: '200px',
+        width: '334px',
+        height: '252px',
      };
     
     return (
@@ -61,6 +69,8 @@ export default class Component4 extends Component {
        
         <div className="foreground">
           <div className='elImageCopy' style={style_imageCopy} />
+          <div className='elImageCopy2' style={style_imageCopy2} />
+
         </div>
       </div>
     )

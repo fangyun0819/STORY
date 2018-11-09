@@ -28,15 +28,26 @@ export default class Component1 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
+        width: '252px',
+        height: '334px',
+        
+     
      };
     const style_image2_outer = {
         pointerEvents: 'none',
+        margintop: '56px',
+        width: '252px',
+        marginleft: '202px',
      };
     
     return (

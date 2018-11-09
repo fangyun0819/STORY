@@ -30,14 +30,23 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_text = {
         color: 'rgba(7, 7, 7, 0.8500)',
         textAlign: 'left',
         textShadow: 'rgba(255, 255, 255, 0.7500) 0.0px 2.3px 0.0px',
+        margintop: '431px',
+        width: '378px',
+        marginleft: '4px',
      };
     const style_text_outer = {
         pointerEvents: 'none',
+        width: '378px',
+        height: '43px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
@@ -45,6 +54,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '9px',
+        top: '11px',
+        width: '316px',
+        height: '419px',
      };
     const style_imageCopy = {
         backgroundImage: 'url('+img_elImageCopy+')',
@@ -52,6 +65,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '338px',
+        top: '8px',
+        width: '300px',
+        height: '226px',
      };
     const style_imageCopy2 = {
         backgroundImage: 'url('+img_elImageCopy2+')',
@@ -59,6 +76,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '338px',
+        top: '240px',
+        width: '300px',
+        height: '226px',
      };
     
     return (
