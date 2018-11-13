@@ -28,7 +28,7 @@ export default class App extends Component {
     this.updateLocalizationFromDataSheet(this.dataSheets['localizationSheet']);
 
     this.state = {
-      currentScreen: 'start',
+      currentScreen: 'screen1',
       currentScreenProps: {},
       screenFormatId: '',
       screenTransitionForward: true,
@@ -203,8 +203,7 @@ export default class App extends Component {
           return (<Screen2 {...screenProps} />)
         case 'screen1':
           return (<Screen1 {...screenProps} />)
-        case 'start':
-          return (<StartScreen {...screenProps} />)
+       
       }
     }
 

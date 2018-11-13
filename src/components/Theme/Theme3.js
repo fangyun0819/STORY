@@ -17,6 +17,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemeNPC from '../../TPL3/ThemeNPC';
 
+import start from '../../TPL3/Component1';
+
+
 
 const styles = theme => ({
 
@@ -75,7 +78,7 @@ class ThemeList extends React.Component {
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" />}
-            label="經典風"
+            label="愛心風"
           />
           <img className={classes.img} src={story} />
           

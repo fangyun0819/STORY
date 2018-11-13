@@ -33,7 +33,6 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
-
 import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";

@@ -16,6 +16,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+import ThemeNPC from '../../TPL5/ThemeNPC';
 
 
 const styles = theme => ({
@@ -48,7 +49,8 @@ const styles = theme => ({
   padding: theme.spacing.unit * 2,
   textAlign: 'center',
   color: theme.palette.text.secondary,
-},
+ },
+
 });
 
 class ThemeList extends React.Component {
@@ -86,18 +88,17 @@ class ThemeList extends React.Component {
           預覽
           </Button>
           <Dialog
+          align="center"
           fullScreen
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle align="center">{"主題2"}</DialogTitle>
+          <DialogTitle align="center">{"青春風"}</DialogTitle>
           <DialogContent>
-          <Grid container spacing={24}> 
-        
-       
           
-         
-          </Grid>
+          <ThemeNPC/>
+          
+          
            </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
