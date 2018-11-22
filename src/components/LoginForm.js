@@ -13,7 +13,8 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Facebook from './Facebook';
-import google from './google';
+import GoogleLogin from 'react-google-login';
+
 
 
 const styles = theme => ({
@@ -48,6 +49,10 @@ const styles = theme => ({
     }
   },
 });
+
+const responseGoogle = (response) => {
+  console.log(response);
+}
 
 class LoginForm extends React.Component {
   state = {
@@ -117,15 +122,20 @@ class LoginForm extends React.Component {
           </Grid>
         </Grid>
         <br/>
-        
         <Facebook/>
-        <google/>
-
         <br/>
+        <GoogleLogin
+         clientId="50377049635-ejahgvd7godo0ovp9p5n6fsckp2f04bc.apps.googleusercontent.com"
+          buttonText="Login with Google"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          />
 
       </div>
 
     )
+    document.getElementById('googleButton')
+
   }
 }
 
