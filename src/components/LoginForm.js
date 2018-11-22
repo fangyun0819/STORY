@@ -117,9 +117,11 @@ class LoginForm extends React.Component {
           </Grid>
         </Grid>
         <br/>
+        
         <Facebook/>
+        <google/>
+
         <br/>
-       <google/>
 
       </div>
 
