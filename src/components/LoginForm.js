@@ -134,9 +134,9 @@ class LoginForm extends React.Component {
       </div>
 
     )
-    document.getElementById('googleButton')
 
   }
+  
 }
 
 export default withStyles(styles)(LoginForm);
