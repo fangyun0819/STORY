@@ -78,7 +78,7 @@ class SwipeableTextMobileStepper extends React.Component {
       case 0:
         return <Page1/>;
       case 1:
-        return <Page2/>;
+        return <Page1/>;
       case 2:
         return <Page1/>;
       case 3:
