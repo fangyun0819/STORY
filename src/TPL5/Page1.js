@@ -15,46 +15,27 @@ import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
 import background from './images/p1.jpg';
 
+require('./Theme.css')
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
   },
  
-  paper: {
-    height:'600px',
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
-  card: {
-   height: '300px',
-   width: '400px',
-   marginLeft: theme.spacing.unit * 1,
-   marginRight: theme.spacing.unit * 1,
-  },
-
+  
 });
 
 function FullWidthGrid(props) {
   const { classes ,source} = props;
 
   return (
-  
+
+   
         <div className={classes.root}>
         <Grid container spacing={24}>
 
-        <Grid item xs={6} className={classes.grid}>
-        <Card className={classes.card}>
-         <CardContent>
-          <Typography component="p">
-            照片放置區
-          </Typography>
-         </CardContent>
-        </Card>
-        </Grid>
-
         <Grid item xs={6}>
-          <Card className={classes.card}>
+          <Card id="card1" className={classes.card}>
          <CardContent>
           <Typography component="p">
             照片放置區
@@ -62,13 +43,10 @@ function FullWidthGrid(props) {
          </CardContent>
         </Card> 
         </Grid>  
-        </Grid>
-
-        <Paper  classNam={classes.paper}  >
-        <img className={classes.img} src={background} />
-        </Paper>
+        </Grid> 
+        <img id="img1" src={background}/>
         </div>
-   
+    
       
     
   );
