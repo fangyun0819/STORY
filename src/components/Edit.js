@@ -28,7 +28,8 @@ import Sticker from './Sticker';
 import Text from './Text';
 
 
-
+import { Document, Page } from 'react-pdf';
+//needs to disallow cross origin
 
 
 
