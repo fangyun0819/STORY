@@ -88,7 +88,7 @@ class App extends Component {
       customRoutes={[<Route exact path="/addalbumlist" component={AddAlbumList} />, 
                     <Route path="/showalbumlist" component={ShowAlbumList} />,
                     <Route path="/setting" component={Setting} />,
-                    <Route path="/editlist" component={EditList} />,
+                    <Route path="/edit/photo-layout-editor/edit.html" component={EditList} />,
                     <Route path="/photo" component={Photo} />,
       ]}>
           {this._renderResources()}

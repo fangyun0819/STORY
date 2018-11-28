@@ -30,6 +30,7 @@ import Text from './Text';
 
 import { Document, Page } from 'react-pdf';
 //needs to disallow cross origin
+import PhotoLayoutEditor from 'react-photo-layout-editor';
 
 
 
@@ -99,74 +100,8 @@ class Edit extends React.Component {
     
 
   return (
-      <Grid item container xs={24}>
-        
-        <Grid item xs={12}>
-        
-          <Button 
-          onClick={this.handleClickOpen} 
-          color="primary" 
-          align= "center"
-        >
-          預覽
-          </Button>
-          
-          <Dialog
-          fullScreen
-           open={this.state.open}
-           onClose={this.handleClose}
-          >
-          <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
-          <DialogContent>
-          <Grid container spacing={24}> 
-        <Grid item xs>
-        </Grid>
-          <Grid item xs={6}>
-         <ThemePC/>
-          </Grid>
-          <Grid item xs>
-          </Grid>
-          </Grid>
-           </DialogContent>
+    <PhotoLayoutEditor ref={(r) => { }}/>
 
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary" autoFocus>
-             CLOSE
-            </Button>
-          </DialogActions>
-          </Dialog> 
-          {this.renderRedirect()}
-          <Button 
-          onClick={this.setRedirect}
-          id="position" color="primary" >
-          完成
-          </Button>
-        </Grid>
-
-        <Grid item item xs={2}>
-        <Paper  className={classes.papers}  >
-        <Typography>
-          新增文字
-         </Typography> 
-          <Text/>
-        </Paper>
-        <Paper  className={classes.papers}  >
-        <Typography>
-          新增貼圖
-         </Typography> 
-          <Sticker/>
-        </Paper>
-        </Grid>
-        
-      
-        
-        <Grid item item xs={10}>
-        <div className={classes.layout} id="target-container" >
-        
-        </div>
-        </Grid>
-       </Grid>
-     
      );
    }
 }
