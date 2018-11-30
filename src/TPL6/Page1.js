@@ -33,16 +33,25 @@ function FullWidthGrid(props) {
    
         <div className={classes.root}>
         <Grid container spacing={24}>
-
         <Grid item xs={6}>
-        <Card id="card1" className={classes.card}>
+        <Card id="card2" className={classes.card}>
         <CardContent>
           <Typography component="p">
             照片放置區
           </Typography>
          </CardContent>
         </Card> 
-        </Grid>  
+        </Grid>
+        <Grid item xs={6}>
+        <Card id="card2" className={classes.card}>
+        <CardContent>
+          <Typography component="p">
+            照片放置區
+          </Typography>
+         </CardContent>
+        </Card> 
+        </Grid>
+
         </Grid> 
         <img id="img1" src={background}/>
         </div>

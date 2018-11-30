@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
 import Theme1 from './Theme1/Theme';
-
+import Theme2 from './Theme2/Theme';
 import Theme3 from './Theme3/Theme';
 
 function TabContainer({ children, dir }) {
@@ -57,9 +57,10 @@ class FullWidthTabs extends React.Component {
             textColor="primary"
             fullWidth
           >
-            <Tab label="一張" />
+            <Tab label="單張" />
             <Tab label="兩張" />
             <Tab label="綜合" />
+            
           </Tabs>
         </AppBar>
         <SwipeableViews
@@ -68,7 +69,7 @@ class FullWidthTabs extends React.Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}><Theme1/></TabContainer>
-          <TabContainer dir={theme.direction}>Item Two</TabContainer>
+          <TabContainer dir={theme.direction}><Theme2/></TabContainer>
           <TabContainer dir={theme.direction}><Theme3/></TabContainer>
         </SwipeableViews>
       </div>
