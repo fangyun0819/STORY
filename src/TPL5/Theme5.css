@@ -28,8 +28,7 @@
 #page2{
   width: auto;
   height: 650px;
-  background-size: auto 650px;
-  background-repeat: no-repeat;
+
 }
 #cover{
   width: 900px;
@@ -52,7 +51,7 @@
 #title{
   font-size:50px;
   font-family:'Microsoft JhengHei';
-  color: aliceblue;
+  color:black;
 	margin-top: 20px;
 	margin-left:0px;
 }

@@ -93,11 +93,9 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle align="center">{"青春風"}</DialogTitle>
           <DialogContent>
           
           <ThemeNPC2/>
-          
           
            </DialogContent>
           <DialogActions>

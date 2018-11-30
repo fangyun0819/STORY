@@ -15,7 +15,8 @@ import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
 import background from './images/p2.jpg';
 
-require('./Theme.css')
+import './Theme5.css';
+
 
 const styles = theme => ({
   root: {
