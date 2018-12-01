@@ -1,26 +1,47 @@
 #img1{
-  margin-top: 10px;
+  margin-top: 50px;
   margin-bottom: 50px;
   width: 600px;
   height: 200px;
+  border-style:double;
 }
 #card1{
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 250px;
   width: 400px;
-	height:300px;
+  height:300px;
+  border-style:solid;
+  
+
+}
+#card1-2{
+  margin-top: 150px;
+  margin-bottom: 10px;
+  margin-left: 250px;
+  width: 400px;
+  height:300px;
+  border-style:solid;
+  
+
+}
+#page1{
+  width: auto;
+  height: 650px;
+  background-size: auto 650px;
+  background-repeat: no-repeat;
+  
 }
 #card2-1{
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 100px;
   width: 400px;
   height:300px;
   border-style:solid;
 }
 #card2-2{
   margin-top: 20px;
-  margin-left: 450px;
+  margin-left: 350px;
   width: 400px;
   height:300px;
   border-style:solid;

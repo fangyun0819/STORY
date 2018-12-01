@@ -7,7 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import story from './images/T5.jpg';
+import CoverPhoto from '../../TPL5/images/CoverPhoto.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -16,7 +16,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import ThemeNPC from '../../TPL5/ThemeNPC';
+import ThemeNPC2 from '../../TPL5/ThemeNPC2';
 
 
 const styles = theme => ({
@@ -79,7 +79,7 @@ class ThemeList extends React.Component {
             control={<Checkbox color="secondary"  value="yes" />}
             label="青春風"
           />
-          <img className={classes.img} src={story} />
+          <img className={classes.img} src={CoverPhoto} />
           
           <Button 
           onClick={this.handleClickOpen}
@@ -93,11 +93,9 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle align="center">{"青春風"}</DialogTitle>
           <DialogContent>
           
-          <ThemeNPC/>
-          
+          <ThemeNPC2/>
           
            </DialogContent>
           <DialogActions>

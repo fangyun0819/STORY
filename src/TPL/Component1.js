@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import img_elImage from './images/Component1_elImage_707219.jpg';
+import img_elImage from './images/CoverPhoto.jpg';
 import img_elImage2 from './images/Component10_elImage2_257160.jpg';
 
 

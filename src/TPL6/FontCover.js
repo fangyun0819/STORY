@@ -13,10 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
-import background from './images/cover.jpg';
+import background from './images/CoverPhoto.jpg';
 
-require('./Theme6.css')
-
+require('../css/Theme.css')
 const styles = theme => ({
   root: {
     flexGrow: 1,

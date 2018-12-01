@@ -9,7 +9,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import Page1 from './Page1';
+import Page2 from './Page2';
 import FontCover from './FontCover';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -78,13 +78,13 @@ class SwipeableTextMobileStepper extends React.Component {
       case 0:
         return <FontCover/>;
       case 1:
-        return <Page1/>;
+        return <Page2/>;
       case 2:
-        return <Page1/>;
+        return <Page2/>;
       case 3:
-        return <Page1/>;
+        return <Page2/>;
       case 4:
-        return <Page1/>;
+        return <Page2/>;
     
     }
   }

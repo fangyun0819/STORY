@@ -6,8 +6,9 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
-import CoverPhoto from '../../TPL3/images/CoverPhoto.jpg';
+import CoverPhoto from '../../TPL1-2/images/CoverPhoto.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -15,10 +16,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC from '../../TPL3/ThemeNPC';
 
-import start from '../../TPL3/Component1';
-
+import ThemeNPC2 from '../../TPL1-2/ThemeNPC2';
 
 
 const styles = theme => ({
@@ -51,7 +50,8 @@ const styles = theme => ({
   padding: theme.spacing.unit * 2,
   textAlign: 'center',
   color: theme.palette.text.secondary,
-},
+ },
+
 });
 
 class ThemeList extends React.Component {
@@ -78,10 +78,10 @@ class ThemeList extends React.Component {
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" />}
-            label="愛心風"
+            label="校園風"
           />
-          <img className={classes.img} src={CoverPhoto} />
-          
+           <img className={classes.img} src={CoverPhoto} />
+
           <Button 
           onClick={this.handleClickOpen}
           variant="outlined" color="primary" align="center" 
@@ -89,18 +89,15 @@ class ThemeList extends React.Component {
           預覽
           </Button>
           <Dialog
+          align="center"
           fullScreen
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle align="center">{"主題2"}</DialogTitle>
           <DialogContent>
-          <Grid container spacing={24}> 
-        
-         <ThemeNPC/>
+
+          <ThemeNPC2/>
           
-         
-          </Grid>
            </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>
