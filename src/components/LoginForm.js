@@ -35,6 +35,7 @@ const styles = theme => ({
     backgroundColor: '#ac999d'
   },
   button2: {
+    
     color: '#ffffff',
     'border-color': '#ffffff',
     backgroundColor: '#b38b94'
@@ -67,6 +68,8 @@ class LoginForm extends React.Component {
 
     return (
       <div style={styles.container}>
+       <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+       
         <Grid container spacing={24}>
           <Grid className={classes.container} container justify="center" alignItems="center" direction="column">
             <Button variant="outlined" size="large"  color="primary" className={classes.button} onClick={() => _handerRegister()}>
@@ -101,6 +104,9 @@ class LoginForm extends React.Component {
                 }
               />
             </FormControl>
+            <br/>
+            
+          
               <Button variant="outlined" size="large" className={classes.button2} onClick={() => {
                 onSubmit(this.state.username, this.state.password);
                 //console.log(this.state.username)
@@ -108,7 +114,7 @@ class LoginForm extends React.Component {
                 確認登入
           </Button>
           <br/>
-              <Button variant="outlined" size="large" className={classes.button1} onClick={() => _handleForget()}>
+              <Button variant="outlined" size="middle" className={classes.button1} onClick={() => _handleForget()}>
                 忘記密碼
           </Button>
 
@@ -117,6 +123,8 @@ class LoginForm extends React.Component {
           </Grid>
         </Grid>
         <br/>
+        <br/>
+        <br/> <br/>
         <Facebook/>
         <br/>
        <google/>
