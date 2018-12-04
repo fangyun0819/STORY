@@ -22,7 +22,7 @@ export default class Component4 extends Component {
         pointerEvents: 'none',
      };
     const style_text = {
-        fontSize: 53.8,
+        fontSize: 53.4,
         color: 'rgba(0, 0, 0, 0.8500)',
         textAlign: 'left',
         pointerEvents: 'none',
@@ -41,9 +41,7 @@ export default class Component4 extends Component {
           <div className='elImage' style={style_image} />
         </div>
         <div className="foreground">
-          <div className='font-papyrus  elText' style={style_text}>
-            <div>{this.props.locStrings.component4_text_144373}</div>
-          </div>
+          
           <div className='elImageCopy4' style={style_imageCopy4} />
         </div>
       </div>

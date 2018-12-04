@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
 
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -122,19 +123,19 @@ class AddAlbumList extends React.Component {
     switch (step) {
       case 0:
         return <Info handleChange={(data) => {
-        //console.log(data);
-        this.setState({ bookName: data})
-      }}/>;
+          //console.log(data);
+          this.setState({ bookName: data})
+        }}/>;
       case 1:
         return <NewMember handleChange={(data) => {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
-      case 2:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 3:
-        return <OrganizePhoto />;
+        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
       case 4:
+        return <OrganizePhoto bookId={this.state.bookId}/>;
+      case 2:
         return <Theme/>;
       default:
         throw new Error('Unknown step');
@@ -162,11 +163,24 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
+    const token = localStorage.getItem('token').split(": ")[1];
+    this.setState({token});
+    if( activeStep === 0){
+      axios.post('/rest/newMemoryProject', {
+        "loginToken": token,
+        "memoryProjectName": this.state.bookName
+      }).then((res) => this.setState({bookId: res.data}) );
+    }else if( activeStep === 1){
+      axios.post('/rest/newMember', {
+        "loginToken": token,
+        "members": this.state.members
+      })
+    }
     this.setState({
       activeStep: activeStep + 1,
     });
   };
-  
+
 
   handleBack = () => {
     const { activeStep } = this.state;
@@ -245,11 +259,21 @@ class AddAlbumList extends React.Component {
                 open={this.state.open}
                 onClose={this.handleClose}
                 >
-              <DialogTitle>{"畢業紀念冊1"}</DialogTitle>
-               <ThemePC/>
+              <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogContent>
+              <Grid container spacing={24}> 
+              <Grid item xs>
+              </Grid>
+              <Grid item xs={6}>
+              <ThemePC/>
+              </Grid>
+              <Grid item xs>
+              </Grid>
+              </Grid>
+              </DialogContent>
                <DialogActions>
               <Button onClick={this.handleClose} color="primary" autoFocus>
-              關閉
+              CLOSE
               </Button>
             </DialogActions>
            </Dialog>

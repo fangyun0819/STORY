@@ -58,7 +58,7 @@ class NewMember extends React.Component {
       let {confirmedMembers} = this.state;
       confirmedMembers[3].confirmed = true;  
       this.setState({confirmedMembers})
-    }, 20000);
+    }, 40000);
   }
   _renderMemberInput(){
     return this.state.members.map(function(item, i){
@@ -90,9 +90,9 @@ class NewMember extends React.Component {
       </Button>
       <Button mini color="secondary" aria-label="Add" onClick={ () =>{
         this.setState({showAvatar: true});
-        axios.post('http://localhost:8081/rest/newMember', {
+        axios.post('/rest/newMember', {
           "email": this.state.members
-        })
+        });
         alert('新增成功');
       }}>
         <p>確定邀請</p>

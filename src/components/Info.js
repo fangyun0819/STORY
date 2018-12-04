@@ -71,7 +71,7 @@ class Info extends React.Component {
 
         <TextField
         fullWidth
-        label="畢業念冊名稱"
+        label="畢業紀念冊名稱"
         id="name"
         helperText="必填"
         InputProps={{

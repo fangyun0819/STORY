@@ -15,7 +15,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC2 from '../TPL2/ThemeNPC';
+import ThemeNPC from '../TPL2/ThemeNPC';
 
 
 const styles = theme => ({
@@ -90,13 +90,13 @@ class ThemeList extends React.Component {
            open={this.state.open}
            onClose={this.handleClose}
           >
-          <DialogTitle>{"主題2"}</DialogTitle>
+          <DialogTitle align="center">{"主題2"}</DialogTitle>
           <DialogContent>
           <Grid container spacing={24}> 
         <Grid item xs>
         </Grid>
           <Grid item xs={6}>
-         <ThemeNPC2/>
+         <ThemeNPC/>
           </Grid>
           <Grid item xs>
           </Grid>

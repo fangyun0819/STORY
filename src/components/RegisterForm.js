@@ -85,7 +85,7 @@ class RegisterForm extends React.Component {
     };
 
     console.log(user)
-    axios.post('http://localhost:8081/rest/register', user)
+    axios.post('/rest/register', user)
     .then(res=> {
       console.log(res);
       console.log(res.data);
