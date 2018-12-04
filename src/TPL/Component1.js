@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import img_elImage from './images/Component1_elImage_707219.jpg';
+import img_elImage from './images/CoverPhoto.jpg';
 import img_elImage2 from './images/Component10_elImage2_257160.jpg';
 
 
@@ -28,15 +28,26 @@ export default class Component1 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
+        width: '252px',
+        height: '334px',
+        
+     
      };
     const style_image2_outer = {
         pointerEvents: 'none',
+        margintop: '56px',
+        width: '252px',
+        marginleft: '202px',
      };
     
     return (

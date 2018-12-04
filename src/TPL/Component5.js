@@ -26,6 +26,12 @@ export default class Component5 extends Component {
     const style_background_outer = {
         backgroundColor: '#f6f6f6',
         pointerEvents: 'none',
+        left: '0px',
+        right: '0px',
+        top: '0px',
+        height: '100%',
+        width: '100%',
+        height: '100%',
      };
     const style_image = {
         backgroundImage: 'url('+img_elImage+')',
@@ -33,13 +39,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
-     };
-    const style_imageCopy5 = {
-        backgroundImage: 'url('+img_elImageCopy5+')',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '50% 50%',
-        backgroundSize: 'cover',
-        pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
@@ -47,6 +50,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '44px',
+        top: '0px',
+        width: '600px',
+        height: '150px',
      };
     const style_imageCopy3 = {
         backgroundImage: 'url('+img_elImageCopy3+')',
@@ -54,6 +61,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '454px',
+        top: '114px',
+        width: '203px',
+        height: '270px',
      };
     const style_imageCopy4 = {
         backgroundImage: 'url('+img_elImageCopy4+')',
@@ -61,6 +72,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '219px',
+        top: '114px',
+        width: '223px',
+        height: '168px',
      };
     const style_imageCopy = {
         backgroundImage: 'url('+img_elImageCopy+')',
@@ -68,6 +83,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '221px',
+        top: '282px',
+        width: '223px',
+        height: '168px',
      };
     const style_imageCopy2 = {
         backgroundImage: 'url('+img_elImageCopy2+')',
@@ -75,6 +94,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '11px',
+        top: '111px',
+        width: '203px',
+        height: '270px',
      };
     
     return (
@@ -86,7 +109,6 @@ export default class Component5 extends Component {
           </div>
           
           <div className='elImage' style={style_image} />
-          <div className='elImageCopy5' style={style_imageCopy5} />
           <div className='elImage2' style={style_image2} />
         </div>
         <div className="foreground">

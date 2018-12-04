@@ -20,8 +20,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { Redirect } from 'react-router-dom';
 
-import ThemePC from '../reactStudio/ThemePC';
+import axios from 'axios';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Preview from './Preview';
 
 const styles = theme => ({
   appBar: {
@@ -69,7 +71,8 @@ const images = ["https://i.imgur.com/9NUDaSC.jpg", "https://images.pexels.com/ph
 class Album extends React.Component {
   state = {
     redirect: false,
-    selection: 0
+    selection: 0,
+    albumName: '',
   };
 
   setRedirect = () => {
@@ -78,11 +81,22 @@ class Album extends React.Component {
     })
   };
 
+  componentDidMount(){
+    axios.get('/rest/getgraduatebook')
+    .then((result) => {
+     this.setState( { albumName : result.data[0].memoryProjectName});
+    });
+  }
+
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/setting' />
+    if(this.state.isRedirect === 0){
+
+    }else if(this.state.isRedirect === 1){
+      return <Redirect to={`/photo`}/>
+    }else if(this.state.isRedirect === 2){
+      return <Redirect to={`/setting`}/>
     }
-  };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -121,13 +135,17 @@ class Album extends React.Component {
                   />
                   <CardContent>
                     <Typography gutterBottom variant="headline" component="h2">
-                      畢業五組
+                     {this.state.albumName}
                     </Typography>
                   </CardContent>
                   <CardActions>
+                  <Button
+                      onClick={ () => this.setState({isRedirect: 1})}
+                      size="small" color="primary">
+                      上傳照片</Button>
                     {this.renderRedirect()}
                     <Button
-                      onClick={this.setRedirect}
+                      onClick={ () => this.setState({isRedirect: 2})}
                       size="small" color="primary">
                       更改基本設定</Button>
                     <Button onClick={this.handleClickOpen} size="small" color="primary">
@@ -144,7 +162,7 @@ class Album extends React.Component {
                           <Grid item xs>
                           </Grid>
                           <Grid item xs={6}>
-                            <ThemePC />
+                            <Preview/>
                           </Grid>
                           <Grid item xs>
                           </Grid>

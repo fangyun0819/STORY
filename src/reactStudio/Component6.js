@@ -66,7 +66,7 @@ export default class Component6 extends Component {
         <div className="foreground">
           <div className='elImageCopy' style={style_imageCopy} />
           <div className='elImageCopy2' style={style_imageCopy2} />
-          <div className='elImage2' style={style_image2} />
+         
         </div>
       </div>
     )

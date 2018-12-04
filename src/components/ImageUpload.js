@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import Photo from './Photo';
 
 export default class ImageUpload extends Component {
   constructor() {
@@ -14,27 +15,34 @@ export default class ImageUpload extends Component {
     };
   }
 
-  onChange = (e, i) => {
-    //console.log(index)
-    let {selectedFile, file, selectedFileDate}= this.state;
-    //console.log('lastModified' + e.target.files[0].lastModified)
-    if(selectedFile.length < i){
-      selectedFile.push(e.target.files[0]);
-      selectedFileDate.push(e.target.files[0].lastModified);
-      file.push(URL.createObjectURL(e.target.files[0]));  
-    }else{
-      selectedFile[i] = e.target.files[0];
-      selectedFileDate[i] = e.target.files[0].lastModified;
-      file[i] = URL.createObjectURL(e.target.files[0]);
-    }
-    this.setState({ selectedFile , file});
+  componentDidMount(){
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      const currentBookId = localStorage.getItem('currentBookId');
+      this.setState({
+        token,
+        bookId: currentBookId
+      })
+    }catch(e){
 
+    }
+
+  }
+  onChange = (e, i) => {
+    let selectedFile = [], file = [], selectedFileDate = [];
+
+    Array.from(e.target.files).forEach((val) => {
+      selectedFile.push(val);
+      selectedFileDate.push(val.lastModified);
+      file.push(val);
+    })
+    this.setState({ selectedFile , file, selectedFileDate});
   }
 
   onSubmit = (e) => {
     e.preventDefault();
     const { selectedFile, selectedFileDate } = this.state;
-    const { token, bookId} = this.props;
+    const { token, bookId} = this.state;
     for(let i = 0 ; i < selectedFile.length ; i ++){
       let formData = new FormData();
 
@@ -43,7 +51,6 @@ export default class ImageUpload extends Component {
       formData.append('token', token);
       formData.append('bookId', bookId);
 
-  
       axios.post('/rest/upload-image', formData)
       .then((result) => {
         
@@ -59,6 +66,7 @@ export default class ImageUpload extends Component {
           <input
             type="file"
             name="selectedFile"
+            multiple
             onChange={ (e) => this.onChange(e, i)}
           />
           <img src={this.state.file[i]} height="42" width="42"/>

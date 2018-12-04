@@ -18,7 +18,6 @@ import Page4Screen from './Page4Screen'
 import Page3Screen from './Page3Screen'
 import Page2Screen from './Page2Screen'
 import Page1Screen from './Page1Screen'
-import ScratchPadScreen from './ScratchPadScreen';
 import DataSheet_localizationSheet from './DataSheet_localizationSheet';
 
 
@@ -38,7 +37,7 @@ export default class App extends Component {
     this.updateLocalizationFromDataSheet(this.dataSheets['localizationSheet']);
 
     this.state = {
-      currentScreen: 'scratchpad',
+      currentScreen: 'page1',
       currentScreenProps: {},
       screenFormatId: '',
       screenTransitionForward: true,
@@ -213,8 +212,7 @@ export default class App extends Component {
           return (<Page2Screen {...screenProps} />)
         case 'page1':
           return (<Page1Screen {...screenProps} />)
-        case 'scratchpad':
-          return (<ScratchPadScreen {...screenProps} />)
+        
       }
     }
 

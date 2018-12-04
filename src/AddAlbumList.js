@@ -16,7 +16,7 @@ import Info from './components/Info';
 import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
-import Theme from './components/Theme';
+import Theme from './components/Theme3/Theme';
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -33,8 +33,7 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
-
-import background from './images/background.jpg';
+import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Edit from './components/Edit';
@@ -45,6 +44,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
 import axios from 'axios';
+import Mode from './components/Mode';
+import ThemeList from './components/ThemeList';
+
+
 
 
 require('./css/style.css');
@@ -56,7 +59,7 @@ const styles = theme => ({
     width: 'auto',
     marginLeft: theme.spacing.unit * 6,
     marginRight: theme.spacing.unit * 6,
-    width: 900,
+    width: 1000,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
@@ -98,7 +101,7 @@ const styles = theme => ({
 });
 
 function getSteps(){
-  return ['基本資訊', '選擇成員', '選擇照片','照片匯集','主題選擇'];
+  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
 }
 
 //步驟設定
@@ -122,21 +125,19 @@ class AddAlbumList extends React.Component {
   getStepContent(step) {
     switch (step) {
       case 0:
-        return <Info handleChange={(data) => {
+        return <ThemeList handleChange={(data) => {
           //console.log(data);
           this.setState({ bookName: data})
         }}/>;
       case 1:
-        return <NewMember handleChange={(data) => {
+        return <NewMember bookName={this.state.bookName} bookId={this.state.bookId} handleChange={(data) => {
         this.setState({ members: data})
         //console.log(data);
       }}/>;
-      case 3:
-        return <ImageUpload bookId={this.state.bookId} token={this.state.token}/>;
-      case 4:
-        return <OrganizePhoto bookId={this.state.bookId}/>;
       case 2:
-        return <Theme/>;
+        return <Mode/>;
+      case 3:
+        return <ThemeList/>;
       default:
         throw new Error('Unknown step');
     }
@@ -163,18 +164,24 @@ class AddAlbumList extends React.Component {
 
   handleNext = () => {
     const { activeStep } = this.state;
-    const token = localStorage.getItem('token').split(": ")[1];
-    this.setState({token});
-    if( activeStep === 0){
-      axios.post('/rest/newMemoryProject', {
-        "loginToken": token,
-        "memoryProjectName": this.state.bookName
-      }).then((res) => this.setState({bookId: res.data}) );
-    }else if( activeStep === 1){
-      axios.post('/rest/newMember', {
-        "loginToken": token,
-        "members": this.state.members
-      })
+    
+    try{
+      const token = localStorage.getItem('token').split(": ")[1];
+      this.setState({token});
+      if( activeStep === 0){
+        axios.post('/rest/newMemoryProject', {
+          "loginToken": token,
+          "memoryProjectName": this.state.bookName
+        }).then((res) => this.setState({bookId: res.data}) );
+      }else if( activeStep === 1){
+        axios.post('/rest/newMember', {
+          "loginToken": token,
+          "members": this.state.members
+        })
+      }
+  
+    }catch(err){
+      
     }
     this.setState({
       activeStep: activeStep + 1,
@@ -236,59 +243,18 @@ class AddAlbumList extends React.Component {
             
               {activeStep === steps.length ? (
                 <React.Fragment>
-          <div>
-            <Paper className={classes.root} elevation={1}>
+              <div>
+              <Paper className={classes.root} elevation={1}>
               <Typography variant="headline" component="h3">
                說明
               </Typography>
               <Typography component="p">
-                想要編輯者請選擇進入編輯區，否則選擇完成
+                已成功邀請朋友加入
+
               </Typography>
             </Paper>
            </div>
-                <Button 
-                onClick={this.handleClickOpen}
-                 className={classes.button} 
-                 variant="outlined" 
-                 color="primary">
-                 預覽我的畢業紀念冊
-                 </Button>
-                  
-                 <Dialog
-                fullScreen
-                open={this.state.open}
-                onClose={this.handleClose}
-                >
-              <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
-              <DialogContent>
-              <Grid container spacing={24}> 
-              <Grid item xs>
-              </Grid>
-              <Grid item xs={6}>
-              <ThemePC/>
-              </Grid>
-              <Grid item xs>
-              </Grid>
-              </Grid>
-              </DialogContent>
-               <DialogActions>
-              <Button onClick={this.handleClose} color="primary" autoFocus>
-              CLOSE
-              </Button>
-            </DialogActions>
-           </Dialog>
-
-                  
-                {this.renderRedirect()}
                
-                <Button 
-                 className={classes.button} 
-                 onClick={ ()=> this.setState({isRedirect: 2})}
-                 variant="outlined" 
-                 color="primary">
-                進入編輯頁面</Button>
-               
-                
                 <div className={classes.buttons}>
                   <Button 
                     required
@@ -304,6 +270,7 @@ class AddAlbumList extends React.Component {
                      onClick={ ()=> this.setState({isRedirect: 1})}>
                      完成
                     </Button>
+                    {this.renderRedirect()}
                     </div>
 
                 </React.Fragment>

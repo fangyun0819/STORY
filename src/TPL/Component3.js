@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import img_elImage from './images/Component3_elImage_878299.jpg';
-import img_elImage2 from './images/Component10_elImage2_257160.jpg';
 import img_elImageCopy from './images/Component10_elImage2_257160.jpg';
 
 
@@ -29,23 +28,38 @@ export default class Component3 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        position: 'absolute',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_card_outer = {
         backgroundColor: 'white',
         boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
+        margintop: '27px',
+        width: '276px',
+        marginleft: '34px',
      };
     const style_cardCopy2_outer = {
         backgroundColor: 'white',
         boxShadow: '0.0px 6.8px 74px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
+        margintop: '27px',
+        width: '276px',
+       left: '350px',
      };
     const style_image2 = {
-        backgroundImage: 'url('+img_elImage2+')',
+        backgroundImage: 'url('+img_elImageCopy+')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '328px',
+        top: '15px',
+        width: '252px',
+        height: '334px',
      };
     const style_imageCopy = {
         backgroundImage: 'url('+img_elImageCopy+')',
@@ -53,6 +67,10 @@ export default class Component3 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '45px',
+        top: '48px',
+        width: '252px',
+        height: '334px',
      };
     
     return (
@@ -68,18 +86,17 @@ export default class Component3 extends Component {
         <div className="layoutFlow">
           <div className='cardBg elCard' style={style_card_outer}>
             <div />
-          
           </div>
-          
           <div className='cardBg elCardCopy2' style={style_cardCopy2_outer}>
             <div />
-          
           </div>
-          
+
+
         </div>
         <div className="foreground">
-          <div className='elImage2' style={style_image2} />
           <div className='elImageCopy' style={style_imageCopy} />
+          <div className='elImage2' style={style_image2} />
+
         </div>
       </div>
     )
