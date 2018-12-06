@@ -129,7 +129,7 @@ class AddAlbumList extends React.Component {
     }else if(this.state.isRedirect === 2){
       window.location = `/edit/photo-layout-editor/edit.html`;
 
-      //return <Redirect to={`/edit/photo-layout-editor/edit.html`}/>
+      return <Redirect to={`/edit/photo-layout-editor/edit.html`}/>
     }
   }
   

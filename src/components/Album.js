@@ -102,8 +102,8 @@ class Album extends React.Component {
     }
   }
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
+  handleClickOpen = (id) => {
+    this.setState({ open: true , currentId: id});
   };
 
   handleClose = () => {
@@ -146,7 +146,7 @@ class Album extends React.Component {
                 onClick={ () => this.setState({isRedirect: 2})}
                 size="small" color="primary">
                 更改基本設定</Button>
-              <Button onClick={this.handleClickOpen} size="small" color="primary">
+              <Button onClick={() => this.handleClickOpen(val.bookId)} size="small" color="primary">
                 檢視作品集
               </Button>
               <Dialog
@@ -239,7 +239,7 @@ class Album extends React.Component {
                           <Grid item xs>
                           </Grid>
                           <Grid item xs={6}>
-                            <Preview/>
+                            <Preview bookId={this.state.currentId}/>
                           </Grid>
                           <Grid item xs>
                           </Grid>

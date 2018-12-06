@@ -1,50 +1,49 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
+import {SketchField, Tools} from 'react-sketch';
+import axios from 'axios';
 
 
 
+export default class Preview extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      data: []
+    }
+  }
+  componentDidMount(){
+    console.log(this.props.bookId)
+    axios.post('/rest/geteditphoto', {memoryProjectId: this.props.bookId})
+    .then(res=> {
+      //console.log(res.data);
+      this.setState({data:res.data});
+    })
+  }
 
-export default () => (
-  <Carousel autoPlay>
-    <div>
-      <img src="https://i.imgur.com/YLkpIXO.png" />
-      <p className="legend">畢業五組</p>
-    </div>
-    <div>
-      <img src="https://i.imgur.com/r2GvQdm.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/nna4CKI.png" />
-     
-    </div>
-    <div>
-      <img src="https://i.imgur.com/UYf61uI.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/6fH23Kd.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/34cvQGN.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/1cwOYAw.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/urn9l4L.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/10t7CEQ.png" />
-      
-    </div>
-    <div>
-      <img src="https://i.imgur.com/TvyurK7.png" />
-      
-    </div>
-  </Carousel>
-);
+  _renderBlock(){
+    return(
+        this.state.data.map( (val, idx) => {
+          return (
+          <div>
+            <SketchField width='1024px' 
+                  height='768px' 
+                  tool={Tools.Select} 
+                  lineColor='black'
+                  ref={c => (this._sketch = c)}
+                  value={this.state.data[idx]}
+                  lineWidth={3}/>
+          </div>)
+        })
+    )
+  }
+  render(){
+    return(  <Carousel autoPlay>
+      {this._renderBlock()}
+      <div>
+        <img src="https://i.imgur.com/nna4CKI.png" />
+      </div>
+    </Carousel>)
+  }
+
+}

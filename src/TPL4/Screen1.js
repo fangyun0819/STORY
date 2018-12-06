@@ -7,6 +7,7 @@ import btn_icon_back_screen1 from './images/btn_icon_back_screen1.png';
 import Button from 'muicss/lib/react/button';
 import Appbar from 'muicss/lib/react/appbar';
 import Container from 'muicss/lib/react/container';
+import {SketchField, Tools} from 'react-sketch';
 
 
 export default class Screen1 extends Component {
@@ -53,33 +54,13 @@ export default class Screen1 extends Component {
     
     return (
       <Container fluid={true} className="AppScreen Screen1" style={baseStyle}>
-        <div className="background">
-          <div className='appBg containerMinHeight elBackground' style={style_background_outer}>
-            <div style={style_background} />
-          
-          </div>
-          
-        </div>
-        <div className="layoutFlow" style={layoutFlowStyle}>
-          <div className='hasNestedComps elComponent'>
-            <div>
-              <Component1 ref={(el)=> this._elComponent = el} {...this.props} appActions={this.props.appActions} deviceInfo={this.props.deviceInfo} locStrings={this.props.locStrings} />
-            </div>
-          
-          </div>
-          
-          <div className='actionFont elButton' style={style_button_outer}>
-            <Button style={style_button}  color="accent" onClick={this.onClick_elButton} >
-              {this.props.locStrings.screen1_button_493259}
-            </Button>
-          
-          </div>
-          
-        </div>
-        <Appbar className="navBar">
-          <div className="title">Page.1</div>  <div className="backBtn" onClick={ (ev)=>{ this.props.appActions.goBack() } }><img src={btn_icon_back_screen1} alt="" style={{width: '50%'}} /></div>
-        </Appbar>
-        
+        <SketchField width='1024px' 
+              height='768px' 
+              tool={Tools.Select} 
+              lineColor='black'
+              ref={c => (this._sketch = c)}
+              value={{"version":"2.4.3","objects":[{"type":"image","version":"2.4.3","originX":"left","originY":"top","left":330.9,"top":203.18,"width":1280,"height":853,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":4,"scaleX":0.23,"scaleY":0.23,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"http://localhost:3000/static/963d1f55-17a0-4611-b760-064d72dcdf51.jpg","filters":[]},{"type":"image","version":"2.4.3","originX":"left","originY":"top","left":-64.59,"top":440.54,"width":1280,"height":853,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":4,"scaleX":0.27,"scaleY":0.27,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"http://localhost:3000/static/963d1f55-17a0-4611-b760-064d72dcdf51.jpg","filters":[]},{"type":"image","version":"2.4.3","originX":"left","originY":"top","left":-169.37,"top":444.1,"width":1280,"height":853,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":4,"scaleX":0.35,"scaleY":0.35,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"http://localhost:3000/static/963d1f55-17a0-4611-b760-064d72dcdf51.jpg","filters":[]}],"background":"transparent","backgroundImage":{"type":"image","version":"2.4.3","originX":"left","originY":"top","left":0,"top":0,"width":1440,"height":809,"fill":"rgb(0,0,0)","stroke":null,"strokeWidth":0,"strokeDashArray":null,"strokeLineCap":"butt","strokeLineJoin":"miter","strokeMiterLimit":4,"scaleX":1,"scaleY":1,"angle":0,"flipX":false,"flipY":false,"opacity":1,"shadow":null,"visible":true,"clipTo":null,"backgroundColor":"","fillRule":"nonzero","paintFirst":"fill","globalCompositeOperation":"source-over","transformMatrix":null,"skewX":0,"skewY":0,"crossOrigin":"","cropX":0,"cropY":0,"src":"https://i.imgur.com/7Ja149p.jpg","filters":[]}}}
+              lineWidth={3}/>
       </Container>
     )
   }
