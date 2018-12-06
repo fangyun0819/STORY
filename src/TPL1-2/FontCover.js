@@ -37,7 +37,7 @@ function FullWidthGrid(props) {
         <Grid container spacing={24}>
         <Grid item xs={12}>
           <Typography id="title">
-            我的畢業紀念冊
+            我的寫真書
           </Typography>
         </Grid>
         <Grid item xs={6}>

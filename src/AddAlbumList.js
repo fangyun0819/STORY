@@ -216,7 +216,7 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <BackgroundImage src={source} placeholder={background} id="img">
+        <BackgroundImage id="img">
         <div className={classes.layout} id="layout" >
        
       

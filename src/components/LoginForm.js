@@ -47,6 +47,7 @@ const styles = theme => ({
       color: '#9d9795',
     }
   },
+ 
 });
 
 class LoginForm extends React.Component {
@@ -117,7 +118,7 @@ class LoginForm extends React.Component {
           </Grid>
         </Grid>
         <br/>
-        <Facebook/>
+       <Facebook/>  
         <br/>
        <google/>
 

@@ -71,7 +71,7 @@ const styles = theme => ({
   },
   paper:{
     padding: theme.spacing.unit * 2,
-    height: '650px',
+    height: '500px',
     width: '900px',
   },
  
