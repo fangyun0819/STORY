@@ -13,10 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
-import background from './images/p2.jpg';
+import background from '../images/p8.jpg';
 
-require('../css/Theme.css')
-
+require('../../css/Theme.css')
 
 const styles = theme => ({
   root: {
@@ -31,14 +30,14 @@ function FullWidthGrid(props) {
     <BackgroundImage src={background} id="page2">
     <div className={classes.root}>
       <Grid container spacing={24}>
-        <Card id="card2-1" >
+        <Card id="card4" >
         <CardContent>
           <Typography >
             照片放置區
           </Typography>
          </CardContent>
         </Card> 
-        <Card id="card2-2" >
+        <Card id="card4" >
         <CardContent>
           <Typography>
             照片放置區

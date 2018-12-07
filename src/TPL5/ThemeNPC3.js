@@ -9,8 +9,17 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import Page1 from './Pages/Page1';
+
 import FontCover from './FontCover';
+import Page1 from './Pages/Page1';
+import Page2 from './Pages/Page2';
+import Page3 from './Pages/Page3';
+import Page4 from './Pages/Page4';
+import Page5 from './Pages/Page5';
+import Page6 from './Pages/Page6';
+import Page7 from './Pages/Page7';
+import Page8 from './Pages/Page8';
+import Page9 from './Pages/Page9';
 
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -30,6 +39,21 @@ const tutorialSteps = [
   },
   {
     label: 'Page.5',
+  },
+  {
+    label: 'Page.6',
+  },
+  {
+    label: 'Page.7',
+  },
+  {
+    label: 'Page.8',
+  },
+  {
+    label: 'Page.9',
+  },
+  {
+    label: 'Page.10',
   },
 ];
 
@@ -81,11 +105,22 @@ class SwipeableTextMobileStepper extends React.Component {
       case 1:
         return <Page1/>;
       case 2:
-        return <Page1/>;
+        return <Page2/>;
       case 3:
-        return <Page1/>;
+        return <Page3/>;
       case 4:
-        return <Page1/>;
+        return <Page4/>;
+      case 5:
+        return <Page5/>;
+      case 6:
+        return <Page6/>;
+      case 7:
+        return <Page7/>;
+      case 8:
+        return <Page8/>;
+      case 9:
+        return <Page9/>;
+
     
     }
   }

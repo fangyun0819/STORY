@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
-import background from '../images/p8.jpg';
+import background from '../images/p4.jpg';
 
 require('../../css/Theme.css')
 
@@ -37,6 +37,7 @@ function FullWidthGrid(props) {
           </Typography>
          </CardContent>
         </Card> 
+        <br/>
         <Card id="card4" >
         <CardContent>
           <Typography>
