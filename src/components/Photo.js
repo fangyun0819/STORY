@@ -218,7 +218,7 @@ class AddAlbumList extends React.Component {
                  className={classes.button} 
                  variant="outlined" 
                  color="primary">
-                 預覽我的畢業紀念冊
+                 預覽我的紀念冊
                  </Button>
                   
                  <Dialog

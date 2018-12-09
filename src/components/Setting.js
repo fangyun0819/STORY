@@ -150,7 +150,7 @@ class Info extends React.Component {
      <Paper className={classes.paper}>
       <Grid container spacing={24} >
       <Typography id="text" align="center">
-        更改畢業紀念冊設定
+        更改紀念冊設定
       </Typography>
       <Grid item xs={12} sm={12}>
           <TextField
