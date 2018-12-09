@@ -16,7 +16,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-import ThemeNPC2 from '../../TPL6/ThemeNPC2';
+import ThemeNPC3 from '../../TPL6/ThemeNPC3';
 
 
 const styles = theme => ({
@@ -95,7 +95,7 @@ class ThemeList extends React.Component {
           >
           <DialogContent>
           
-          <ThemeNPC2/>
+          <ThemeNPC3/>
           
            </DialogContent>
           <DialogActions>

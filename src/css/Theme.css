@@ -138,16 +138,30 @@
   height:300px;
   border-style:solid;
 }
-#card9-1{
+#card8{
   margin-top: 20px;
-  margin-left: 100px;
+  margin-left: 400px;
   width: 300px;
-  height:400px;
+  height:200px;
+  border-style:solid;
+}
+#card9-1{
+  margin-top: 120px;
+  margin-left: 50px;
+  width: 200px;
+  height:300px;
   border-style:solid;
 }
 #card9-2{
-  margin-top: 200px;
-  margin-left: 100px;
+  margin-top: 50px;
+  margin-left: 20px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#card9-3{
+  margin-top: 250px;
+  margin-left: 20px;
   width: 300px;
   height:200px;
   border-style:solid;

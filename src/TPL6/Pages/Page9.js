@@ -44,6 +44,13 @@ function FullWidthGrid(props) {
           </Typography>
          </CardContent>
         </Card> 
+        <Card id="card9-3" >
+        <CardContent>
+          <Typography>
+            照片放置區
+          </Typography>
+         </CardContent>
+        </Card> 
       </Grid>
       
     </div>
