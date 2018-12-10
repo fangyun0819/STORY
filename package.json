@@ -1,67 +1,19 @@
 {
-  "name": "test01-admin",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@babel/runtime": "7.0.0-beta.55",
-    "@material-ui/core": "^3.1.0",
-    "axios": "^0.18.0",
-    "carousel": "0.0.3",
-    "material-auto-rotating-carousel": "^2.1.0",
-    "muicss": "^0.9.41",
-    "npm": "^6.4.1",
-    "prop-types": "^15.6.2",
-    "ra-data-json-server": "^2.3.1",
-    "react": "^16.4.2",
-    "react-admin": "^2.3.1",
-    "react-avatar-edit": "^0.6.0",
-    "react-avatar-editor": "^11.0.4",
-    "react-background-image-loader": "0.0.5",
-    "react-dom": "^16.4.2",
-<<<<<<< HEAD
-    "react-fabricjs": "^0.1.6",
-    "react-facebook-login": "^4.1.1",
-    "react-flip-page": "^1.2.0",
-    "react-google-login": "^3.2.1",
-    "react-hot-loader": "^4.5.1",
-=======
-    "react-facebook-login": "^4.1.1",
-    "react-flip-page": "^1.2.0",
-    "react-google-login": "^3.2.1",
->>>>>>> 1206
-    "react-image-picker": "^1.1.1",
-    "react-localization": "^1.0.10",
-    "react-pdf": "^3.0.5",
-    "react-photo-layout-editor": "^1.1.13",
-    "react-responsive-carousel": "^3.1.43",
-    "react-scripts": "1.1.4",
-    "react-sketch": "^0.5.0",
-    "react-swipeable-views": "^0.13.0",
-    "react-tabs": "^2.2.2",
-    "stringquery": "^1.0.8"
-  },
+  "name": "story",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "proxy": {
-    "/rest": {
-      "target": "http://localhost:8080",
-      "secure": false
-    },
-    "/static": {
-      "target": "http://localhost:8080",
-      "secure": false
-    },
-    "/face": {
-      "target": "http://localhost:8080",
-      "secure": false
-    },
-    "/edit": {
-      "target": "http://localhost:8080",
-      "secure": false
-    }
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fangyun0819/STORY.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fangyun0819/STORY/issues"
+  },
+  "homepage": "https://github.com/fangyun0819/STORY#readme"
 }
