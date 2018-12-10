@@ -16,7 +16,7 @@ import Info from './components/Info';
 import NewMember from './components/NewMember';
 import OrganizePhoto from './components/OrganizePhoto';
 import ImageUpload from './components/ImageUpload';
-import Theme from './components/Theme';
+import Theme from './components/Theme3/Theme';
 
 import { Redirect } from 'react-router-dom';
 import Divider from '@material-ui/core/Divider';
@@ -33,7 +33,6 @@ import MobileStepper from '@material-ui/core/MobileStepper';
 import Avatar from '@material-ui/core/Avatar';
 
 import BackgroundImage from 'react-background-image-loader';
-
 import background from './images/bg1.jpg';
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -46,6 +45,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
 import axios from 'axios';
 import Mode from './components/Mode';
+import ThemeList from './components/ThemeList';
+
 
 
 
@@ -58,7 +59,7 @@ const styles = theme => ({
     width: 'auto',
     marginLeft: theme.spacing.unit * 6,
     marginRight: theme.spacing.unit * 6,
-    width: 900,
+    width: 1000,
     marginLeft: 'auto',
     marginRight: 'auto',
   },
@@ -136,7 +137,7 @@ class AddAlbumList extends React.Component {
       case 2:
         return <Mode/>;
       case 3:
-        return <Theme/>;
+        return <ThemeList/>;
       default:
         throw new Error('Unknown step');
     }
@@ -218,7 +219,7 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <BackgroundImage src={source} placeholder={background} id="img">
+        <BackgroundImage id="img">
         <div className={classes.layout} id="layout" >
        
       

@@ -1,0 +1,168 @@
+#img1{
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 600px;
+  height: 130px;
+  border-style:double;
+}
+#card1{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 250px;
+  width: 400px;
+  height:300px;
+  border-style:solid;
+  
+
+}
+#card1-2{
+  margin-top: 150px;
+  margin-bottom: 10px;
+  margin-left: 250px;
+  width: 400px;
+  height:300px;
+  border-style:solid;
+  
+
+}
+#page1{
+  width: auto;
+  height: 500px;
+  background-size: auto 500px;
+  background-repeat: no-repeat;
+  
+}
+#card2-1{
+  margin-top: 20px;
+  margin-left: 100px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#card2-2{
+  margin-top: 20px;
+  margin-left: 450px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#page2{
+  width: 900px;
+  height: 500px;
+  background-size: 900px 500px;
+  background-repeat: no-repeat;
+  
+}
+#cover{
+  width: 900px;
+  height: 500px;
+  background-size: 900px 500px;
+  background-repeat: no-repeat;
+}
+#covercard
+{
+  width: 400px;
+  height:300px;
+  position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  margin: auto;
+  border-style:solid;
+}
+#title{
+  font-size:50px;
+  font-family:'Microsoft JhengHei';
+  color:black;
+	margin-top: 20px;
+	margin-left:0px;
+}
+
+#card3-1{
+  margin-top: 20px;
+  margin-left: 300px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+
+#card3-2{
+  margin-top: 20px;
+  margin-left: 120px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+
+#card3-3{
+  margin-top: 20px;
+  margin-left: 80px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+
+#card4{
+  margin-top: 20px;
+  margin-left: 200px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#card5-1{
+  margin-top: 150px;
+  margin-left: 80px;
+  width: 400px;
+  height:300px;
+  border-style:solid;
+}
+#card5-2{
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 300px;
+  height:400px;
+  border-style:solid;
+}
+#card6-1{
+  margin-top: 100px;
+  margin-left: 200px;
+  width: 250px;
+  height:300px;
+  border-style:solid;
+}
+#card6-2{
+  margin-top: 150px;
+  margin-left: 50px;
+  width: 250px;
+  height:300px;
+  border-style:solid;
+}
+#card8{
+  margin-top: 20px;
+  margin-left: 400px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#card9-1{
+  margin-top: 120px;
+  margin-left: 50px;
+  width: 200px;
+  height:300px;
+  border-style:solid;
+}
+#card9-2{
+  margin-top: 50px;
+  margin-left: 20px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}
+#card9-3{
+  margin-top: 250px;
+  margin-left: 20px;
+  width: 300px;
+  height:200px;
+  border-style:solid;
+}

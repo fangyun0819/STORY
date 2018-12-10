@@ -178,7 +178,7 @@ class AddAlbumList extends React.Component {
      
       <React.Fragment>
         <CssBaseline />
-        <BackgroundImage src={source} placeholder={background} id="img">
+        <BackgroundImage id="img">
         <div className={classes.layout} id="layout" >
        
       
@@ -208,11 +208,9 @@ class AddAlbumList extends React.Component {
               <div>
               <Paper className={classes.root} elevation={1}>
               <Typography variant="headline" component="h3">
-               說明
+               照片已成功上傳
               </Typography>
-              <Typography component="p">
-                想要編輯者請選擇進入編輯區，否則選擇完成
-              </Typography>
+             
             </Paper>
            </div>
                 <Button 

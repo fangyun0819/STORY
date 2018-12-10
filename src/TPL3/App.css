@@ -1084,7 +1084,7 @@
   height: 476px;
   }
   
-  .Screen3 > .layoutFlow > .elComponent > .background > .containerMinHeight {
+  #Screen3 > .layoutFlow > .elComponent > .background > .containerMinHeight {
     min-height: 476px;
   }
 

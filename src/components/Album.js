@@ -72,7 +72,7 @@ class Album extends React.Component {
   state = {
     redirect: false,
     selection: 0,
-    albumNames: [],
+    albumName: '',
   };
 
   setRedirect = () => {
