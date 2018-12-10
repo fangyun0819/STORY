@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import img_elImage from './images/Component3_elImage_586463.jpg';
+import img_elImage from './images/Component5_elImage_778823.jpg';
 import img_elImage2 from './images/Component3_elImage2_129910.jpg';
 
 
@@ -20,24 +20,27 @@ export default class Component3 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
+        width: '550px',
+        left:'30px',
+        
      };
     const style_image2_outer = {
-        pointerEvents: 'none',
+        left:'30px',
+        width: '400px',
+        height: '346px',
      };
-    const style_text = {
-        fontSize: 23.5,
-        color: 'rgba(0, 0, 0, 0.8500)',
-        textAlign: 'left',
-     };
-    const style_text_outer = {
-        pointerEvents: 'none',
-     };
+ 
+ 
     
     return (
       <div className="Component3" style={baseStyle}>
@@ -45,18 +48,10 @@ export default class Component3 extends Component {
           <div className='elImage' style={style_image} />
         </div>
         <div className="layoutFlow">
-          <div className='elImage2' style={style_image2_outer}>
-            <div style={style_image2} />
+          <div className='elImage2'  style={style_image2}>
+            
           
           </div>
-          
-          <div className='font-didot  elText' style={style_text_outer}>
-            <div style={style_text}>
-              <div><div dangerouslySetInnerHTML={{__html: this.props.locStrings.component3_text_830225.replace(/\n/g, '<br>')}}></div></div>
-            </div>
-          
-          </div>
-          
         </div>
       </div>
     )

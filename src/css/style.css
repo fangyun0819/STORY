@@ -66,5 +66,6 @@
 	  }
   #img
   {
-	  background: rgba(0, 0, 0, 0.3);
+		background-size: auto 650px;
+		background-repeat: no-repeat;
   }

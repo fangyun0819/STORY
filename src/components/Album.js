@@ -72,7 +72,7 @@ class Album extends React.Component {
   state = {
     redirect: false,
     selection: 0,
-    albumNames: [],
+    albumName: '',
   };
 
   setRedirect = () => {
@@ -84,11 +84,15 @@ class Album extends React.Component {
   componentDidMount(){
     axios.get('/rest/getgraduatebook')
     .then((result) => {
+<<<<<<< HEAD
       let albumNames = [];
       result.data.forEach(element => {
         albumNames.push({bookName: element.memoryProjectName, bookId: element.memoryProjectId, coverPhoto: element.coverPhoto})
       });
      this.setState( { albumNames});
+=======
+     this.setState( { albumName : result.data[0].memoryProjectName});
+>>>>>>> 1206
     });
   }
 
@@ -110,6 +114,7 @@ class Album extends React.Component {
     this.setState({ open: false });
   };
 
+<<<<<<< HEAD
   _showAlbums(){
     const { classes } = this.props;
 
@@ -180,6 +185,8 @@ class Album extends React.Component {
     )
   }
 
+=======
+>>>>>>> 1206
   render() {
     const { classes } = this.props;
     return (
@@ -196,8 +203,11 @@ class Album extends React.Component {
           <div className={classNames(classes.layout, classes.cardGrid)}>
           <Grid container spacing={40}>
               <Grid item key={cards[this.state.selection]} sm={4} md={4} lg={4}>
+<<<<<<< HEAD
           {this._showAlbums()}
 
+=======
+>>>>>>> 1206
                 <Card>
                   <CardActions style={{ flex: 1 }}>
                     <Button size="small">

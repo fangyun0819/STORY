@@ -28,6 +28,10 @@ export default class Component8 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_imageCopy = {
         backgroundImage: 'url('+img_elImageCopy+')',
@@ -36,12 +40,22 @@ export default class Component8 extends Component {
         backgroundSize: 'cover',
         boxShadow: '0.0px 6.8px 48px rgba(0, 0, 0, 0.4500)',
         pointerEvents: 'none',
+        left: '36px',
+        top: '38px',
+        width: '524px',
+        height: '360px',
      };
     const style_text = {
         color: 'rgba(7, 7, 7, 0.8500)',
         textAlign: 'left',
         textShadow: 'rgba(255, 255, 255, 0.7500) 0.0px 2.3px 0.0px',
         pointerEvents: 'none',
+        overflow: 'hidden',
+        position: 'absolute',
+        left: '197px',
+        top: '414px',
+        width: '481px',
+        height: '56px',
      };
     
     return (

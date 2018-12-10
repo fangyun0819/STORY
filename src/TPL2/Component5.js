@@ -24,6 +24,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_image2 = {
         backgroundImage: 'url('+img_elImage2+')',
@@ -31,6 +35,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '219px',
+        top: '0px',
+        width: '228px',
+        height: '473px',
      };
     const style_imageCopy5 = {
         backgroundImage: 'url('+img_elImageCopy5+')',
@@ -38,6 +46,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '219px',
+        height: '236px',
      };
     const style_imageCopy2 = {
         backgroundImage: 'url('+img_elImageCopy2+')',
@@ -45,6 +57,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '235px',
+        width: '219px',
+        height: '236px',
      };
     const style_imageCopy3 = {
         backgroundImage: 'url('+img_elImageCopy3+')',
@@ -52,6 +68,10 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '447px',
+        top: '0px',
+        width: '219px',
+        height: '236px',
      };
     const style_imageCopy4 = {
         backgroundImage: 'url('+img_elImageCopy4+')',
@@ -59,12 +79,15 @@ export default class Component5 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '446px',
+        top: '234px',
+        width: '219px',
+        height: '236px',
      };
     
     return (
       <div className="Component5" style={baseStyle}>
         <div className="background">
-          <div className='elImage' style={style_image} />
         </div>
         <div className="foreground">
           <div className='elImage2' style={style_image2} />

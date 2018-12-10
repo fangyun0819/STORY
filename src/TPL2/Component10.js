@@ -30,6 +30,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '0px',
+        top: '0px',
+        width: '668px',
+        height: '473px',
      };
     const style_imageCopy3 = {
         backgroundImage: 'url('+img_elImageCopy3+')',
@@ -37,6 +41,11 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '28px',
+        top: '19px',
+        width: '272px',
+        height: '429px',
+
      };
     const style_imageCopy = {
         backgroundImage: 'url('+img_elImageCopy+')',
@@ -44,6 +53,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '320px',
+        top: '17px',
+        width: '319px',
+        height: '204px',
      };
     const style_imageCopy2 = {
         backgroundImage: 'url('+img_elImageCopy2+')',
@@ -51,6 +64,10 @@ export default class Component10 extends Component {
         backgroundPosition: '50% 50%',
         backgroundSize: 'cover',
         pointerEvents: 'none',
+        left: '320px',
+        top: '242px',
+        width: '319px',
+        height: '204px',
      };
     
     return (
