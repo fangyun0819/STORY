@@ -37,7 +37,7 @@ class Profile extends Component {
   const src = './example/https://i.imgur.com/J0AQ8cG.png'
   this.state= {
     username: 'lulu',
-    email: 'kon70209@yahoo.com.tw',
+    email: 'vinetacles@gmail.com',
     preview: "https://i.imgur.com/pckzHQt.jpg",
     isConfirmed: false
   }

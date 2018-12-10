@@ -41,7 +41,7 @@ export default class Preview extends React.Component {
     return(  <Carousel autoPlay>
       {this._renderBlock()}
       <div>
-        <img src="https://i.imgur.com/nna4CKI.png" />
+        <img src="https://i.imgur.com/fA4k6Qw.png" />
       </div>
     </Carousel>)
   }

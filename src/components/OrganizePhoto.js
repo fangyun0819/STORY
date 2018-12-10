@@ -214,7 +214,7 @@ class OrganizePhoto extends React.Component {
               className: classes.bootstrapFormLabel,
             }}
             ></Tab>
-            <Tab label="地點" ></Tab>
+            <Tab label="成員" ></Tab>
             <Tab label="人"></Tab>
             
           </Tabs>

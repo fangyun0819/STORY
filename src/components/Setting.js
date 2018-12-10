@@ -27,7 +27,7 @@ import InviteMember from './IniviteMember';
 
 require('./components.css');
 
-const emails = ['karts0064431@gmail.com', 'chaling1997@gmail.com','fumandy.05060819@gmail.com','Viviannove0731@gmail.com','dinoleejames@gmail.com'];
+const emails = ['karts0064431@gmail.com', 'chaling1997@gmail.com','fumandy.05060819@gmail.com','Viviannove0731@gmail.com','kon70209@yahoo.com'];
 const styles = theme => ({
   avatar: {
     backgroundColor: blue[100],
@@ -172,7 +172,7 @@ class Info extends React.Component {
         </Grid>
         <Grid item xs={12} sm={12}>
        
-        <Button onClick={this.handleClickOpen}>更改好友</Button>
+        <Button onClick={this.handleClickOpen}>更改成員</Button>
         <SimpleDialogWrapped
           selectedValue={this.state.selectedValue}
           open={this.state.open}
