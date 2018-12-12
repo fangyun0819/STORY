@@ -72,7 +72,7 @@ class Album extends React.Component {
   state = {
     redirect: false,
     selection: 0,
-    albumName: '',
+    albumNames: [],
   };
 
   setRedirect = () => {
@@ -154,7 +154,7 @@ class Album extends React.Component {
                 open={this.state.open}
                 onClose={this.handleClose}
               >
-                <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+                <DialogTitle align="center">{"作品集"}</DialogTitle>
                 <DialogContent>
                   <Grid container spacing={24}>
                     <Grid item xs>

@@ -44,7 +44,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ThemePC from './reactStudio/ThemePC';
 import axios from 'axios';
-import Mode from './components/Mode';
+
 import ThemeList from './components/ThemeList';
 
 
@@ -101,7 +101,7 @@ const styles = theme => ({
 });
 
 function getSteps(){
-  return ['基本資訊', '成員選擇', '模式選擇','主題選擇'];
+  return ['基本資訊', '成員選擇', '主題選擇'];
 }
 
 //步驟設定
@@ -135,9 +135,9 @@ class AddAlbumList extends React.Component {
         //console.log(data);
       }}/>;
       case 2:
-        return <Mode/>;
-      case 3:
-        return <ThemeList/>;
+      return <ThemeList/>;
+      
+        
       default:
         throw new Error('Unknown step');
     }

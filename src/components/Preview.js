@@ -27,7 +27,7 @@ export default class Preview extends React.Component {
           return (
           <div>
             <SketchField width='1024px' 
-                  height='768px' 
+                  height='400px' 
                   tool={Tools.Select} 
                   lineColor='black'
                   ref={c => (this._sketch = c)}
@@ -41,7 +41,7 @@ export default class Preview extends React.Component {
     return(  <Carousel autoPlay>
       {this._renderBlock()}
       <div>
-        <img src="https://i.imgur.com/fA4k6Qw.png" />
+        <img src="https://i.imgur.com/onA2ahR.jpg" />
       </div>
     </Carousel>)
   }

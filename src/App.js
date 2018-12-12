@@ -15,7 +15,7 @@ import Profile from './components/Profile';
 import indigo from '@material-ui/core/colors/indigo';
 import pink from '@material-ui/core/colors/pink';
 import red from '@material-ui/core/colors/red';
-
+import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShowAlbumList from './ShowAlbumList';
 import BackgroundImage from 'react-background-image-loader';
 import Edit from './components/Edit';
@@ -62,7 +62,8 @@ class App extends Component {
     if(this.isTwoSideBar){
       return (
        
-        [<Resource name="allAlbums" options={{ label: '畢業紀念冊' }} list={AlbumList} icon={AAAAIcon}/>,
+        [<Resource name="allAlbums" options={{ label: '紀念冊列表' }} list={AlbumList} icon={AAAAIcon}/>,
+        <Resource name="allAlbum" options={{ label: '自由拼貼' }} list={AlbumList} icon={DashboardIcon}/>,
         <Resource name="Profile" options={{ label: '個人帳戶' }} list={Profile} icon={PersonIcon}/>
       ]
       )

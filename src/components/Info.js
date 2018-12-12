@@ -63,7 +63,7 @@ class Info extends React.Component {
   
     <React.Fragment>
       <Typography id="text" >
-        請填寫畢業紀念冊基本資訊
+        請填寫紀念冊基本資訊
       </Typography>
       
       <Grid container spacing={24} >
@@ -71,7 +71,7 @@ class Info extends React.Component {
 
         <TextField
         fullWidth
-        label="畢業紀念冊名稱"
+        label="紀念冊名稱"
         id="name"
         helperText="必填"
         InputProps={{

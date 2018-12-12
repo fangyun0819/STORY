@@ -41,7 +41,6 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemePC from '../reactStudio/ThemePC';
 
 
 //樣式設定
@@ -213,15 +212,15 @@ class AddAlbumList extends React.Component {
              
             </Paper>
            </div>
-                <Button 
+                {/* <Button 
                 onClick={this.handleClickOpen}
                  className={classes.button} 
                  variant="outlined" 
                  color="primary">
-                 預覽我的畢業紀念冊
-                 </Button>
+                 預覽寫真書作品
+                 </Button> */}
                   
-                 <Dialog
+                 {/* <Dialog
                 fullScreen
                 open={this.state.open}
                 onClose={this.handleClose}
@@ -232,7 +231,7 @@ class AddAlbumList extends React.Component {
               <Grid item xs>
               </Grid>
               <Grid item xs={6}>
-              <ThemePC/>
+              <Preview/>
               </Grid>
               <Grid item xs>
               </Grid>
@@ -243,7 +242,7 @@ class AddAlbumList extends React.Component {
               CLOSE
               </Button>
             </DialogActions>
-           </Dialog>
+           </Dialog> */}
 
                   
                 {this.renderRedirect()}
@@ -253,7 +252,7 @@ class AddAlbumList extends React.Component {
                  onClick={ ()=> this.setState({isRedirect: 2})}
                  variant="outlined" 
                  color="primary">
-                進入編輯頁面</Button>
+                自由拼貼照片</Button>
            
                
                 <div className={classes.buttons}>

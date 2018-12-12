@@ -124,13 +124,9 @@ class LoginForm extends React.Component {
           </Grid>
         </Grid>
         <br/>
-<<<<<<< HEAD
         <br/>
         <br/> <br/>
         <Facebook/>
-=======
-       <Facebook/>  
->>>>>>> origin/1206
         <br/>
        <google/>
 

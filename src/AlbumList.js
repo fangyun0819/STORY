@@ -59,13 +59,13 @@ class AlbumList extends Component {
             <Button id="new"  mini color="secondary" aria-label="Add" className={classes.button} onClick={ () => this.setState({isRedirect: 1})}>
             
             
-              <a> 新增畢業紀念冊</a>
+              <a> 新增紀念冊</a>
               
             </Button>
             <Button id="new"  aria-label="Add" className={classes.button}
              onClick={ ()=> this.setState({isRedirect: 2})}>
               
-              <a> 畢業紀念冊</a>
+              <a> 紀念冊列表</a>
             </Button>
         {
           this._renderRedirect()

@@ -27,7 +27,7 @@ import InviteMember from './IniviteMember';
 
 require('./components.css');
 
-const emails = ['karts0064431@gmail.com', 'chaling1997@gmail.com','fumandy.05060819@gmail.com','Viviannove0731@gmail.com','kon70209@yahoo.com'];
+const emails = ['kon70209@yahoo.com'];
 const styles = theme => ({
   avatar: {
     backgroundColor: blue[100],
@@ -150,7 +150,7 @@ class Info extends React.Component {
      <Paper className={classes.paper}>
       <Grid container spacing={24} >
       <Typography id="text" align="center">
-        更改畢業紀念冊設定
+        更改紀念冊設定
       </Typography>
       <Grid item xs={12} sm={12}>
           <TextField

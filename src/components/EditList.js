@@ -164,7 +164,7 @@ class AddAlbumList extends React.Component {
                  className={classes.button} 
                  variant="outlined" 
                  color="primary">
-                 預覽我的畢業紀念冊
+                 預覽寫真書作品
                  </Button>
                   
                  <Dialog
@@ -172,7 +172,7 @@ class AddAlbumList extends React.Component {
                 open={this.state.open}
                 onClose={this.handleClose}
                 >
-              <DialogTitle align="center">{"畢業紀念冊1"}</DialogTitle>
+              <DialogTitle align="center">{"作品集"}</DialogTitle>
               <DialogContent>
               <Grid container spacing={24}> 
               <Grid item xs>
@@ -199,7 +199,7 @@ class AddAlbumList extends React.Component {
                  onClick={ ()=> this.setState({isRedirect: 2})}
                  variant="outlined" 
                  color="primary">
-                進入編輯頁面</Button>
+                自由拼貼照片</Button>
            
                 </React.Fragment>
                 </Paper>

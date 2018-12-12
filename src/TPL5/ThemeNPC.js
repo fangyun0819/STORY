@@ -76,7 +76,7 @@ class SwipeableTextMobileStepper extends React.Component {
   getStepContent(step) {
     switch (step) {
       case 0:
-        return <FontCover/>;
+        return <Page1/>;
       case 1:
         return <Page1/>;
       case 2:

@@ -36,7 +36,7 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   bootstrapFormLabel: {
-    fontSize: 18,
+    fontSize: 25,
   },
 });
 
@@ -105,7 +105,7 @@ class OrganizePhoto extends React.Component {
   _renderImagePicker(){
     let {imageData} = this.state;
    const {classes} =this.props;
-    if(this.state.order === 0 || this.state.order === 1){
+    if(this.state.order === 0){
       return (
       <div styles = {{
         whiteSpace: 'nowrap'
@@ -127,6 +127,38 @@ class OrganizePhoto extends React.Component {
           }
           <br/>
           <br/>
+        </div>
+      }
+      </div>
+        <ImagePicker 
+          multiple
+          onPick={(image) => this.setState({numOfPic: image.length})}
+          images={imageData.map(( image, i ) => ({src: "/static/" + image.photoPath, value: i}))}
+
+        />
+        <Divider/>
+      </div>)
+    }else if(this.state.order === 1){
+      return (
+      <div styles = {{
+        whiteSpace: 'nowrap'
+      }}>
+
+      <div className={classes.root}>
+      {
+        <div>
+          <a>
+            <Chip
+            label="lulu"
+            />
+            &ensp;
+            <Chip
+            label="Vivi"
+            />
+          </a>
+          <br/>
+          <br/>
+          
         </div>
       }
       </div>
