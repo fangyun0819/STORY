@@ -18,6 +18,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import ThemeNPC2 from '../../TPL4/ThemeNPC2';
+import axios from 'axios';
 
 
 const styles = theme => ({
@@ -65,7 +66,14 @@ class ThemeList extends React.Component {
   handleClose = () =>{
     this.setState({ open: false });
   };
+  handleCheck= name => event => {
+    const currentBookId = localStorage.getItem('currentBookId');
 
+    axios.post('/rest/setstyle', { "memoryProjectId": currentBookId, style: name})
+    .then((result) => {
+
+    });
+  };
   render() {
   const { classes } = this.props;
 
@@ -77,7 +85,7 @@ class ThemeList extends React.Component {
           <FormControlLabel
           className={classes.form}
             align="center"
-            control={<Checkbox color="secondary"  value="yes" />}
+            control={<Checkbox color="secondary"  value="yes" onChange={this.handleCheck('3')}/>}
             label="回憶風"
           />
            <img className={classes.img} src={CoverPhoto} />

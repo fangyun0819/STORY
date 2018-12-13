@@ -12,6 +12,18 @@ export default class Preview extends React.Component {
       data: []
     }
   }
+
+  render(){
+    return(  <Carousel autoPlay>
+      <div>
+        <img src="https://i.imgur.com/J4Imkdw.jpg" />
+        
+      </div>
+      
+      {this._renderBlock()}
+      
+    </Carousel>)
+  }
   componentDidMount(){
     console.log(this.props.bookId)
     axios.post('/rest/geteditphoto', {memoryProjectId: this.props.bookId})
@@ -32,18 +44,11 @@ export default class Preview extends React.Component {
                   lineColor='black'
                   ref={c => (this._sketch = c)}
                   value={this.state.data[idx]}
-                  lineWidth={3}/>
+                  lineWidth={10}/>
           </div>)
         })
     )
   }
-  render(){
-    return(  <Carousel autoPlay>
-      {this._renderBlock()}
-      <div>
-        <img src="https://i.imgur.com/onA2ahR.jpg" />
-      </div>
-    </Carousel>)
-  }
+  
 
 }

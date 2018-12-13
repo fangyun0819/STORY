@@ -82,7 +82,8 @@ class Album extends React.Component {
   };
 
   componentDidMount(){
-    axios.get('/rest/getgraduatebook')
+    const token = localStorage.getItem('token').split(": ")[1];
+    axios.post('/rest/getgraduatebook', {loginToken: token})
     .then((result) => {
       let albumNames = [];
       result.data.forEach(element => {
@@ -154,7 +155,7 @@ class Album extends React.Component {
                 open={this.state.open}
                 onClose={this.handleClose}
               >
-                <DialogTitle align="center">{"作品集"}</DialogTitle>
+                <DialogTitle align="center">{"紀念冊"}</DialogTitle>
                 <DialogContent>
                   <Grid container spacing={24}>
                     <Grid item xs>
@@ -188,6 +189,7 @@ class Album extends React.Component {
           <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 0 })}>
             團體
         </Button>
+        
           <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 1 })} >
             個人
         </Button>

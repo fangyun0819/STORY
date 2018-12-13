@@ -63,7 +63,7 @@ class App extends Component {
       return (
        
         [<Resource name="allAlbums" options={{ label: '紀念冊列表' }} list={AlbumList} icon={AAAAIcon}/>,
-        <Resource name="allAlbum" options={{ label: '自由拼貼' }} list={AlbumList} icon={DashboardIcon}/>,
+        <Resource name="allAlbum" options={{ label: '自由拼貼' }} list={Edit} icon={DashboardIcon}/>,
         <Resource name="Profile" options={{ label: '個人帳戶' }} list={Profile} icon={PersonIcon}/>
       ]
       )
