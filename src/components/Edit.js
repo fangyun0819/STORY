@@ -71,6 +71,10 @@ const styles = theme => ({
 });
 
 class Edit extends React.Component {
+  constructor(){
+    super();
+    localStorage.setItem('currentBookId', '');
+  }
   state = {
     open: false,
   };
@@ -82,9 +86,7 @@ class Edit extends React.Component {
   }
 
   renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/showalbumlist' />
-    }
+      return <Redirect to='/edit/photo-layout-editor/edit.html' />
   }
 
   handleClickOpen = () =>{
@@ -100,8 +102,9 @@ class Edit extends React.Component {
     
 
   return (
-    <PhotoLayoutEditor ref={(r) => { }}/>
-
+    <div>
+      <iframe src={'http://localhost:3000/edit/photo-layout-editor/edit.html'} height='500' width="100%" />   
+    </div>
      );
    }
 }
