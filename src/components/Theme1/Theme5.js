@@ -7,7 +7,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
-import CoverPhoto from '../../TPL2-2/images/CoverPhoto.jpg';
+// import CoverPhoto from '../../TPL2-2/images/CoverPhoto.jpg';
+import b1 from '../../TPL2-2/images/b1.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -85,9 +86,9 @@ class ThemeList extends React.Component {
           className={classes.form}
             align="center"
             control={<Checkbox color="secondary"  value="yes" onChange={this.handleCheck('5')}/>}
-            label="簡約風"
+            label="可愛風"
           />
-          <img className={classes.img} src={CoverPhoto} />
+          <img className={classes.img} src={b1} />
           
           <Button 
           onClick={this.handleClickOpen}

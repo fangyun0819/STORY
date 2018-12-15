@@ -45,7 +45,7 @@ function FullWidthGrid(props) {
               </Card> 
               </Grid>  
               </Grid> 
-              <img id="img1" src={background}/>
+              
               </div>
 
             </BackgroundImage>

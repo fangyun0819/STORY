@@ -41,7 +41,7 @@ const styles = theme => ({
     padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
   },
   heroButtons: {
-    marginTop: theme.spacing.unit * 4,
+    marginTop: theme.spacing.unit * 6,
   },
   layout: {
     width: 'auto',
@@ -50,11 +50,13 @@ const styles = theme => ({
     [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
       width: 1100,
       marginLeft: 'auto',
+      
       marginRight: 'auto',
     },
   },
   cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
+    padding: `${theme.spacing.unit * 4}px 0`,
+    marginLeft: theme.spacing.unit * 12,
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -65,8 +67,8 @@ const styles = theme => ({
   },
 });
 
-const cards = ['團體', '個人'];
-const images = ["https://i.imgur.com/9NUDaSC.jpg", "https://images.pexels.com/photos/583399/pexels-photo-583399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "https://images.pexels.com/photos/1330808/pexels-photo-1330808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
+const cards = ['電子紀念冊'];
+const images = ["https://images.pexels.com/photos/583399/pexels-photo-583399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"]
 
 class Album extends React.Component {
   state = {
@@ -140,14 +142,14 @@ class Album extends React.Component {
                   this.setState({isRedirect: 1});
                   localStorage.setItem('currentBookId',val.bookId)
                 }}
-                size="small" color="primary">
+                size="large" color="primary">
                 上傳照片</Button>
               {this.renderRedirect()}
               <Button
                 onClick={ () => this.setState({isRedirect: 2})}
-                size="small" color="primary">
+                size="large" color="primary" >
                 更改基本設定</Button>
-              <Button onClick={() => this.handleClickOpen(val.bookId)} size="small" color="primary">
+              <Button onClick={() => this.handleClickOpen(val.bookId)} size="large" color="primary">
                 檢視作品集
               </Button>
               <Dialog
@@ -161,7 +163,7 @@ class Album extends React.Component {
                     <Grid item xs>
                     </Grid>
                     <Grid item xs={6}>
-                     
+                    <Preview bookId={this.state.currentId}/>
                     </Grid>
                     <Grid item xs>
                     </Grid>
@@ -177,7 +179,9 @@ class Album extends React.Component {
           </Card>
           )
         })}
+        
       </div>
+      
     )
   }
 
@@ -186,23 +190,25 @@ class Album extends React.Component {
     return (
       <React.Fragment>
         <Grid item xs={12}>
-          <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 0 })}>
-            團體
-        </Button>
+          {/* <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 0 })}>
+            紀念冊
+        </Button> */}
         
-          <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 1 })} >
+          {/* <Button variant="outlined" color="primary" onClick={() => this.setState({ selection: 1 })} >
             個人
-        </Button>
+        </Button> */}
         </Grid>
         <main>
           <div className={classNames(classes.layout, classes.cardGrid)}>
-          <Grid container spacing={40}>
-              <Grid item key={cards[this.state.selection]} sm={4} md={4} lg={4}>
+          <Grid container spacing={8}>
+              <Grid item key={cards[this.state.selection]} sm={5} md={5} lg={5}>
           {this._showAlbums()}
 
-                <Card>
+          
+
+                {/* <Card>
                   <CardActions style={{ flex: 1 }}>
-                    <Button size="small">
+                    <Button size="large">
                       {cards[this.state.selection]}
                     </Button>
                   </CardActions>
@@ -214,7 +220,7 @@ class Album extends React.Component {
                   <CardContent>
                     <Typography gutterBottom variant="headline" component="h2">
                      {this.state.albumName}
-                     美國行
+                     範例
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -254,9 +260,10 @@ class Album extends React.Component {
                       </DialogActions>
                     </Dialog>
                   </CardActions>
-                </Card>
+                </Card> */}
               </Grid>
-            </Grid>       
+            </Grid>
+                 
           </div>
         </main>
       </React.Fragment>

@@ -41,7 +41,7 @@ export default class Preview extends React.Component {
             <SketchField width='1024px' 
                   height='400px' 
                   tool={Tools.Select} 
-                  lineColor='black'
+                  lineColor='white'
                   ref={c => (this._sketch = c)}
                   value={this.state.data[idx]}
                   lineWidth={10}/>

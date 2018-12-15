@@ -103,20 +103,20 @@ class NewMember extends React.Component {
     )
   }
   
-  _renderMembers(){
-    return this.state.members.map((item, i) => {
-      if( this.state.showAvatar ){
-        return (
-          <div>
-            { this.state.confirmedMembers[i].confirmed ? <a>已加入</a> : "未加入"}
-            <Avatar alt="members" src={this.state.confirmedMembers[i].image} />
-            { this.state.confirmedMembers[i].confirmed ? <a>{this.state.confirmedMembers[i].name}</a> : this.state.confirmedMembers[i].name}
-            <br/>
-          </div>
-        )
-      }
-    })
-  }
+  // _renderMembers(){
+  //   return this.state.members.map((item, i) => {
+  //     if( this.state.showAvatar ){
+  //       return (
+  //         <div>
+  //           { this.state.confirmedMembers[i].confirmed ? <a>已加入</a> : "未加入"}
+  //           <Avatar alt="members" src={this.state.confirmedMembers[i].image} />
+  //           { this.state.confirmedMembers[i].confirmed ? <a>{this.state.confirmedMembers[i].name}</a> : this.state.confirmedMembers[i].name}
+  //           <br/>
+  //         </div>
+  //       )
+  //     }
+  //   })
+  // }
   
   render(){
     
@@ -138,9 +138,9 @@ class NewMember extends React.Component {
       direction="row"
       justify="space-evenly"
     >
-      {
+      {/* {
         this._renderMembers()
-      }
+      } */}
     </Grid>
   </React.Fragment>)
   }

@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import BackgroundImage from 'react-background-image-loader';
-import b1 from '../images/b1.jpg';
+import CoverPhoto from '../images/CoverPhoto.jpg';
 import background from '../images/p1.jpg';
 
 require('../../css/Theme.css')
@@ -31,7 +31,7 @@ function FullWidthGrid(props) {
 
   return (
 
-    <BackgroundImage src={b1} id="page1">
+    <BackgroundImage src={CoverPhoto} id="page1">
         <div className={classes.root}>
         <Grid container spacing={24}>
 

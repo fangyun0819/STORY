@@ -6,11 +6,11 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Theme1 from './Theme1';
-import Theme2 from './Theme2';
-import Theme3 from './Theme3';
+// import Theme2 from './Theme2';
+// import Theme3 from './Theme3';
 import Theme4 from './Theme4';
 import Theme5 from './Theme5';
-import Theme6 from './Theme6';
+// import Theme6 from './Theme6';
 
 
 require('../components.css');
@@ -53,10 +53,10 @@ changeColor(){
         
         <Theme4/>
         <Theme5/>
-        <Theme6/>
+        {/* <Theme6/> */}
         <Theme1/>
-        <Theme2/>
-        <Theme3/>
+        {/* <Theme2/> */}
+        {/* <Theme3/> */}
         
        </Grid>
     
