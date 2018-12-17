@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Theme1 from './Theme1';
+import Theme1 from './Theme1(No)';
 import Theme2 from './Theme2';
 import Theme3 from './Theme3';
 import Theme4 from './Theme4';
