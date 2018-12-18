@@ -36,7 +36,7 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
   bootstrapFormLabel: {
-    fontSize: 25,
+    fontSize: 30,
   },
 });
 
@@ -153,7 +153,7 @@ class OrganizePhoto extends React.Component {
             />
             &ensp;
             <Chip
-            label="Vivi"
+            label="coco"
             />
           </a>
           <br/>

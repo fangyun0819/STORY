@@ -42,6 +42,7 @@ const styles = theme => ({
   },
   heroButtons: {
     marginTop: theme.spacing.unit * 6,
+    
   },
   layout: {
     width: 'auto',
@@ -56,7 +57,7 @@ const styles = theme => ({
   },
   cardGrid: {
     padding: `${theme.spacing.unit * 4}px 0`,
-    marginLeft: theme.spacing.unit * 12,
+    marginLeft: theme.spacing.unit * 6,
   },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
@@ -120,9 +121,10 @@ class Album extends React.Component {
       <div>
         {this.state.albumNames.map( (val , idx) => {
           return (
+         
             <Card>
             <CardActions style={{ flex: 1 }}>
-              <Button size="small">
+              <Button size="small" >
                 {cards[this.state.selection]}
               </Button>
             </CardActions>

@@ -15,8 +15,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ThemeNPC from '../../TPL/ThemeNPC';
-
+import ThemeNPC from '../../TPL6/ThemeNPC';
+import axios from 'axios';
 
 const styles = theme => ({
 
@@ -62,7 +62,16 @@ class ThemeList extends React.Component {
   handleClose = () =>{
     this.setState({ open: false });
   };
+  handleCheck= name => event => {
+    const currentBookId = localStorage.getItem('currentBookId');
 
+    axios.post('/rest/setstyle', { "memoryProjectId": currentBookId, style: name})
+    .then((result) => {
+
+    });
+  };
+
+  
   render() {
   const { classes } = this.props;
 
@@ -74,8 +83,8 @@ class ThemeList extends React.Component {
           <FormControlLabel
           className={classes.form}
             align="center"
-            control={<Checkbox color="secondary"  value="yes" />}
-            label="校園風"
+            control={<Checkbox color="secondary"  value="yes" onChange={this.handleCheck('7')}/>}
+            label="無主題"
           />
           <img className={classes.img} src={CoverPhoto} />
           
@@ -86,21 +95,15 @@ class ThemeList extends React.Component {
           預覽
           </Button>
           <Dialog
+          align="center"
           fullScreen
            open={this.state.open}
            onClose={this.handleClose}
           >
           <DialogTitle align="center">{"主題1"}</DialogTitle>
+          <DialogTitle align="center">{"主題1"}</DialogTitle>
           <DialogContent>
-          <Grid container spacing={24}> 
-        <Grid item xs>
-        </Grid>
-          <Grid item xs={6}>
-         <ThemeNPC/>
-          </Grid>
-          <Grid item xs>
-          </Grid>
-          </Grid>
+          <ThemeNPC/>
            </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary" autoFocus>

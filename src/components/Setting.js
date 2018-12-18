@@ -27,7 +27,7 @@ import InviteMember from './IniviteMember';
 
 require('./components.css');
 
-const emails = ['kon70209@yahoo.com'];
+const emails = ['vinetacles@gmail.com','kon70209@yahoo.com.tw'];
 const styles = theme => ({
   avatar: {
     backgroundColor: blue[100],
@@ -79,7 +79,7 @@ class SimpleDialog extends React.Component {
 
     return (
       <Dialog  onClose={this.handleClose} aria-labelledby="simple-dialog-title" {...other}>
-        <DialogTitle id="simple-dialog-title">好友名單</DialogTitle>
+        <DialogTitle id="simple-dialog-title">成員名單</DialogTitle>
         <div>
           <List>
             {emails.map(email => (
