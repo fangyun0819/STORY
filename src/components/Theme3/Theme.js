@@ -51,11 +51,7 @@ changeColor(){
       <Grid container spacing={24}>
         
         <Theme1/>
-        <Theme2/>
-        <Theme3/>
-        <Theme4/>
-        <Theme5/>
-        <Theme6/>
+    
        
        </Grid>
     

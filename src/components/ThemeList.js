@@ -59,7 +59,7 @@ class FullWidthTabs extends React.Component {
           >
             <Tab label="單張" />
             <Tab label="兩張" />
-            <Tab label="綜合" />
+            <Tab label="滿版" />
             
           </Tabs>
         </AppBar>
