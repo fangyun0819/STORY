@@ -151,10 +151,10 @@ class OrganizePhoto extends React.Component {
             <Chip
             label="lulu"
             />
-            &ensp;
+            {/* &ensp;
             <Chip
-            label="coco"
-            />
+            label="kon"
+            /> */}
           </a>
           <br/>
           <br/>
