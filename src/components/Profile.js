@@ -7,71 +7,81 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Avatar from 'react-avatar-edit';
 
+const emails = ['vinetacles@gmail.com','kon70209@yahoo.com.tw'];
 const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
+
+  layout: {
+    width: 'auto',
+    marginLeft: theme.spacing.unit * 2,
+    marginRight: theme.spacing.unit * 2,
+    [theme.breakpoints.up(600 + theme.spacing.unit * 2 * 2)]: {
+      width: 600,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
   },
   paper: {
-    marginTop: 300,
-    marginLeft: 725,
+    marginTop: theme.spacing.unit * 3,
+    marginBottom: theme.spacing.unit * 3,
+    padding: theme.spacing.unit * 2,
+    [theme.breakpoints.up(600 + theme.spacing.unit * 3 * 2)]: {
+      marginTop: theme.spacing.unit * 6,
+      marginBottom: theme.spacing.unit * 6,
+      padding: theme.spacing.unit * 3,
+    },
   },
+ 
 });
 
 
-//個人帳戶
-
-class Profile extends Component {
+class Info extends React.Component {
   
-  //  const { Profile } = props;
-   /* return (
-      <div className={Profile.row}>
-        <Avatar alt="members" src="https://i.imgur.com/JbUZQho.jpg" className={classes.avatar} /> 
-      </div>
-    );
-  */
- // }
- constructor(props){
-  super(props);
-  const src = './example/https://i.imgur.com/J0AQ8cG.png'
-  this.state= {
-    username: 'lulu',
-    email: 'lulumi527@gmail.com',
-    preview: "https://i.imgur.com/pckzHQt.jpg",
-    isConfirmed: false
+
+  constructor(props){
+    super(props);
+    const src = './example/https://i.imgur.com/J0AQ8cG.png'
+    this.state= {
+      username: 'lulu',
+      email: 'lulumi527@gmail.com',
+      preview: "https://i.imgur.com/pckzHQt.jpg",
+      isConfirmed: false
+    }
+    this.onCrop = this.onCrop.bind(this)
+    this.onClose = this.onClose.bind(this)
+   }
+  
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+  
+    
+  onClose() {
+    //this.setState({preview: null})
   }
-  this.onCrop = this.onCrop.bind(this)
-  this.onClose = this.onClose.bind(this)
- }
-
-handleChange = name => event => {
-  this.setState({
-    [name]: event.target.value,
-  });
-};
-
   
-onClose() {
-  //this.setState({preview: null})
-}
-
-onCrop(preview) {
-  this.setState({preview})
- }
+  onCrop(preview) {
+    this.setState({preview})
+   }
+  
 
 
- render(){
-  return (
-    <div >
-        <div style={styles.paper}>
-        <Paper>
-        <Typography variant="title" gutterBottom>
-          個人帳戶設定
-        </Typography>
-        <Grid container spacing={24}>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={3}>
+
+  render() {
+    const { classes, onClose, selectedValue, ...other } = this.props;
+ 
+    return (
+  
+    <React.Fragment>
+     <main className={classes.layout}>
+     <Paper className={classes.paper}>
+      <Grid container spacing={24} >
+      <Typography id="text" align="center">
+      個人帳戶設定
+      </Typography>
+      <Grid item xs={12} sm={12}></Grid>
+      <Grid item xs={3}>
         {
             (this.state.isConfirmed? null : <Avatar
               width={390}
@@ -82,8 +92,8 @@ onCrop(preview) {
           />)
         }
         {
-          (this.state.isConfirmed? <img width={390}
-            height={295} src={this.state.preview} alt="Preview" /> : null)
+          (this.state.isConfirmed? <img width={100}
+            height={100} src={this.state.preview} alt="Preview" /> : null)
         }
           <Button variant="outlined" size="large" onClick={ () => {
             let {isConfirmed} = this.state;
@@ -95,37 +105,31 @@ onCrop(preview) {
           }
           </Button>
         </Grid>
-          <Grid item xs={12} sm={12}>
-            <TextField
-              
-              
-              id="firstName"
+      <Grid item xs={12} sm={12}>
+          <TextField
+            required
+            id="firstName"
               name="firstName"
               label="會員名稱"
-              value={this.state.username}
-              onChange={this.handleChange('username')}
-              
-            />
-          </Grid>
-          <Grid item xs={12} sm={12}>
-            <TextField
-              required
-              id="description"
+            fullWidth
+          /> 
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <TextField
+            required
+            id="description"
               name="description"
               label="會員信箱"
-              value={this.state.email}
-              onChange={this.handleChange('email')}
-
-              
-            />
-            </Grid>
-            <Grid item xs={12} sm={12}>
+            fullWidth
+          /> 
+        </Grid>
+        <Grid item xs={12} sm={12}>
             <TextField
               required
               id="description"
               name="description"
               label="會員原密碼"
-              
+              fullWidth
             />
             </Grid>
         <Grid item xs={12} sm={12}>
@@ -134,25 +138,18 @@ onCrop(preview) {
               id="description"
               name="description"
               label="會員新密碼"
-              
+              fullWidth
             />
             </Grid>
-        </Grid>
-        <br/>
-        <Grid item xs={6} sm={6}>
-        <br/>
-        </Grid>
-        <Grid item xs={6} sm={6}>
-          <Button variant="outlined" size="large">
-            確定
-          </Button>
+        <Button variant="outlined" size="large">
+          確定
+        </Button>
         </Grid>
         </Paper>
-        </div>
-      </div>
+      </main >
+    </React.Fragment>
   );
 
- }
+} 
 }
-
-export default Profile;
+export default withStyles(styles)(Info);

@@ -18,18 +18,7 @@ const tutorialSteps = [
   {
     label: 'Page.1',
   },
-  {
-    label: 'Page.2',
-  },
-  {
-    label: 'Page.3',
-  },
-  {
-    label: 'Page.4',
-  },
-  {
-    label: 'Page.5',
-  },
+
 ];
 
 const styles = theme => ({
@@ -77,14 +66,7 @@ class SwipeableTextMobileStepper extends React.Component {
     switch (step) {
       case 0:
         return <Page2/>;
-      case 1:
-        return <Page2/>;
-      case 2:
-        return <Page2/>;
-      case 3:
-        return <Page2/>;
-      case 4:
-        return <Page2/>;
+ 
     
     }
   }

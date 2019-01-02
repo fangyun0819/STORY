@@ -69,7 +69,7 @@ export default class ImageUpload extends Component {
             multiple
             onChange={ (e) => this.onChange(e, i)}
           />
-          <img src={this.state.file[i]} height="42" width="42"/>
+          {/* <img src={this.state.file[i]} height="200" width="100"/> */}
         </div>
       )
     }
